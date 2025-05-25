@@ -1,0 +1,38 @@
+{
+  "name": "blackboard-theme",
+  "displayName": "Blackboard Theme",
+  "description": "Classic blackboard aesthetics for night coding - chalk on slate with electric blue accents",
+  "version": "0.0.1",
+  "publisher": "gesslar",
+  "engines": {
+    "vscode": ">=1.50.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Blackboard",
+        "uiTheme": "vs-dark",
+        "path": "./themes/blackboard-color-theme.json"
+      }
+    ]
+  },
+  "icon": "https://raw.githubusercontent.com/gesslar/blackboard-theme/main/media/blackboard.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gesslar/blackboard-theme"
+  },
+  "keywords": [
+    "theme",
+    "blackboard",
+    "dark",
+    "chalk",
+    "night",
+    "blue"
+  ],
+  "__metadata": {
+    "id": "blackboard-theme"
+  }
+}
