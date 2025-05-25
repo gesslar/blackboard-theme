@@ -22,4 +22,4 @@ vsce publish
 ```
 
 ## License
-MIT
+[Unlicense](https://unlicense.org)
