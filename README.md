@@ -1,26 +1,50 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/gesslar/blackboard-theme/main/media/blackboard.png" alt="blackboard">
+  <img src="https://raw.githubusercontent.com/gesslar/blackboard-theme/main/media/blackboard.png" alt="blackboard preview">
 </p>
 
+# 🧠 Blackboard - A Theme for People Who Code in the Dark
 
+**Blackboard** is a dark, muted VS Code theme inspired by chalk on slate - crisp electric highlights on a grounded matte foundation. Designed for clarity, comfort, and elegance during long hours of code immersion.
 
-# Blackboard Theme for VS Code
+## ✨ Philosophy
 
-Classic blackboard aesthetics for night coding - chalk on slate with electric
-blue accents.
+Not just another dark theme. Blackboard is built on principles of:
 
-## Installation
+- **Visual hierarchy** - Emphasis where it matters, calm where it doesn’t.
+- **Tactile restraint** - Minimalist, not minimalist™.
+- **Contextual cues** - Colour is used intentionally: structure, status, focus.
 
-1. Press `Ctrl+P` in VS Code, type `ext install blackboard-theme`, and hit
-   Enter.
-2. Or search for "Blackboard Theme" in the Extensions sidebar.
-3. Select the theme from the Color Theme picker (`Ctrl+K Ctrl+T`).
+No retina burn. No clown parade. Just code, elegantly lit.
 
-## Features
+## 🎯 Aesthetic Features
 
-- Dark, chalk-on-slate color palette
-- Electric blue accents for highlights
-- Designed for night coding sessions
+- 🔍 Classic "chalkboard" vibe - dark matte backgrounds, soft edges.
+- 🔷 Electric blue accents for focused highlights, selections, and guides.
+- 🌘 Built for long sessions - understated, legible, low fatigue.
+- 🎨 Covers full UI: widgets, panels, terminals, SCM, testing, debugging.
+- ⚖️ Subtle contrast shifts and alpha-layered depth - not just flat colours.
 
-## License
-[Unlicense](https://unlicense.org)
+## Technical Features
+- [x] Has colours
+- [x] Colours are different from other colours
+- [x] Text is visible against background
+- [x] Supports the concept of hue
+- [x] Works with human eyeballs
+
+## 📦 Installation
+
+1. Launch the Command Palette (`Ctrl+P`), run:
+   `ext install blackboard-theme`
+2. Or search **Blackboard Theme** in the Extensions sidebar.
+3. Activate via the Colour Theme picker (`Ctrl+K Ctrl+T`).
+
+## 🔍 Preview
+
+> _"If you’ve ever wanted to write code like it’s being scribbled by a ghost with a neon pen on obsidian - this is it."_
+
+![screenshot](https://raw.githubusercontent.com/gesslar/blackboard-theme/main/media/blackboard.png)
+
+## 🪪 License
+
+[Unlicense](https://unlicense.org) - Because the idea of copyrighting the
+arrangement of colours is absurd. If you think otherwise, gg `¯\_(ツ)_/¯`.
