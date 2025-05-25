@@ -1,3 +1,9 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/gesslar/blackboard-theme/main/media/blackboard.png" alt="blackboard">
+</p>
+
+
+
 # Blackboard Theme for VS Code
 
 Classic blackboard aesthetics for night coding - chalk on slate with electric
