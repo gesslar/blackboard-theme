@@ -25,11 +25,11 @@ No retina burn. No clown parade. Just code, elegantly lit.
 - ⚖️ Subtle contrast shifts and alpha-layered depth - not just flat colours.
 
 ## Technical Features
-- [x] Has colours
-- [x] Colours are different from other colours
-- [x] Text is visible against background
-- [x] Supports the concept of hue
-- [x] Works with human eyeballs
+- 💻 Has colours
+- 💻 Colours are different from other colours
+- 💻 Text is visible against background
+- 💻 Supports the concept of hue
+- 💻 Works with human eyeballs
 
 ## 📦 Installation
 
