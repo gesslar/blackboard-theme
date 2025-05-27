@@ -25,6 +25,16 @@
       ],
       "cwd": "${workspaceFolder}",
       "console": "integratedTerminal"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug build.js directly",
+      "program": "${workspaceFolder}/src/build.js",
+      "console": "integratedTerminal",
+      "runtimeArgs": [
+        "--trace-warnings"
+      ]
     }
   ]
 }

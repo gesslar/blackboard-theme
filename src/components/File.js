@@ -362,7 +362,7 @@ async function resolveDirectory(dir) {
   const directoryObject = mapDirectory(dir)
 
   try {
-    await fs.opendir(directoryObject.absolutePath)
+    (await fs.opendir(directoryObject.absolutePath)).close()
   } catch(e) {
     throw new Error(
       `Failed to resolve directory '${directoryObject.absolutePath}', value passed: '${dir}'\n${e.message}`,

@@ -1,7 +1,7 @@
 {
   "$schema": "vscode://schemas/color-theme",
-  "name": "blackboard",
-  "type": "light",
+  "name": "blackboard2",
+  "type": "dark",
   "colors": {
     "titleBar.border": "#4b8ebdbb",
     "titleBar.activeBackground": "#0e0e0e",

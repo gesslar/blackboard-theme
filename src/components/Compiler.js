@@ -26,13 +26,15 @@ export default class Compile {
       theme: this.#decomposeObject(source.theme, decomposer),
     }
 
+    // console.debug(`Decomposed: %o`, decomposed)
+
     const evaluated = new Evaluator().evaluate(decomposed)
+    // console.debug(`Evaluated: %j`, evaluated)
     const reduced = evaluated.reduce((acc,curr) => {
-      const {value,path} = curr
-      const key = path.join(".")
-      acc[key] = value
+      acc[curr.flatPath] = curr.value
+
       return acc
-    }, {})
+    }, {});
 
     result.colors = reduced
 
@@ -46,39 +48,34 @@ export default class Compile {
 
     for(const key in work) {
       const currPath = [...path, key]
+      const item = work[key]
 
-      if(isObject(work[key])) {
+      if(isObject(item)) {
         result.push(...this.#decomposeObject(work[key], cb, currPath))
-      } if(Array.isArray(work[key])) {
-        // console.debug(`%o is an array`, work[key])
+      } else if(Array.isArray(work[key])) {
+        item.forEach((item, index, arr) => {
+          let curr
 
-        result.push(...(work[key].map((item, index, arr) => {
-          // console.debug(`item: %s`, item)
-
-          const curr = typeof item === "object" && item !== null
-            ? this.#decomposeObject(item, cb, currPath)
-            : arr[index]
-
-          const result = {
-            key,
-            value: item,
-            path: [...currPath, String(index+1)],
-            object: work
+          if(typeof item === "object" && item !== null) {
+            console.info("Calling decomposeObject [2]")
+            curr = this.#decomposeObject(item, cb, currPath)
+          } else {
+            curr = arr[index]
           }
 
-          // console.debug("result %o", result)
-
-          return result
-        })))
-
+          const path = [...currPath, String(index+1)]
+          result.push({
+            key,
+            value: item,
+            path,
+            flatPath: path.join(".")
+          })
+        })
       } else {
-        result.push(cb({key, value: work[key], path: currPath, object: work}))
+        // console.debug(`Key %s = %s`, key, item)
+        result.push({key, value: item, path, flatPath: currPath.join(".")})
       }
-
-      result
     }
-
-    // console.debug('result %O', result)
 
     return result
   }
