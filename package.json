@@ -7,15 +7,23 @@
   "engines": {
     "vscode": ">=1.50.0"
   },
+  "scripts": {
+    "build": "node src/build.js",
+    "watch": "npm run build && chokidar \"themes/**/*.{json5,yaml,yml}\" -c \"npm run build\"",
+    "start": "npm run watch",
+    "prepublish": "npm run build",
+    "publish": "vsce publish"
+  },
   "categories": [
     "Themes"
   ],
+  "type": "module",
   "contributes": {
     "themes": [
       {
         "label": "Blackboard",
         "uiTheme": "vs-dark",
-        "path": "./themes/blackboard-color-theme.json"
+        "path": "./build/blackboard-color-theme.json"
       }
     ]
   },
@@ -34,5 +42,13 @@
   ],
   "__metadata": {
     "id": "blackboard-theme"
+  },
+  "devDependencies": {
+    "chokidar-cli": "^3.0.0",
+    "colors-convert": "^1.4.1",
+    "globby": "^14.1.0",
+    "json5": "^2.2.3",
+    "traverse": "^0.6.11",
+    "yaml": "^2.8.0"
   }
 }

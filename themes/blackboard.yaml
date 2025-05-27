@@ -1,0 +1,23 @@
+# Theme Config
+name: blackboard
+type: dark
+
+# Variables for later substitution
+vars:
+  base:
+    black:
+      - "#0e0e0e"
+      - ((black.1))((alpha.1))
+    white:
+      - "#e1e1e1"
+    blue:
+      - "#4b8ebd"
+
+# Theme definition
+theme:
+  titleBar:
+    border: ((base.blue))bb
+    activeBackground: ((base.black.1))
+    activeForeground: ((base.white.1))
+    inactiveBackground: ((activeBackground))bb
+    inactiveForeground: ((activeForeground))bb

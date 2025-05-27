@@ -13,6 +13,18 @@
       "args": [
         "--extensionDevelopmentPath=${workspaceFolder}"
       ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug npm run build",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run-script",
+        "build"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
     }
   ]
 }

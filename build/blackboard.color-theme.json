@@ -1,0 +1,19 @@
+{
+  "$schema": "vscode://schemas/color-theme",
+  "name": "blackboard",
+  "type": "dark",
+  "colors": {
+    "titleBar.border": "((base.blue))bb",
+    "titleBar.activeBackground": "((base.black.1))",
+    "titleBar.activeForeground": "((base.white.1))",
+    "titleBar.inactiveBackground": "((activeBackground))bb",
+    "titleBar.inactiveForeground": "((activeForeground))bb",
+    "titleBar": {
+      "border": "((base.blue))bb",
+      "activeBackground": "((base.black.1))",
+      "activeForeground": "((base.white.1))",
+      "inactiveBackground": "((activeBackground))bb",
+      "inactiveForeground": "((activeForeground))bb"
+    }
+  }
+}

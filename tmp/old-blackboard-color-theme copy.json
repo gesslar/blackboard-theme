@@ -1,0 +1,967 @@
+{
+  "name": "Blackboard",
+  "type": "dark",
+  "colors": {
+    "focusBorder": "rgb(80,80,80)",
+    "foreground": "rgb(225,225,225)",
+    "selection.background": "rgb(48,48,48)",
+    "descriptionForeground": "rgb(225,225,225)",
+    "errorForeground": "rgb(255,118,118)",
+    "icon.foreground": "rgba(225,225,225,0.67)",
+    "sash.hoverBorder": "rgba(54,102,136,0.8)",
+    "widget.shadow": "rgba(161,161,161,0.2)",
+    "widget.border": "rgba(161,161,161,0.67)",
+    // # Text colors
+    // Colors inside a text document, such as the welcome page.
+    // Or markdown preview.,
+    "textBlockQuote.background": "rgba(1,1,1,0.2)",
+    "textBlockQuote.border": "rgba(1,1,1,0.33)",
+    "textCodeBlock.background": "rgba(1,1,1,0.2)",
+    "textLink.foreground": "rgb(122,155,216)",
+    "textLink.activeForeground": "rgb(95,166,166)",
+    "textPreformat.foreground": "rgb(135,135,215)",
+    "textPreformat.background": "rgba(1,1,1,0.2)",
+    "textSeparator.foreground": "rgb(128,144,160)",
+    // # Action colors
+    // A set of colors to control the interactions with actions across the workbench.
+    "toolbar.hoverBackground": "rgb(129,129,129)",
+    "toolbar.hoverOutline": "rgba(129,129,129,0.67)",
+    "toolbar.activeBackground": "rgb(97,97,97)",
+    "editorActionList.background": "rgb(28,28,28)",
+    "editorActionList.foreground": "rgb(225,225,225)",
+    "editorActionList.focusBackground": "rgba(238,201,108,0.067)",
+    "editorActionList.focusForeground": "rgb(238,201,108)",
+    // # Button control
+    "button.background": "rgb(26,47,79)",
+    "button.foreground": "rgb(225,225,225)",
+    "button.border": "rgb(54,102,136)",
+    "button.hoverBackground": "rgb(54,102,136)",
+    "button.secondaryForeground": "rgb(225,225,225)",
+    "button.secondaryBackground": "rgb(48,48,48)",
+    "button.secondaryHoverBackground": "rgb(58,58,58)",
+    "button.separator": "rgba(255,255,255,0.07)",
+    // Checkbox
+    "checkbox.background": "rgb(26,47,79)",
+    "checkbox.foreground": "rgb(225,225,225)",
+    "checkbox.border": "rgb(54,102,136)",
+    "checkbox.selectBackground": "rgba(54,102,136,0.2)",
+    "checkbox.selectBorder": "rgb(54,102,136)",
+    "checkbox.disabled.background": "rgb(42,42,42)",
+    "checkbox.disabled.foreground": "rgb(102,102,102)",
+    // Radio buttons
+    "radio.activeBackground": "rgba(54,102,136,0.33)",
+    "radio.activeBorder": "rgb(54,102,136)",
+    "radio.activeForeground": "rgb(225,225,225)",
+    "radio.inactiveBackground": "rgba(54,102,136,0.2)",
+    "radio.inactiveBorder": "rgba(54,102,136,0.67)",
+    "radio.inactiveForeground": "rgba(225,225,225,0.67)",
+    "radio.inactiveHoverBackground": "rgb(42,63,95)",
+    // # Dropdown control
+    "dropdown.background": "rgb(28,28,28)",
+    "dropdown.listBackground": "rgb(21,21,21)",
+    "dropdown.border": "rgb(54,102,136)",
+    "dropdown.foreground": "rgb(225,225,225)",
+    // # Input control
+    "input.background": "rgb(37,37,37)",
+    "input.border": "rgba(75,142,189,0.87)",
+    "input.foreground": "rgb(225,225,225)",
+    "input.placeholderForeground": "rgba(225,225,225,0.4)",
+    "inputOption.activeBackground": "rgba(0,0,0,0)",
+    "inputOption.activeBorder": "rgba(54,102,136,0.67)",
+    "inputOption.activeForeground": "rgb(75,142,189)",
+    "inputValidation.errorBackground": "rgb(37,37,37)",
+    "inputValidation.errorForeground": "rgb(204,92,92)",
+    "inputValidation.errorBorder": "rgba(221,109,109,0.67)",
+    "inputValidation.warningBackground": "rgb(37,37,37)",
+    "inputValidation.warningForeground": "rgb(229,191,114)",
+    "inputValidation.warningBorder": "rgba(240,203,135,0.67)",
+    "inputValidation.infoBackground": "rgb(37,37,37)",
+    "inputValidation.infoForeground": "rgb(136,170,204)",
+    "inputValidation.infoBorder": "rgba(155,188,224,0.67)",
+    // # Scrollbar control
+    "scrollbar.shadow": "rgba(80,80,80,0.67)",
+    "scrollbarSlider.background": "rgba(80,80,80,0.67)",
+    "scrollbarSlider.hoverBackground": "rgba(54,102,136,0.8)",
+    "scrollbarSlider.activeBackground": "rgb(54,102,136)",
+    // # Badge
+    "badge.foreground": "rgb(176,233,255)",
+    "badge.background": "rgb(54,102,136)",
+    // # Progress bar
+    "progressBar.background": "rgb(163,196,163)",
+    // # Lists and trees
+    "list.activeSelectionBackground": "rgb(42,47,47)",
+    "list.activeSelectionForeground": "rgb(225,225,225)",
+    "list.activeSelectionIconForeground": "rgb(176,233,255)",
+    "list.inactiveSelectionBackground": "rgb(37,37,37)",
+    "list.inactiveSelectionForeground": "rgb(207,207,207)",
+    "list.inactiveSelectionIconForeground": "rgb(155,188,224)",
+    "list.focusBackground": "rgb(48,53,53)",
+    "list.focusForeground": "rgb(225,225,225)",
+    "list.focusHighlightForeground": "rgb(176,233,255)",
+    "list.focusOutline": "rgba(54,102,136,0.53)",
+    "list.focusAndSelectionOutline": "rgba(75,142,189,0.87)",
+    "list.hoverBackground": "rgb(44,44,44)",
+    "list.hoverForeground": "rgb(255,255,255)",
+    "list.dropBackground": "rgba(54,102,136,0.27)",
+    "list.dropBetweenBackground": "rgba(54,102,136,0.13)",
+    "list.highlightForeground": "rgb(176,233,255)",
+    "list.filterMatchBackground": "rgba(176,233,255,0.13)",
+    "list.filterMatchBorder": "rgba(75,142,189,0.53)",
+    "listFilterWidget.background": "rgb(31,31,31)",
+    "listFilterWidget.outline": "rgba(75,142,189,0.53)",
+    "listFilterWidget.noMatchesOutline": "rgba(204,92,92,0.67)",
+    "listFilterWidget.shadow": "rgba(0,0,0,0.27)",
+    "list.errorForeground": "rgb(204,92,92)",
+    "list.warningForeground": "rgb(229,191,114)",
+    "list.invalidItemForeground": "rgb(170,102,102)",
+    "list.deemphasizedForeground": "rgba(128,128,128,0.67)",
+    "tree.indentGuidesStroke": "rgba(80,80,80,0.53)",
+    "tree.inactiveIndentGuidesStroke": "rgba(64,64,64,0.4)",
+    "tree.tableColumnsBorder": "rgba(75,142,189,0.13)",
+    "tree.tableOddRowsBackground": "rgb(30,30,30)",
+    // # Activity Bar
+    // Base
+    "activityBar.background": "rgb(30,30,30)",
+    "activityBar.foreground": "rgb(225,225,225)",
+    "activityBar.inactiveForeground": "rgba(225,225,225,0.33)",
+    "activityBar.border": "rgba(75,142,189,0.2)",
+    // Active State
+    "activityBar.activeBackground": "rgba(54,102,136,0.2)",
+    "activityBar.activeBorder": "rgb(54,102,136)",
+    "activityBar.activeFocusBorder": "rgb(255,255,255)",
+    // Dragging
+    "activityBar.dropBorder": "rgb(75,142,189)",
+    // Badge (normal)
+    "activityBarBadge.background": "rgb(54,102,136)",
+    "activityBarBadge.foreground": "rgb(255,255,255)",
+    // Badge (warning)
+    "activityWarningBadge.background": "rgb(229,191,114)",
+    "activityWarningBadge.foreground": "rgb(26,26,26)",
+    // Badge (error)
+    "activityErrorBadge.background": "rgb(204,92,92)",
+    "activityErrorBadge.foreground": "rgb(26,26,26)",
+    // Activity Bar Top
+    "activityBarTop.background": "rgb(30,30,30)",
+    "activityBarTop.foreground": "rgb(225,225,225)",
+    "activityBarTop.inactiveForeground": "rgba(225,225,225,0.33)",
+    "activityBarTop.activeBackground": "rgba(54,102,136,0.2)",
+    "activityBarTop.activeBorder": "rgb(54,102,136)",
+    "activityBarTop.dropBorder": "rgb(75,142,189)",
+    // # Profiles
+    "profileBadge.background": "rgb(75,142,189)",
+    "profileBadge.foreground": "rgb(255,255,255)",
+    "profiles.sashBorder": "rgba(75,142,189,0.2)",
+    // # Side bar
+    "sideBar.background": "rgb(23,23,23)",
+    "sideBar.foreground": "rgb(209,209,209)",
+    "sideBar.border": "rgba(75,142,189,0.2)",
+    "sideBar.dropBackground": "rgba(54,102,136,0.13)",
+    "sideBarTitle.foreground": "rgb(160,160,160)",
+    "sideBarSectionHeader.background": "rgb(31,31,31)",
+    "sideBarSectionHeader.foreground": "rgb(225,225,225)",
+    "sideBarSectionHeader.border": "rgb(48,48,48)",
+    // # Minimap
+    // General minimap
+    "minimap.background": "rgb(23,23,23)",
+    "minimap.selectionHighlight": "rgba(176,233,255,0.2)",
+    // Errors & Warnings
+    "minimap.errorHighlight": "rgba(204,92,92,0.33)",
+    "minimap.warningHighlight": "rgba(229,191,114,0.33)",
+    // Slider (scroll thumb) visuals
+    "minimapSlider.background": "rgba(75,142,189,0.13)",
+    "minimapSlider.hoverBackground": "rgba(75,142,189,0.27)",
+    "minimapSlider.activeBackground": "rgba(75,142,189,0.4)",
+    // Gutter decorations for git-style diff markers
+    "minimapGutter.addedBackground": "rgba(163,196,163,0.2)",
+    "minimapGutter.modifiedBackground": "rgba(201,178,124,0.33)",
+    "minimapGutter.deletedBackground": "rgba(204,92,92,0.33)",
+    // # Editor Groups & Tabs
+    // Editor Group
+    "editorGroup.border": "rgba(75,142,189,0.2)",
+    "editorGroup.dropBackground": "rgba(54,102,136,0.13)",
+    "editorGroupHeader.noTabsBackground": "rgb(28,28,28)",
+    "editorGroupHeader.tabsBackground": "rgb(30,30,30)",
+    "editorGroupHeader.tabsBorder": "rgba(75,142,189,0.2)",
+    "editorGroupHeader.border": "rgb(37,37,37)",
+    "editorGroup.emptyBackground": "rgb(30,30,30)",
+    "editorGroup.focusedEmptyBorder": "rgba(75,142,189,0.33)",
+    "editorGroup.dropIntoPromptForeground": "rgb(225,225,225)",
+    "editorGroup.dropIntoPromptBackground": "rgb(31,31,31)",
+    "editorGroup.dropIntoPromptBorder": "rgba(75,142,189,0.53)",
+    // Tabs
+    "tab.activeBackground": "rgba(255,0,0,0)",
+    "tab.unfocusedActiveBackground": "rgb(31,31,31)",
+    "tab.activeForeground": "rgb(225,225,225)",
+    "tab.unfocusedActiveForeground": "rgb(176,176,176)",
+    "tab.inactiveBackground": "rgb(26,26,26)",
+    "tab.unfocusedInactiveBackground": "rgb(26,26,26)",
+    "tab.inactiveForeground": "rgb(128,128,128)",
+    "tab.unfocusedInactiveForeground": "rgb(136,136,136)",
+    "tab.selectedBackground": "rgb(33,33,33)",
+    "tab.selectedForeground": "rgb(225,225,225)",
+    "tab.border": "rgb(37,37,37)",
+    "tab.activeBorder": "rgba(75,142,189,0.53)",
+    "tab.activeBorderTop": "rgba(75,142,189,0.53)",
+    "tab.selectedBorderTop": "rgb(75,142,189)",
+    "tab.unfocusedActiveBorder": "rgba(75,142,189,0.33)",
+    "tab.unfocusedActiveBorderTop": "rgba(75,142,189,0.33)",
+    "tab.hoverBackground": "rgba(53,53,53,0.5)",
+    "tab.unfocusedHoverBackground": "rgb(32,32,32)",
+    "tab.hoverForeground": "rgb(255,255,255)",
+    "tab.unfocusedHoverForeground": "rgb(204,204,204)",
+    "tab.hoverBorder": "rgba(75,142,189,0.4)",
+    "tab.unfocusedHoverBorder": "rgb(75,142,189)",
+    "tab.lastPinnedBorder": "rgba(75,142,189,0.4)",
+    // Modified Indicator
+    "tab.activeModifiedBorder": "rgb(176,233,255)",
+    "tab.inactiveModifiedBorder": "rgba(75,142,189,0.33)",
+    "tab.unfocusedActiveModifiedBorder": "rgba(75,142,189,0.27)",
+    "tab.unfocusedInactiveModifiedBorder": "rgba(75,142,189,0.2)",
+    // Editor pane & splitters
+    "editorPane.background": "rgb(30,30,30)",
+    "sideBySideEditor.horizontalBorder": "rgba(75,142,189,0.2)",
+    "sideBySideEditor.verticalBorder": "rgba(75,142,189,0.2)",
+    // # Editor colors
+    "editor.background": "rgb(33,33,33)",
+    "editor.foreground": "rgb(225,225,225)",
+    // Line Numbers
+    "editorLineNumber.foreground": "rgba(176,233,255,0.13)",
+    "editorLineNumber.activeForeground": "rgba(176,233,255,0.27)",
+    "editorLineNumber.dimmedForeground": "rgba(176,233,255,0.07)",
+    // Cursor
+    "editorCursor.foreground": "rgba(176,233,255,0.27)",
+    "editorCursor.background": "rgba(176,233,255,0.07)",
+    // Multi-cursor
+    "editorMultiCursor.primary.foreground": "rgb(176,233,255)",
+    "editorMultiCursor.primary.background": "rgb(33,33,33)",
+    "editorMultiCursor.secondary.foreground": "rgb(135,199,199)",
+    "editorMultiCursor.secondary.background": "rgb(33,33,33)",
+    // Placeholder Text
+    "editor.placeholder.foreground": "rgba(225,225,225,0.33)",
+    // Text selection
+    "editor.selectionBackground": "rgba(176,233,255,0.13)",
+    "editor.selectionForeground": "rgb(225,225,225)",
+    "editor.inactiveSelectionBackground": "rgba(176,233,255,0.07)",
+    // Matching content
+    "editor.selectionHighlightBackground": "rgba(176,233,255,0.07)",
+    "editor.selectionHighlightBorder": "rgba(75,142,189,0.33)",
+    // Word/Identifier highlights
+    "editor.wordHighlightBackground": "rgba(135,199,199,0.13)",
+    "editor.wordHighlightBorder": "rgba(75,142,189,0.33)",
+    "editor.wordHighlightStrongBackground": "rgba(204,92,92,0.13)",
+    "editor.wordHighlightStrongBorder": "rgba(204,92,92,0.67)",
+    "editor.wordHighlightTextBackground": "rgba(229,191,114,0.13)",
+    "editor.wordHighlightTextBorder": "rgba(229,191,114,0.67)",
+    // Find matches
+    //
+    // GDI MS - Why you reverse findMatchHighlightForeground and findMatchForeground
+    // I effing see you.
+    //
+    // CURRENT match (focused one)
+    "editor.findMatchBackground": "rgb(160,240,170)",
+    "editor.findMatchHighlightForeground": "rgba(0,0,0,0.93)",
+    // OTHER matches (passive highlights)
+    "editor.findMatchHighlightBackground": "rgba(160,240,170,0.4)",
+    "editor.findMatchForeground": "rgb(160,240,170)",
+    "editor.findMatchBorder": "rgba(27,71,17,0.67)",
+    "editor.findMatchHighlightBorder": "rgba(190,255,12,0.27)",
+    "editor.findRangeHighlightBackground": "rgba(190,255,12,0.07)",
+    "editor.findRangeHighlightBorder": "rgba(190,255,12,0.2)",
+    // Whitespace
+    "editorWhitespace.foreground": "rgba(75,142,189,0.2)",
+    // Indent Guides
+    "editorIndentGuide.background1": "rgba(46,86,115,0.067)",
+    "editorIndentGuide.background2": "rgba(46,86,115,0.133)",
+    "editorIndentGuide.background3": "rgba(46,86,115,0.2)",
+    "editorIndentGuide.background4": "rgba(46,86,115,0.267)",
+    "editorIndentGuide.background5": "rgba(46,86,115,0.333)",
+    "editorIndentGuide.background6": "rgba(46,86,115,0.4)",
+    "editorIndentGuide.activeBackground1": "rgba(75,142,189,0.33)",
+    "editorIndentGuide.activeBackground2": "rgba(75,142,189,0.33)",
+    "editorIndentGuide.activeBackground3": "rgba(75,142,189,0.33)",
+    "editorIndentGuide.activeBackground4": "rgba(75,142,189,0.33)",
+    "editorIndentGuide.activeBackground5": "rgba(75,142,189,0.33)",
+    "editorIndentGuide.activeBackground6": "rgba(75,142,189,0.33)",
+    // Bracket Match
+    "editorBracketMatch.background": "rgba(46,86,115,0.4)",
+    "editorBracketMatch.border": "rgba(75,142,189,0.33)",
+    // Bracket Pair Colorization
+    "editorBracketHighlight.foreground1": "rgba(135,199,199,0.87)",
+    "editorBracketHighlight.foreground2": "rgba(201,178,124,0.87)",
+    "editorBracketHighlight.foreground3": "rgba(163,196,163,0.87)",
+    "editorBracketHighlight.foreground4": "rgba(215,168,215,0.87)",
+    "editorBracketHighlight.foreground5": "rgba(176,233,255,0.87)",
+    "editorBracketHighlight.foreground6": "rgba(204,92,92,0.87)",
+    "editorBracketHighlight.unexpectedBracket.foreground": "rgb(255,0,119)",
+    // Bracket Pair Guides
+    // Bracket Pair Guides - Backgrounds (inactive scopes)
+    "editorBracketPairGuide.background1": "rgba(46,86,115,0.067)",
+    "editorBracketPairGuide.background2": "rgba(46,86,115,0.133)",
+    "editorBracketPairGuide.background3": "rgba(46,86,115,0.2)",
+    "editorBracketPairGuide.background4": "rgba(46,86,115,0.267)",
+    "editorBracketPairGuide.background5": "rgba(46,86,115,0.333)",
+    "editorBracketPairGuide.background6": "rgba(46,86,115,0.4)",
+    // Bracket Pair Guides - Active scope
+    "editorBracketPairGuide.activeBackground1": "rgba(75,142,189,0.33)",
+    "editorBracketPairGuide.activeBackground2": "rgba(75,142,189,0.33)",
+    "editorBracketPairGuide.activeBackground3": "rgba(75,142,189,0.33)",
+    "editorBracketPairGuide.activeBackground4": "rgba(75,142,189,0.33)",
+    "editorBracketPairGuide.activeBackground5": "rgba(75,142,189,0.33)",
+    "editorBracketPairGuide.activeBackground6": "rgba(75,142,189,0.33)",
+    // Folded block background
+    "editor.foldBackground": "rgba(46,86,115,0.2)",
+    // Folded placeholder text (the little …)
+    "editor.foldPlaceholderForeground": "rgba(225,225,225,0.6)",
+    // Base ruler styling
+    "editorOverviewRuler.background": "rgb(30,30,30)",
+    "editorOverviewRuler.border": "rgba(75,142,189,0.2)",
+    // Find/Selection/etc.
+    "editorOverviewRuler.findMatchForeground": "rgba(190,255,12,0.4)",
+    "editorOverviewRuler.rangeHighlightForeground": "rgba(135,199,199,0.67)",
+    "editorOverviewRuler.selectionHighlightForeground": "rgba(135,199,199,0.67)",
+    // Word/References
+    "editorOverviewRuler.wordHighlightForeground": "rgba(135,199,199,0.67)", // read
+    "editorOverviewRuler.wordHighlightStrongForeground": "rgba(204,92,92,0.67)", // write
+    "editorOverviewRuler.wordHighlightTextForeground": "rgba(229,191,114,0.67)", // generic text match
+    // Git / Decoration changes
+    "editorOverviewRuler.modifiedForeground": "rgba(215,199,135,0.67)", // changed
+    "editorOverviewRuler.addedForeground": "rgb(135,176,135)", // added
+    "editorOverviewRuler.deletedForeground": "rgb(204,92,92)", // removed
+    // Diagnostics
+    "editorOverviewRuler.errorForeground": "rgb(204,92,92)", // errors
+    "editorOverviewRuler.warningForeground": "rgb(229,191,114)", // warnings
+    "editorOverviewRuler.infoForeground": "rgb(136,170,204)", // info messages
+    // Bracket stuff
+    "editorOverviewRuler.bracketMatchForeground": "rgb(75,142,189)",
+    // Inline chat content (AI etc.)
+    "editorOverviewRuler.inlineChatInserted": "rgb(135,176,135)",
+    "editorOverviewRuler.inlineChatRemoved": "rgb(204,92,92)",
+    // Active line highlight
+    "editor.lineHighlightBackground": "rgba(255,255,255,0.02)",
+    "editor.lineHighlightBorder": "rgba(75,142,189,0.2)",
+    // Hover highlight
+    "editor.hoverHighlightBackground": "rgba(176,233,255,0.13)",
+    // Symbol navigation (e.g., Go to Definition)
+    "editor.symbolHighlightBackground": "rgba(176,233,255,0.13)",
+    "editor.symbolHighlightBorder": "rgba(75,142,189,0.33)",
+    // Range highlight (Quick Open, Ctrl+Shift+O, etc.)
+    "editor.rangeHighlightBackground": "rgba(176,233,255,0.07)",
+    "editor.rangeHighlightBorder": "rgba(75,142,189,0.2)",
+    // Error
+    "editorError.foreground": "rgb(204,92,92)",
+    "editorError.border": "rgba(204,92,92,0.67)",
+    "editorError.background": "rgba(204,92,92,0.13)",
+    // Warning
+    "editorWarning.foreground": "rgb(229,191,114)",
+    "editorWarning.border": "rgba(229,191,114,0.67)",
+    "editorWarning.background": "rgba(229,191,114,0.13)",
+    // Info
+    "editorInfo.foreground": "rgb(136,170,204)",
+    "editorInfo.border": "rgba(136,170,204,0.67)",
+    "editorInfo.background": "rgba(136,170,204,0.13)",
+    // Hint (usually invisible unless enabled)
+    "editorHint.foreground": "rgb(163,196,163)",
+    "editorHint.border": "rgba(163,196,163,0.67)",
+    // Problems icons
+    "problemsErrorIcon.foreground": "rgb(204,92,92)",
+    "problemsWarningIcon.foreground": "rgb(229,191,114)",
+    "problemsInfoIcon.foreground": "rgb(136,170,204)",
+    // Unused code (faded visual cue)
+    "editorUnnecessaryCode.border": "rgba(225,225,225,0.27)",
+    "editorUnnecessaryCode.opacity": "rgba(255,255,255,0.6)",
+    // Gutter background
+    "editorGutter.background": "rgb(30,30,30)",
+    // Git-style modifications
+    "editorGutter.modifiedBackground": "rgba(215,199,135,0.53)",
+    "editorGutter.modifiedSecondaryBackground": "rgba(201,178,124,0.53)",
+    "editorGutter.addedBackground": "rgba(135,176,135,0.53)",
+    "editorGutter.addedSecondaryBackground": "rgba(163,196,163,0.53)",
+    "editorGutter.deletedBackground": "rgb(204,92,92)",
+    "editorGutter.deletedSecondaryBackground": "rgb(182,108,108)",
+    // Comments and control glyphs
+    "editorGutter.commentRangeForeground": "rgba(225,225,225,0.67)",
+    "editorGutter.commentGlyphForeground": "rgb(163,196,163)",
+    "editorGutter.commentUnresolvedGlyphForeground": "rgb(229,191,114)",
+    "editorGutter.foldingControlForeground": "rgb(75,142,189)",
+    // Misc gutter glyphs
+    "editorGutter.itemGlyphForeground": "rgba(176,233,255,0.8)",
+    "editorGutter.itemBackground": "rgba(46,86,115,0.067)",
+    "editorCommentsWidget.resolvedBorder": "rgba(163,196,163,0.2)",
+    "editorCommentsWidget.unresolvedBorder": "rgba(229,191,114,0.2)",
+    "editorCommentsWidget.rangeBackground": "rgba(46,86,115,0.067)",
+    "editorCommentsWidget.rangeActiveBackground": "rgba(75,142,189,0.2)",
+    "editorCommentsWidget.replyInputBackground": "rgb(37,37,37)",
+    "inlineEdit.gutterIndicator.primaryBorder": "rgb(75,142,189)",
+    "inlineEdit.gutterIndicator.primaryForeground": "rgb(176,233,255)",
+    "inlineEdit.gutterIndicator.primaryBackground": "rgba(46,86,115,0.067)",
+    "inlineEdit.gutterIndicator.secondaryBorder": "rgb(163,196,163)",
+    "inlineEdit.gutterIndicator.secondaryForeground": "rgb(201,178,124)",
+    "inlineEdit.gutterIndicator.secondaryBackground": "rgba(46,86,115,0.067)",
+    "inlineEdit.gutterIndicator.successfulBorder": "rgb(135,176,135)",
+    "inlineEdit.gutterIndicator.successfulForeground": "rgb(163,196,163)",
+    "inlineEdit.gutterIndicator.successfulBackground": "rgba(46,86,115,0.067)",
+    "inlineEdit.gutterIndicator.background": "rgb(30,30,30)",
+    "inlineEdit.originalBackground": "rgba(75,142,189,0.2)",
+    "inlineEdit.modifiedBackground": "rgba(176,233,255,0.2)",
+    "inlineEdit.originalChangedLineBackground": "rgba(75,142,189,0.27)",
+    "inlineEdit.originalChangedTextBackground": "rgba(46,86,115,0.2)",
+    "inlineEdit.modifiedChangedLineBackground": "rgba(75,142,189,0.2)",
+    "inlineEdit.modifiedChangedTextBackground": "rgba(176,233,255,0.27)",
+    "inlineEdit.originalBorder": "rgb(75,142,189)",
+    "inlineEdit.modifiedBorder": "rgb(176,233,255)",
+    "inlineEdit.tabWillAcceptModifiedBorder": "rgb(135,176,135)",
+    "inlineEdit.tabWillAcceptOriginalBorder": "rgb(163,196,163)",
+    // # Diff editor colors
+    // Diff Editor: Inserted/Removed Text
+    "diffEditor.insertedTextBackground": "rgba(135,176,135,0.13)", // was 33
+    "diffEditor.insertedTextBorder": "rgba(135,176,135,0.27)", // was 88
+    "diffEditor.removedTextBackground": "rgba(204,92,92,0.13)", // was 33
+    "diffEditor.removedTextBorder": "rgba(204,92,92,0.27)", // was 88
+    // Diff Editor: Full Line Highlights
+    "diffEditor.insertedLineBackground": "rgba(135,176,135,0.07)", // was 22
+    "diffEditor.removedLineBackground": "rgba(204,92,92,0.07)", // was 22
+    // Diff Editor: Gutter
+    "diffEditorGutter.insertedLineBackground": "rgba(135,176,135,0.27)", // was 44
+    "diffEditorGutter.removedLineBackground": "rgba(204,92,92,0.27)", // was 44
+    // Diff Editor: Overview Ruler
+    "diffEditorOverview.insertedForeground": "rgba(135,176,135,0.53)", // was aa
+    "diffEditorOverview.removedForeground": "rgba(204,92,92,0.53)", // was aa
+    // # Inline Chat colors
+    // Inline Chat
+    "inlineChat.background": "rgb(31,31,31)", // subdued panel bg
+    "inlineChat.foreground": "rgb(225,225,225)", // standard chalk
+    "inlineChat.border": "rgba(75,142,189,0.67)", // electric hint border
+    "inlineChat.shadow": "rgba(0,0,0,0.2)", // soft ambient lift
+    // Inline Chat: Input
+    "inlineChatInput.background": "rgb(37,37,37)", // matches other input fields
+    "inlineChatInput.border": "rgba(75,142,189,0.2)", // ghost seam
+    "inlineChatInput.focusBorder": "rgba(75,142,189,0.33)", // clear activation edge
+    "inlineChatInput.placeholderForeground": "rgba(225,225,225,0.33)", // consistent muted placeholder
+    // Inline Chat: Diff Highlighting
+    "inlineChatDiff.inserted": "rgba(135,176,135,0.13)", // same sage glow as diff
+    "inlineChatDiff.removed": "rgba(204,92,92,0.13)", // same chalk red haze
+    // # Panel Chat colors
+    // Interactive Code Cell Borders
+    "interactive.activeCodeBorder": "rgba(75,142,189,0.4)", // active but not screaming
+    "interactive.inactiveCodeBorder": "rgba(75,142,189,0.2)", // present but backgrounded
+    // # Editor widget colors
+    // Editor Widget (Find/Replace, Peek input, etc.)
+    "editorWidget.foreground": "rgb(225,225,225)",
+    "editorWidget.background": "rgb(31,31,31)",
+    "editorWidget.border": "rgba(75,142,189,0.2)",
+    "editorWidget.resizeBorder": "rgba(75,142,189,0.33)",
+    // Suggest Widget
+    "editorSuggestWidget.background": "rgb(31,31,31)",
+    "editorSuggestWidget.border": "rgba(75,142,189,0.2)",
+    "editorSuggestWidget.foreground": "rgb(209,209,209)",
+    "editorSuggestWidget.focusHighlightForeground": "rgb(176,233,255)",
+    "editorSuggestWidget.highlightForeground": "rgb(176,233,255)",
+    "editorSuggestWidget.selectedBackground": "rgb(42,47,47)", // matches list.activeSelectionBackground
+    "editorSuggestWidget.selectedForeground": "rgb(225,225,225)",
+    "editorSuggestWidget.selectedIconForeground": "rgb(176,233,255)",
+    "editorSuggestWidgetStatus.foreground": "rgba(128,128,128,0.67)",
+    // Editor Hover Widget
+    "editorHoverWidget.foreground": "rgb(225,225,225)",
+    "editorHoverWidget.background": "rgb(31,31,31)",
+    "editorHoverWidget.border": "rgba(75,142,189,0.2)",
+    "editorHoverWidget.highlightForeground": "rgb(176,233,255)", // active param highlight
+    "editorHoverWidget.statusBarBackground": "rgb(37,37,37)", // muted, like input fields
+    // Ghost Text (Inline Suggest/Preview)
+    "editorGhostText.foreground": "rgba(225,225,225,0.27)", // subtle chalk hint
+    "editorGhostText.background": "rgba(0,0,0,0)", // transparent unless overridden
+    "editorGhostText.border": "rgba(75,142,189,0.2)", // soft seam
+    // Sticky Scroll
+    "editorStickyScroll.background": "rgba(14,14,14,0.2)", // same as editorGroup.background
+    "editorStickyScroll.border": "rgba(75,142,189,0.67)", // soft seam to separate pinned headers
+    "editorStickyScroll.shadow": "rgba(75,142,189,0.2)", // ambient drop shadow
+    "editorStickyScrollHover.background": "rgba(10,10,10,0.33)", // matches list.activeSelectionBackground
+    // Debug Exception Widget
+    "debugExceptionWidget.background": "rgb(31,31,31)", // same as editorWidget background
+    "debugExceptionWidget.border": "rgba(204,92,92,0.67)", // match errorBorder tone
+    // Marker Navigation: Base Background
+    "editorMarkerNavigation.background": "rgb(30,30,30)",
+    // Marker Navigation: Error/Warning/Info Bars (borders)
+    "editorMarkerNavigationError.background": "rgba(204,92,92,0.67)", // chalk red with presence
+    "editorMarkerNavigationWarning.background": "rgba(229,191,114,0.67)", // dusty gold, tempered
+    "editorMarkerNavigationInfo.background": "rgba(136,170,204,0.67)", // soft slate blue
+    // Marker Navigation: Header Backgrounds (actual background of header)
+    "editorMarkerNavigationError.headerBackground": "rgba(204,92,92,0.27)", // gentle echo of main tone
+    "editorMarkerNavigationWarning.headerBackground": "rgba(229,191,114,0.27)",
+    "editorMarkerNavigationInfo.headerBackground": "rgba(136,170,204,0.27)",
+    // # Peek view colors
+    // Peek View: Container & Borders
+    "peekView.border": "rgba(75,142,189,0.53)", // soft electric outline
+    "peekViewTitle.background": "rgba(10,10,10,0.47)", // consistent with widget backgrounds
+    "peekViewTitleLabel.foreground": "rgb(225,225,225)", // bright chalk
+    "peekViewTitleDescription.foreground": "rgba(128,128,128,0.93)", // muted commentary
+    // Peek View: Result List
+    "peekViewResult.background": "rgba(10,10,10,0.47)", // dark sidebar consistency
+    "peekViewResult.fileForeground": "rgb(225,225,225)", // filenames
+    "peekViewResult.lineForeground": "rgb(160,160,160)", // snippet text
+    "peekViewResult.matchHighlightBackground": "rgba(0,0,0,0)", // soft electric blue wash
+    "peekViewResult.selectionBackground": "rgb(42,42,42)", // matches list.activeSelectionBackground
+    "peekViewResult.selectionForeground": "rgb(225,225,225)",
+    // Peek View: Editor Pane (right side)
+    "peekViewEditorGutter.background": "rgba(75,142,189,0.07)", // match gutter context
+    "peekViewEditor.matchHighlightBackground": "rgba(176,233,255,0.2)", // consistent with editor find
+    "peekViewEditor.matchHighlightBorder": "rgba(75,142,189,0.53)",
+    "peekViewEditorStickyScroll.background": "rgba(14,14,14,0.2)", // same smoked glass as sticky scroll
+    // # Merge conflicts colors
+    // Merge Conflict: Current Content
+    "merge.currentHeaderBackground": "rgba(75,142,189,0.2)", // subtle electric tint
+    "merge.currentContentBackground": "rgba(75,142,189,0.07)",
+    // Merge Conflict: Incoming Content
+    "merge.incomingHeaderBackground": "rgba(135,176,135,0.2)", // soft sage header
+    "merge.incomingContentBackground": "rgba(135,176,135,0.07)",
+    // Merge Conflict: Common Ancestor
+    "merge.commonContentBackground": "rgba(128,128,128,0.07)", // neutral background
+    "merge.commonHeaderBackground": "rgba(128,128,128,0.13)",
+    // Merge Conflict: Border Line Highlight
+    "merge.border": "rgba(75,142,189,0.27)",
+    // Merge Conflict: Overview Ruler Markers
+    "mergeEditor.change.background": "rgba(75,142,189,0.2)", // soft blue overlay for changes
+    "mergeEditor.change.word.background": "rgba(75,142,189,0.27)", // focused word-level diff
+    "mergeEditor.conflict.unhandledUnfocused.border": "rgba(204,92,92,0.67)", // passive red hint
+    "mergeEditor.conflict.unhandledFocused.border": "rgb(204,92,92)", // strong red alert
+    "mergeEditor.conflict.handledUnfocused.border": "rgba(135,176,135,0.67)", // passive green hint
+    "mergeEditor.conflict.handledFocused.border": "rgb(135,176,135)", // resolved, strong
+    "mergeEditor.conflict.handled.minimapOverViewRuler": "rgb(135,176,135)",
+    "mergeEditor.conflict.unhandled.minimapOverViewRuler": "rgb(204,92,92)",
+    // Merge Editor: Conflicting Line Background
+    "mergeEditor.conflictingLines.background": "rgba(204,92,92,0.13)", // faint red haze over conflict line
+    // Merge Editor: Base Change Highlights
+    "mergeEditor.changeBase.background": "rgba(128,128,128,0.13)", // soft neutral for base diff context
+    "mergeEditor.changeBase.word.background": "rgba(128,128,128,0.27)", // stronger on word-level diff
+    // Merge Editor: Input 1 & 2 Conflict Zones
+    "mergeEditor.conflict.input1.background": "rgba(75,142,189,0.2)", // electric blue for "current"
+    "mergeEditor.conflict.input2.background": "rgba(135,176,135,0.13)", // sage green for "incoming"
+    // # Action Bar colors
+    "actionBar.toggledBackground": "rgb(56,58,73)",
+    // # Simple Find Widget colors
+    "simpleFindWidget.sashBorder": "rgb(255,0,0)",
+    // # Gauge colors
+    "gauge.background": "rgb(30,30,30)",
+    "gauge.foreground": "rgb(163,196,163)",
+    "gauge.border": "rgba(75,142,189,0.2)",
+    "gauge.warningBackground": "rgb(42,42,26)",
+    "gauge.warningForeground": "rgb(229,191,114)",
+    "gauge.errorBackground": "rgb(42,26,26)",
+    "gauge.errorForeground": "rgb(204,92,92)",
+    // # Panel colors
+    // Panel Base + Frame
+    "panel.background": "rgb(30,30,30)", // unified with editorGroup.bg
+    "panel.border": "rgba(75,142,189,0.2)", // soft seam above panel
+    "panel.dropBorder": "rgba(75,142,189,0.33)", // live drag indicator
+    // Panel Title Bar
+    "panelTitle.activeBorder": "rgba(75,142,189,0.33)", // subtle active tab underline
+    "panelTitle.activeForeground": "rgb(225,225,225)", // chalky active tab
+    "panelTitle.inactiveForeground": "rgba(128,128,128,0.67)", // muted inactive tab
+    "panelTitle.border": "rgba(75,142,189,0.2)", // faint divider from views
+    // Panel Title Badge (eg. terminal counts)
+    "panelTitleBadge.background": "rgb(54,102,136)", // soft electric base
+    "panelTitleBadge.foreground": "rgb(176,233,255)", // bright white
+    // Panel Section Headers
+    "panelSectionHeader.background": "rgb(31,31,31)", // slightly elevated from panel bg
+    "panelSectionHeader.foreground": "rgb(225,225,225)",
+    "panelSectionHeader.border": "rgba(75,142,189,0.13)",
+    // Panel Sections
+    "panelSection.border": "rgba(75,142,189,0.13)", // horizontal dividers
+    "panelSection.dropBackground": "rgba(75,142,189,0.2)", // drop target overlay
+    // Panel Input
+    "panelInput.border": "rgba(75,142,189,0.27)", // matches input fields elsewhere
+    // Panel Sticky Scroll
+    "panelStickyScroll.background": "rgba(14,14,14,0.2)", // smoked glass overlay
+    "panelStickyScroll.border": "rgba(75,142,189,0.67)",
+    "panelStickyScroll.shadow": "rgba(75,142,189,0.2)",
+    // Output View Backgrounds
+    "outputView.background": "rgb(30,30,30)", // matches panel bg
+    "outputViewStickyScroll.background": "rgba(10,10,10,0.47)", // sticky layer consistency
+    // # Status Bar colors
+    // Base Status Bar
+    "statusBar.background": "rgb(30,30,30)",
+    "statusBar.foreground": "rgb(225,225,225)",
+    "statusBar.border": "rgba(75,142,189,0.2)",
+    // No Folder Open
+    "statusBar.noFolderBackground": "rgb(30,30,30)",
+    "statusBar.noFolderForeground": "rgb(160,160,160)",
+    "statusBar.noFolderBorder": "rgba(75,142,189,0.2)",
+    // Debugging (stronger presence, but still on-brand)
+    "statusBar.debuggingBackground": "rgb(204,92,92)",
+    "statusBar.debuggingForeground": "rgb(26,26,26)",
+    "statusBar.debuggingBorder": "rgba(204,92,92,0.53)",
+    // Status Bar Item Interaction
+    "statusBarItem.activeBackground": "rgba(75,142,189,0.53)", // on click
+    "statusBarItem.hoverBackground": "rgba(75,142,189,0.33)",
+    "statusBarItem.hoverForeground": "rgb(255,255,255)",
+    // Compact hover (for overflow/duals)
+    "statusBarItem.compactHoverBackground": "rgba(75,142,189,0.13)",
+    // Focus Styles
+    "statusBarItem.focusBorder": "rgba(75,142,189,0.53)",
+    "statusBar.focusBorder": "rgba(75,142,189,0.53)",
+    // Prominent Items
+    "statusBarItem.prominentBackground": "rgba(75,142,189,0.53)",
+    "statusBarItem.prominentForeground": "rgb(225,225,225)",
+    "statusBarItem.prominentHoverBackground": "rgba(75,142,189,0.67)",
+    "statusBarItem.prominentHoverForeground": "rgb(255,255,255)",
+    // Remote Indicator
+    "statusBarItem.remoteBackground": "rgb(54,102,136)",
+    "statusBarItem.remoteForeground": "rgb(255,255,255)",
+    "statusBarItem.remoteHoverBackground": "rgb(75,142,189)",
+    "statusBarItem.remoteHoverForeground": "rgb(255,255,255)",
+    // Offline Indicator
+    "statusBarItem.offlineBackground": "rgb(229,191,114)",
+    "statusBarItem.offlineForeground": "rgb(26,26,26)",
+    "statusBarItem.offlineHoverBackground": "rgb(240,203,135)",
+    "statusBarItem.offlineHoverForeground": "rgb(26,26,26)",
+    // Error State Items
+    "statusBarItem.errorBackground": "rgb(204,92,92)",
+    "statusBarItem.errorForeground": "rgb(26,26,26)",
+    "statusBarItem.errorHoverBackground": "rgb(221,109,109)",
+    "statusBarItem.errorHoverForeground": "rgb(26,26,26)",
+    // Warning State Items
+    "statusBarItem.warningBackground": "rgb(229,191,114)",
+    "statusBarItem.warningForeground": "rgb(26,26,26)",
+    "statusBarItem.warningHoverBackground": "rgb(240,203,135)",
+    "statusBarItem.warningHoverForeground": "rgb(26,26,26)",
+    // # Title Bar colors
+    // Title Bar (Active)
+    "titleBar.activeBackground": "rgb(14,14,14)", // matte, unified with editor/panel
+    "titleBar.activeForeground": "rgb(225,225,225)", // chalk white
+    // Title Bar (Inactive)
+    "titleBar.inactiveBackground": "rgba(14,14,14,0.67)", // slightly dimmer for visual deactivation
+    "titleBar.inactiveForeground": "rgba(225,225,225,0.67)", // softened gray
+    // Title Bar Border
+    "titleBar.border": "rgba(75,142,189,0.2)", // soft electric seam
+    // # Menu Bar colors
+    // Menubar (Top-level: File, Edit, etc.)
+    "menubar.selectionForeground": "rgb(225,225,225)", // same chalk white as active UI
+    "menubar.selectionBackground": "rgba(75,142,189,0.2)", // subtle electric glow
+    "menubar.selectionBorder": "rgba(75,142,189,0.33)", // slight edge when item is focused
+    // Menu (Dropdowns themselves)
+    "menu.foreground": "rgb(225,225,225)", // standard menu text
+    "menu.background": "rgba(10,10,10,0.93)", // consistent with editor and panel
+    // Menu Selection
+    "menu.selectionForeground": "rgb(255,255,255)", // high contrast on hover/focus
+    "menu.selectionBackground": "rgba(75,142,189,0.33)", // that Blackboard blue pop
+    "menu.selectionBorder": "rgba(75,142,189,0.53)", // defined but still gentle
+    // Menu Separator & Border
+    "menu.separatorBackground": "rgba(75,142,189,0.13)", // ghosted seam
+    "menu.border": "rgba(75,142,189,0.2)", // faint frame around dropdown
+    // # Command Center colors
+    // Command Center Base
+    "commandCenter.foreground": "rgb(225,225,225)", // chalky white
+    "commandCenter.background": "rgb(14,14,14)", // matches title bar
+    "commandCenter.border": "rgba(75,142,189,0.33)", // consistent seam
+    // Active (hovered or clicked)
+    "commandCenter.activeForeground": "rgb(255,255,255)", // brighter on interaction
+    "commandCenter.activeBackground": "rgba(75,142,189,0.13)", // soft electric wash
+    "commandCenter.activeBorder": "rgba(75,142,189,0.33)", // slightly more visible seam
+    // Inactive Window
+    "commandCenter.inactiveForeground": "rgb(255,0,0)", // I don't think this works
+    "commandCenter.inactiveBorder": "rgba(75,142,189,0.2)", // lower intensity edge
+    // Debugging State
+    "commandCenter.debuggingBackground": "rgba(204,92,92,0.73)", // unified with statusBar.debuggingBackground
+    // # Notification colors
+    // Notification Center
+    "notificationCenter.border": "rgba(75,142,189,0.2)",
+    "notificationCenterHeader.foreground": "rgb(225,225,225)",
+    "notificationCenterHeader.background": "rgb(30,30,30)",
+    // Notification Toasts
+    "notificationToast.border": "rgba(75,142,189,0.33)", // visible outline on popup
+    // Notification Items
+    "notifications.foreground": "rgb(225,225,225)", // main text
+    "notifications.background": "rgb(30,30,30)", // matches rest of UI
+    "notifications.border": "rgba(75,142,189,0.13)", // between stacked messages
+    // Links inside notifications
+    "notificationLink.foreground": "rgb(176,233,255)", // soft accent blue
+    // Icons
+    "notificationsErrorIcon.foreground": "rgb(204,92,92)", // soft chalk red
+    "notificationsWarningIcon.foreground": "rgb(229,191,114)", // warm gold
+    "notificationsInfoIcon.foreground": "rgb(136,170,204)", // muted slate blue
+    // # Banner colors
+    // Top-of-Workbench Banner
+    "banner.background": "rgba(75,142,189,0.53)", // Blackboard electric blue — strong, not angry
+    "banner.foreground": "rgb(255,255,255)", // crisp white text for clarity
+    "banner.iconForeground": "rgb(176,233,255)", // soft electric pop for the icon
+    // # Extension colors
+    // Extension View Prominent Button (e.g. "Install")
+    "extensionButton.prominentForeground": "rgb(225,225,225)", // high contrast label
+    "extensionButton.prominentBackground": "rgb(26,47,79)", // this seems ignored? uses extensionButton.background, at least install does
+    "extensionButton.prominentHoverBackground": "rgb(75,142,189)", // this one, too? extensionButton.hoverBackground
+    // Secondary Buttons (e.g. "Enable", "Disable", etc.)
+    "extensionButton.foreground": "rgb(225,225,225)",
+    "extensionButton.background": "rgb(48,48,48)",
+    "extensionButton.hoverBackground": "rgb(54,102,136)",
+    "extensionButton.separator": "rgba(75,142,189,0.67)", // faint seam
+    // Remote Badge (for remote extensions like WSL)
+    "extensionBadge.remoteBackground": "rgb(54,102,136)", // consistent with remote status bar
+    "extensionBadge.remoteForeground": "rgb(255,255,255)",
+    // Icons for various metadata
+    "extensionIcon.starForeground": "rgb(229,191,114)", // soft gold
+    "extensionIcon.verifiedForeground": "rgb(136,170,204)", // slate badge
+    "extensionIcon.preReleaseForeground": "rgb(176,233,255)", // accent blue
+    "extensionIcon.sponsorForeground": "rgb(204,92,92)", // muted red
+    "extensionIcon.privateForeground": "rgb(163,196,163)", // soft sage
+    // # Quick picker colors
+    // Quick Picker Group Labels & Borders (e.g. "recently used", "commands")
+    "pickerGroup.border": "rgba(75,142,189,0.67)", // soft blue seam
+    "pickerGroup.foreground": "rgb(176,233,255)", // accent label
+    // Main Background & Foreground
+    "quickInput.background": "rgba(10,10,10,0.73)", // unified with editorGroup/panel
+    "quickInput.foreground": "rgb(225,225,225)", // chalky white
+    // Focused Item (arrow keys / mouse hover)
+    "quickInputList.focusBackground": "rgba(75,142,189,0.53)", // soft electric spotlight
+    "quickInputList.focusForeground": "rgb(255,255,255)", // strong contrast
+    "quickInputList.focusIconForeground": "rgb(176,233,255)", // consistent with active icon theming
+    // Title Area (if visible — eg. "Select Color Theme")
+    "quickInputTitle.background": "rgba(10,10,10,0.73)", // smoked glass overlay to match widget style
+    // # Keybinding label colors
+    "keybindingLabel.background": "rgba(10,10,10,0.73)", // smoked glass effect, matching widget aesthetic
+    "keybindingLabel.foreground": "rgb(225,225,225)", // chalky clear
+    "keybindingLabel.border": "rgba(75,142,189,0.33)", // soft electric outline
+    "keybindingLabel.bottomBorder": "rgba(75,142,189,0.53)", // slightly stronger for visual grounding
+    // # Keyboard shortcut table colors
+    "keybindingTable.headerBackground": "rgb(31,31,31)", // consistent with panel section headers
+    "keybindingTable.rowsBackground": "rgb(26,26,26)", // alternating rows, subtly separated
+    // # Integrated Terminal colors
+    "terminal.background": "rgb(30,30,30)",
+    "terminal.foreground": "rgb(209,209,209)",
+    "terminal.ansiBlack": "rgb(30,30,30)",
+    "terminal.ansiBlue": "rgb(135,135,215)",
+    "terminal.ansiBrightBlack": "rgb(37,37,37)",
+    "terminal.ansiBrightBlue": "rgb(135,135,215)",
+    "terminal.ansiBrightCyan": "rgb(135,199,199)",
+    "terminal.ansiBrightGreen": "rgb(135,199,199)",
+    "terminal.ansiBrightMagenta": "rgb(199,135,176)",
+    "terminal.ansiBrightRed": "rgb(168,168,168)",
+    "terminal.ansiBrightWhite": "rgb(225,225,225)",
+    "terminal.ansiBrightYellow": "rgb(215,199,135)",
+    "terminal.ansiCyan": "rgb(135,199,199)",
+    "terminal.ansiGreen": "rgb(135,176,135)",
+    "terminal.ansiMagenta": "rgb(199,135,176)",
+    "terminal.ansiRed": "rgb(215,135,135)",
+    "terminal.ansiWhite": "rgb(209,209,209)",
+    "terminal.ansiYellow": "rgb(215,199,135)",
+    "terminal.selectionBackground": "rgba(80,80,80,0.5)",
+    "terminal.border": "rgba(75,142,189,0.2)",
+    "terminal.selectionForeground": "rgb(255,255,255)",
+    "terminal.inactiveSelectionBackground": "rgb(58,61,65)",
+    "terminal.findMatchBackground": "rgba(190,255,12,0.13)",
+    "terminal.findMatchBorder": "rgba(190,255,12,0.27)",
+    "terminal.findMatchHighlightBackground": "rgba(190,255,12,0.07)",
+    "terminal.findMatchHighlightBorder": "rgba(190,255,12,0.2)",
+    "terminal.hoverHighlightBackground": "rgba(176,233,255,0.13)",
+    "terminalCursor.background": "rgb(37,37,37)",
+    "terminalCursor.foreground": "rgb(209,209,209)",
+    "terminal.dropBackground": "rgba(75,142,189,0.13)",
+    "terminal.tab.activeBorder": "rgb(0,120,212)",
+    "terminalCommandDecoration.defaultBackground": "rgb(135,176,135)",
+    "terminalCommandDecoration.successBackground": "rgb(135,176,135)",
+    "terminalCommandDecoration.errorBackground": "rgb(204,92,92)",
+    "terminalOverviewRuler.cursorForeground": "rgb(176,233,255)",
+    "terminalOverviewRuler.findMatchForeground": "rgba(190,255,12,0.4)",
+    "terminalStickyScroll.background": "rgba(10,10,10,0.53)",
+    "terminalStickyScroll.border": "rgba(75,142,189,0.2)",
+    "terminalStickyScrollHover.background": "rgba(10,10,10,0.4)",
+    "terminal.initialHintForeground": "rgba(128,128,128,0.67)",
+    "terminalOverviewRuler.border": "rgba(75,142,189,0.13)",
+    "terminalCommandGuide.foreground": "rgb(201,178,124)",
+    "terminalSymbolIcon.aliasForeground": "rgb(176,233,255)",
+    "terminalSymbolIcon.flagForeground": "rgb(229,191,114)",
+    "terminalSymbolIcon.optionForeground": "rgb(199,135,176)",
+    "terminalSymbolIcon.optionValueForeground": "rgb(135,199,199)",
+    "terminalSymbolIcon.methodForeground": "rgb(163,196,163)",
+    "terminalSymbolIcon.argumentForeground": "rgb(215,135,135)",
+    "terminalSymbolIcon.inlineSuggestionForeground": "rgb(135,135,215)",
+    "terminalSymbolIcon.fileForeground": "rgb(255,255,255)",
+    "terminalSymbolIcon.folderForeground": "rgb(225,225,225)",
+    // # Debug colors
+    // Debug Toolbar
+    "debugToolBar.background": "rgb(30,30,30)", // consistent with panel/editorGroup backgrounds
+    "debugToolBar.border": "rgba(75,142,189,0.2)", // ? is this used?
+    // Stack Frame Highlights (Editor)
+    "editor.stackFrameHighlightBackground": "rgba(75,142,189,0.2)", // subtle warm haze for paused frame
+    "editor.focusedStackFrameHighlightBackground": "rgba(204,92,92,0.13)", // ? how to see this?
+    // Inline Values (Editor)
+    "editor.inlineValuesBackground": "rgb(13,70,153)", // faint blue glass bubble
+    "editor.inlineValuesForeground": "rgb(225,225,225)", // chalk white
+    // Exception Label in CALL STACK
+    "debugView.exceptionLabelForeground": "rgb(255,255,255)", // readable on strong background
+    "debugView.exceptionLabelBackground": "rgb(204,92,92)", // same as status/debugging red
+    // State Label (e.g. "Paused", "Running")
+    "debugView.stateLabelForeground": "rgb(26,26,26)",
+    "debugView.stateLabelBackground": "rgb(229,191,114)", // same warm yellow as warnings
+    // Value Changed Highlight (e.g. updated vars)
+    "debugView.valueChangedHighlight": "rgba(135,199,199,0.67)", // pastel aqua, reserved for transient updates
+    // Token Expression Colors
+    "debugTokenExpression.name": "rgb(225,225,225)", // chalk white
+    "debugTokenExpression.value": "rgb(176,233,255)", // electric blue
+    "debugTokenExpression.string": "rgb(199,135,176)", // soft pink
+    "debugTokenExpression.boolean": "rgb(204,92,92)", // assertive red
+    "debugTokenExpression.number": "rgb(215,199,135)", // warm numeric tan
+    "debugTokenExpression.error": "rgb(255,0,119)", // deliberate sharp clash for attention
+    "debugTokenExpression.type": "rgba(128,128,128,0.67)", // muted grey for secondary type info
+    // # Testing colors
+    "testing.runAction": "rgb(135,176,135)", // soft sage green (same as successful)
+    "testing.iconErrored": "rgb(204,92,92)",
+    "testing.iconFailed": "rgb(204,92,92)",
+    "testing.iconPassed": "rgb(135,176,135)",
+    "testing.iconQueued": "rgb(215,199,135)", // warm muted gold
+    "testing.iconUnset": "rgba(128,128,128,0.67)", // gray, deemphasized
+    "testing.iconSkipped": "rgb(136,170,204)", // slate blue, soft skip
+    // Retired: same but faded
+    "testing.iconErrored.retired": "rgba(204,92,92,0.67)",
+    "testing.iconFailed.retired": "rgba(204,92,92,0.67)",
+    "testing.iconPassed.retired": "rgba(135,176,135,0.67)",
+    "testing.iconQueued.retired": "rgba(215,199,135,0.67)",
+    "testing.iconUnset.retired": "rgba(128,128,128,0.33)",
+    "testing.iconSkipped.retired": "rgba(136,170,204,0.67)",
+    "testing.peekBorder": "rgba(75,142,189,0.53)", // same electric border as peekView
+    "testing.peekHeaderBackground": "rgba(10,10,10,0.47)", // consistent with peekViewTitle.background
+    "testing.message.error.lineBackground": "rgba(204,92,92,0.13)", // faint red haze
+    "testing.message.info.decorationForeground": "rgb(136,170,204)", // same as infoForeground
+    "testing.message.info.lineBackground": "rgba(136,170,204,0.13)", // soft blue mist
+    "testing.messagePeekBorder": "rgba(75,142,189,0.53)",
+    "testing.messagePeekHeaderBackground": "rgba(10,10,10,0.47)",
+    "testing.coveredBackground": "rgba(135,176,135,0.13)", // subtle sage tint
+    "testing.coveredBorder": "rgba(135,176,135,0.27)",
+    "testing.coveredGutterBackground": "rgba(135,176,135,0.27)",
+    "testing.uncoveredBranchBackground": "rgba(204,92,92,0.07)", // nearly invisible red mist
+    "testing.uncoveredBackground": "rgba(204,92,92,0.13)",
+    "testing.uncoveredBorder": "rgba(204,92,92,0.27)",
+    "testing.uncoveredGutterBackground": "rgba(204,92,92,0.4)",
+    "testing.coverCountBadgeBackground": "rgb(75,142,189)",
+    "testing.coverCountBadgeForeground": "rgb(255,255,255)",
+    "testing.message.error.badgeBackground": "rgb(204,92,92)",
+    "testing.message.error.badgeBorder": "rgba(204,92,92,0.67)",
+    "testing.message.error.badgeForeground": "rgb(26,26,26)",
+    // # Welcome page colors
+    "welcomePage.background": "rgb(30,30,30)", // standard dark UI bg
+    "welcomePage.progress.background": "rgba(75,142,189,0.13)", // soft blue haze behind bar
+    "welcomePage.progress.foreground": "rgb(75,142,189)", // Blackboard blue progress fill
+    "welcomePage.tileBackground": "rgb(43,43,43)", // slightly lifted from background
+    "welcomePage.tileHoverBackground": "rgba(58,58,58,0.67)", // subtle hover lift
+    "welcomePage.tileBorder": "rgba(75,142,189,0.2)", // soft blue seam
+    "walkThrough.embeddedEditorBackground": "rgb(37,37,37)", // inline editor, matches inputs
+    "walkthrough.stepTitle.foreground": "rgb(176,233,255)", // poppy but not retina-searing
+    // # Git colors
+    // I can't get these to work. Maybe you can? nfi
+    "gitDecoration.addedResourceForeground": "rgb(135,176,135)", // soft sage green (success, same as diff additions)
+    "gitDecoration.modifiedResourceForeground": "rgb(215,199,135)", // warm dusty gold (standard modification)
+    "gitDecoration.deletedResourceForeground": "rgb(255,0,0)", // chalk red (same as other 'removed' indicators)
+    "gitDecoration.renamedResourceForeground": "rgb(136,170,204)", // slate blue — calm but visible
+    "gitDecoration.stageModifiedResourceForeground": "rgb(201,178,124)", // slightly deeper gold (committed modifications)
+    "gitDecoration.stageDeletedResourceForeground": "rgb(182,108,108)", // softened red for staged delete
+    "gitDecoration.untrackedResourceForeground": "rgb(229,191,114)", // poppy gold (catches attention, but not neon)
+    "gitDecoration.ignoredResourceForeground": "rgba(80,80,80,0.67)", // faint, appropriately ignored
+    "gitDecoration.conflictingResourceForeground": "rgb(255,0,119)", // aggressive pink-red clash (conflict should *sting*)
+    "gitDecoration.submoduleResourceForeground": "rgb(176,233,255)", // soft electric — distinct, non-threatening
+    "git.blame.editorDecorationForeground": "rgba(128,128,128,0.67)", // subtle ghost text
+    // # Source Control Graph colors
+    "scmGraph.historyItemHoverLabelForeground": "rgb(225,225,225)", // bright chalk on hover
+    "scmGraph.historyItemHoverAdditionsForeground": "rgb(135,176,135)", // green = added lines
+    "scmGraph.historyItemHoverDeletionsForeground": "rgb(204,92,92)", // red = deleted lines
+    // Default label colors (hover background box)
+    "scmGraph.historyItemHoverDefaultLabelForeground": "rgb(225,225,225)",
+    "scmGraph.historyItemHoverDefaultLabelBackground": "rgb(37,37,37)",
+    // Graph lines: 5 alternating colors
+    "scmGraph.foreground1": "rgb(75,142,189)", // Blackboard Blue
+    "scmGraph.foreground2": "rgb(201,178,124)", // Soft gold
+    "scmGraph.foreground3": "rgb(135,199,199)", // Aqua
+    "scmGraph.foreground4": "rgb(199,135,176)", // Mauve
+    "scmGraph.foreground5": "rgb(136,170,204)", // Slate blue
+    // Branch / tag references
+    "scmGraph.historyItemRefColor": "rgb(143,111,22)", // gold → antique bronze
+    "scmGraph.historyItemRemoteRefColor": "rgb(33,94,122)", // blue → deep fjord
+    "scmGraph.historyItemBaseRefColor": "rgb(43,70,54)", // sage → shadowed forest
+    // # Settings Editor colors
+    "settings.headerForeground": "rgb(225,225,225)",
+    "settings.settingsHeaderHoverForeground": "rgb(176,233,255)",
+    "settings.headerBorder": "rgba(75,142,189,0.2)",
+    "settings.sashBorder": "rgba(75,142,189,0.2)",
+    "settings.modifiedItemIndicator": "rgb(215,199,135)",
+    "settings.dropdownBackground": "rgb(37,37,37)",
+    "settings.dropdownForeground": "rgb(209,209,209)",
+    "settings.dropdownBorder": "rgba(75,142,189,0.33)",
+    "settings.dropdownListBorder": "rgba(75,142,189,0.2)",
+    "settings.checkboxBackground": "rgb(26,47,79)", // matches global checkbox
+    "settings.checkboxForeground": "rgb(225,225,225)",
+    "settings.checkboxBorder": "rgb(54,102,136)",
+    "settings.rowHoverBackground": "rgba(48,48,48,0.67)",
+    "settings.focusedRowBackground": "rgba(48,48,48,0.87)",
+    "settings.focusedRowBorder": "rgba(75,142,189,0.4)",
+    "settings.textInputBackground": "rgb(37,37,37)",
+    "settings.textInputForeground": "rgb(209,209,209)",
+    "settings.textInputBorder": "rgba(75,142,189,0.33)",
+    "settings.numberInputBackground": "rgb(37,37,37)",
+    "settings.numberInputForeground": "rgb(209,209,209)",
+    "settings.numberInputBorder": "rgba(75,142,189,0.33)",
+    // # Breadcrumbs colors
+    "breadcrumb.foreground": "rgb(128,144,160)",
+    "breadcrumb.background": "rgba(10,10,10,0.33)",
+    "breadcrumb.focusForeground": "rgb(209,209,209)",
+    "breadcrumb.activeSelectionForeground": "rgb(225,225,225)",
+    "breadcrumbPicker.background": "rgba(10,10,10,0.67)",
+    "editorLink.activeForeground": "rgb(135,199,199)",
+    "editorRuler.foreground": "rgb(64,64,64)",
+    "editorCodeLens.foreground": "rgb(160,160,160)",
+    "editorLightBulb.foreground": "rgb(215,199,135)",
+    "editorLightBulbAutoFix.foreground": "rgb(135,135,215)",
+    "editorBracketHighlight.unexpectedBracket": "rgb(215,135,135)",
+    "peekViewEditor.background": "rgba(37,37,37,0.5)",
+    "editorOverviewRuler.currentContentForeground": "rgb(135,199,199)",
+    "editorOverviewRuler.incomingContentForeground": "rgb(135,135,215)",
+    "editorOverviewRuler.commonContentForeground": "rgb(215,175,135)",
+    "imagePreview.border": "rgb(37,37,37)",
+    // # Snippets colors
+    "editor.snippetTabstopHighlightBackground": "rgba(75,142,189,0.07)", // soft Blackboard blue mist
+    "editor.snippetTabstopHighlightBorder": "rgba(75,142,189,0.27)", // barely-there seam to ground it
+    "editor.snippetFinalTabstopHighlightBackground": "rgba(135,199,199,0.13)", // calming aqua glow - i can't get this to work
+    "editor.snippetFinalTabstopHighlightBorder": "rgba(135,199,199,0.33)", // faint focus boundary
+    // # Debug Icons colors
+    "debugIcon.breakpointForeground": "rgb(204,92,92)", // active breakpoint (red)
+    "debugIcon.breakpointDisabledForeground": "rgb(102,102,102)", // disabled (meh gray)
+    "debugIcon.breakpointUnverifiedForeground": "rgba(204,92,92,0.47)", // semi-red, unsure
+    "debugIcon.breakpointCurrentStackframeForeground": "rgb(229,191,114)", // golden marker
+    "debugIcon.breakpointStackframeForeground": "rgb(135,176,135)", // soft green, other frames
+    "debugIcon.startForeground": "rgb(75,142,189)", // start = electric blue
+    "debugIcon.pauseForeground": "rgb(215,199,135)", // pause = warm gold
+    "debugIcon.stopForeground": "rgb(204,92,92)", // stop = red
+    "debugIcon.disconnectForeground": "rgb(128,128,128)", // neutral gray
+    "debugIcon.restartForeground": "rgb(135,199,199)", // aqua = recycle/refresh
+    "debugIcon.stepOverForeground": "rgb(136,170,204)", // cool blue (subtle)
+    "debugIcon.stepIntoForeground": "rgb(163,196,163)", // sage
+    "debugIcon.stepOutForeground": "rgb(176,233,255)", // lighter tone to imply exit
+    "debugIcon.continueForeground": "rgb(135,176,135)", // same green as 'passed'
+    "debugIcon.stepBackForeground": "rgb(199,135,176)", // mauve-pinkish for “backstep”
+    // Debug Console colors
+    "debugConsole.infoForeground": "rgb(135,199,199)", // light aqua
+    "debugConsole.warningForeground": "rgb(215,199,135)", // warm gold
+    "debugConsole.errorForeground": "rgb(204,92,92)", // chalk red
+    "debugConsole.sourceForeground": "rgb(75,142,189)", // link-style source names
+    "debugConsoleInputIcon.foreground": "rgb(128,144,160)", // soft ghost marker
+    // # Chart colors
+    "charts.foreground": "rgb(225,225,225)", // label text
+    "charts.lines": "rgb(75,142,189)", // grid or axis outlines
+    "charts.red": "rgb(204,92,92)",
+    "charts.blue": "rgb(75,142,189)",
+    "charts.yellow": "rgb(215,199,135)",
+    "charts.orange": "rgb(201,124,75)",
+    "charts.green": "rgb(135,176,135)",
+    "charts.purple": "rgb(165,140,196)",
+    "chart.line": "rgb(75,142,189)", // default line (like CPU usage etc.)
+    "chart.axis": "rgba(75,142,189,0.33)", // soft axis lines
+    "chart.guide": "rgba(75,142,189,0.2)", // fainter guides
+    "chat.editedFileForeground": "rgb(226,192,141)",
+    "chat.slashCommandBackground": "rgb(52,65,75)",
+    "chat.slashCommandForeground": "rgb(64,166,255)",
+    "ports.iconRunningProcessForeground": "rgb(54,148,50)"
+  },
+  "tokenColors": [
+    // Syntax highlighting token colors go here
+  ],
+  "semanticHighlighting": true,
+  "semanticTokenColors": {
+    // Semantic highlighting colors go here
+  }
+}
