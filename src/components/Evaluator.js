@@ -1,4 +1,8 @@
 export default class Evaluator {
+  maxIterations = 10
+  #match = /(\(\(.*?\)\))/g
+  #extract = /\(\((.*)\)\)/
+
   evaluate({vars,theme}) {
     // console.debug(`Theme :: %o`, theme)
 
@@ -9,30 +13,32 @@ export default class Evaluator {
   }
 
   #resolveVariables(vars) {
-    const assoc = this.#findAssoc(vars)
+    let it = 0
 
-    this.#substitute(vars, assoc, [])
+    do {
+      const assoc = this.#findAssoc(vars)
+
+      this.#substitute(vars, assoc, [])
+    } while(it++ < this.maxIterations && this.#hasUnresolvedTokens(vars))
 
     // console.debug(`Vars %o`, vars)
   }
 
   #resolveTheme({theme,vars}) {
-    // console.debug(`Vars %o`, vars)
+    let it = 0
 
-    const assoc = this.#findAssoc(theme)
+    do {
+      const assoc = this.#findAssoc(theme)
 
-    // console.debug(`Theme Assoc %o`, assoc)
-
-    this.#substitute(theme, assoc, vars)
-
-    // console.debug(`Theme %o`, theme)
+      this.#substitute(theme, assoc, vars)
+    } while(it++ < this.maxIterations && this.#hasUnresolvedTokens(theme))
   }
 
   #substitute(source, assoc, vars) {
     assoc.forEach(([, matches], index) => {
       matches.forEach(match => {
         // console.debug(`Looking for %s`, match)
-        const flatPath = match.match(/\(\((.*)\)\)/)
+        const flatPath = match.match(this.#extract)
 
         if(flatPath) {
           const target =
@@ -42,21 +48,26 @@ export default class Evaluator {
           if(target) {
             // console.debug(`source[index]: %o`, source[index])
             source[index].value = source[index].value.replace(match, target.value)
+          } else {
+            console.warn(`Could not find resolution for %s`, flatPath[1])
           }
         }
       })
     })
   }
 
+  #hasUnresolvedTokens(arr) {
+    return arr.some(item => item.value.match(this.#match))
+  }
+
   #findAssoc(arr) {
     const result = []
-    const pattern = /(\(\(.*?\)\))/g
 
     // console.debug("#findAssoc: %o", arr)
 
     // Array<Object<{path: Array<string>, key: string, value: string}>>
     arr.forEach(item => {
-      const matches = item.value.match(pattern)
+      const matches = item.value.match(this.#match)
 
       if(matches) {
         result.push([item, matches])
