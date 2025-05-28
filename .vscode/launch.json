@@ -17,7 +17,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Debug npm run build",
+      "name": "Build",
       "runtimeExecutable": "npm",
       "runtimeArgs": [
         "run-script",
@@ -29,12 +29,14 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Debug build.js directly",
-      "program": "${workspaceFolder}/src/build.js",
-      "console": "integratedTerminal",
+      "name": "Watch",
+      "runtimeExecutable": "npm",
       "runtimeArgs": [
-        "--trace-warnings"
-      ]
-    }
+        "run-script",
+        "watch"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    },
   ]
 }

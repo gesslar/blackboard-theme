@@ -57,7 +57,7 @@ export default class Evaluator {
   }
 
   #hasUnresolvedTokens(arr) {
-    return arr.some(item => item.value.match(this.#match))
+    return arr.some(item => item?.value?.match(this.#match) ?? true)
   }
 
   #findAssoc(arr) {
@@ -67,7 +67,7 @@ export default class Evaluator {
 
     // Array<Object<{path: Array<string>, key: string, value: string}>>
     arr.forEach(item => {
-      const matches = item.value.match(this.#match)
+      const matches = item?.value?.match(this.#match)
 
       if(matches) {
         result.push([item, matches])

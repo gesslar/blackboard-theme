@@ -4,6 +4,7 @@
   "description": "Classic blackboard aesthetics for night coding - chalk on slate with electric blue accents",
   "version": "0.0.1",
   "publisher": "gesslar",
+  "license": "UNLICENSED",
   "engines": {
     "vscode": ">=1.50.0"
   },
@@ -21,9 +22,11 @@
   "contributes": {
     "themes": [
       {
-        "label": "Blackboard",
+        "label": "Blackboard Shenanigans",
+        "description": "Jolly good time",
+        "id": "blackboard-theme",
         "uiTheme": "vs-dark",
-        "path": "./build/blackboard-color-theme.json"
+        "path": "build/blackboard.color-theme.json"
       }
     ]
   },
