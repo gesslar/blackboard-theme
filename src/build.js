@@ -1,32 +1,26 @@
-import * as fs from "node:fs/promises"
-
 import {globby} from "globby"
-import JSON5 from "json5"
 
-import * as File from "./components/File.js"
-import Compile from "./components/Compiler.js"
+import * as fd from "./components/File.js"
+import Compiler from "./components/Compiler.js"
 
-const {resolveFilename,loadDataFile} = File
-
-// Create the themes directory and write all theme files
 try {
-  const foundFiles = await globby("themes/*.{json5,yaml,yml}")
-  const files = await Promise.all(foundFiles.map(f => resolveFilename(f)))
-  const themes = await Promise.all(files.map(file => loadDataFile(file)))
-  const compiled = await Promise.all(themes.map(theme => new Compile().compile(theme)))
+  // Create the themes directory and write all theme files
+  const foundFiles = await globby("themes/src/*.{json5,yaml,yml}")
+  const files = await Promise.all(foundFiles.map(f => fd.resolveFilename(f)))
+  const sources = await Promise.all(files.map(file => fd.loadDataFile(file)))
 
-  await fs.mkdir("./build", { recursive: true })
-  await Promise.all(compiled.map(theme =>
-    fs.writeFile(
-      `./build/${theme.name}.color-theme.json`,
-      JSON.stringify(Object.assign({},
-        {
-          "$schema": "vscode://schemas/color-theme"
-        },
-        theme
-      ), null, 2) + "\n"
-    )
-  ))
+  const c = new Compiler()
+  const compiled = await Promise.all(sources.map(source => c.compile(source)))
+
+  // Now write them out!
+  const distDirectory = "./dist"
+  const directory = await fd.assureDirectory(distDirectory, {recursive: true})
+  await Promise.all(compiled.map(theme => {
+    const fileName = `${theme.name}.color-theme.json`
+    const file = fd.composeFilename(directory, fileName)
+    const output = `${JSON.stringify(theme,null,2)}\n`
+    fd.writeFile(file, output)
+  }))
 } catch (err) {
   console.error("Error writing theme files:", err)
   process.exit(1)

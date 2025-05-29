@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "node src/build.js",
-    "watch": "npm run build && chokidar \"themes/**/*.{json5,yaml,yml}\" -c \"npm run build\"",
+    "watch": "npm run build && chokidar \"themes/src/*.{json5,yaml,yml}\" -c \"npm run build\"",
     "start": "npm run watch",
     "prepublish": "npm run build",
     "publish": "vsce publish"
@@ -22,11 +22,25 @@
   "contributes": {
     "themes": [
       {
-        "label": "Blackboard Shenanigans",
-        "description": "Jolly good time",
-        "id": "blackboard-theme",
+        "label": "Blackboard",
+        "description": "Don't use your nails, eek!",
+        "id": "",
         "uiTheme": "vs-dark",
         "path": "build/blackboard.color-theme.json"
+      },
+      {
+        "label": "Bubblegum Goth",
+        "description": "*POP* goes the emo",
+        "id": "bubblegum-goth",
+        "uiTheme": "vs-dark",
+        "path": "build/bubblegum-goth.color-theme.json"
+      },
+      {
+        "label": "Ghost in the Machine",
+        "description": "If you see me, no you don't",
+        "id": "ghost-in-the-machine",
+        "uiTheme": "vs-dark",
+        "path": "build/ghost-in-the-machine.color-theme.json"
       }
     ]
   },

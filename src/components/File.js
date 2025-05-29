@@ -1,5 +1,5 @@
 import * as fs from "node:fs/promises"
-import path from "node:path"
+import path, { resolve } from "node:path"
 import process from "node:process"
 import {globby} from "globby"
 import JSON5 from "json5"
@@ -463,10 +463,32 @@ async function loadDataFile(fileMap) {
   }
 }
 
+/**
+ * Ensures a directory exists, creating it if necessary
+ * @async
+ * @param {string} dir - The path or DirMap of the directory to assure exists
+ * @param {object} [options] - Any options to pass to mkdir
+ * @returns {Promise<DirMap>} A directory object for the assured directory
+ * @throws {Error} If directory creation fails
+ */
+async function assureDirectory(dir, options = {}) {
+  if(await directoryExists(dir))
+    return await resolveDirectory(dir)
+
+  try {
+    await fs.mkdir(dir, options)
+
+    return await resolveDirectory(dir)
+  } catch(e) {
+    throw new Error(`Unable to create directory '${dir}': ${e.message}`)
+  }
+}
+
 export {
   // Constants
   fdTypes,
   // Functions
+  assureDirectory,
   canReadFile,
   canWriteFile,
   composeDirectory,

@@ -39,7 +39,7 @@ function assert(condition, message, arg = null) {
     `Message must be a string, got ${message}`,
   )
   _assert(
-    arg !== null || arg !== undefined && isType(arg, "number"),
+    arg !== null || arg !== undefined && typeof arg === "number",
     `Arg must be a number, got ${arg}`,
   )
 

@@ -1,6 +1,13 @@
 # Theme Config
-name: blackboard
-type: dark
+config:
+  name: bubblegum-goth
+  type: dark
+  import:
+    tokenColors:
+      - themes/import/karyprocolors-((type)).tmLanguage.yaml
+  custom:
+    $schema: vscode://schemas/color-theme
+    colorSpaceName: sRGB
 
 # Variables for later substitution
 vars:
@@ -11,14 +18,20 @@ vars:
     black:  ["#0e0e0e", "#181818", "#2b2b2b", "#353535", "#3f3f3f"]
     white:  ["#f9f9f9", "#f0f0f0", "#e6e6e6", "#dcdcdc", "#d2d2d2"]
 
-    # Colours used throughout
-    blue:   ["#326488", "#3c7aa4", "#4b8ebd", "#68a0c8", "#84b2d2"]
-    red:    ["#861c11", "#a92416", "#cc2b1a", "#e43b29", "#e85b4c"]
-    yellow: ["#b19500", "#d8b600", "#ffd700", "#ffdd27", "#ffe34e"]
-    orange: ["#b17200", "#d88c00", "#ffa500", "#ffb327", "#ffc14e"]
-    green:  ["#134c13", "#1a6b1a", "#228b22", "#2aab2a", "#31ca31"]
-    purple: ["#320032", "#590059", "#a34ec4", "#a700a7", "#ce00ce"]
-    pink:   ["#ff0473", "#ff2b89", "#ff529f", "#ff79b5", "#ffa0cb"]
+    # Electric blue family - chalky but vibrant
+    blue:   ["#003d5c", "#006b8a", "#0099FF", "#4db3ff", "#80ccff"]
+    # Warm red family - softer than pure red
+    red:    ["#7a1a1a", "#a32626", "#FF0033", "#ff4d66", "#ff8099"]
+    # Golden yellow family - avoiding harsh yellows
+    yellow: ["#664d00", "#997300", "#CC9900", "#e6b333", "#f2cc66"]
+    # Vibrant orange family - warm but not burning
+    orange: ["#b34700", "#e05500", "#FF6600", "#ff8533", "#ffa366"]
+    # Forest green family - earthy but readable
+    green:  ["#004d26", "#006633", "#009900", "#4db34d", "#80cc80"]
+    # Rich purple family - deep but not muddy
+    purple: ["#330066", "#4d0099", "#6600FF", "#8533ff", "#a366ff"]
+    # Hot pink family - punchy but not neon
+    pink:   ["#7a0052", "#a3006b", "#FF0099", "#ff4db3", "#ff80cc"]
 
   std:
     fg: ((colors.white.2))
@@ -26,7 +39,7 @@ vars:
     bg: ((colors.black.1))
     bgInverse: ((std.fg))
     bgGlass: ((std.bg))dd
-    accent: ((colors.blue.3))
+    accent: ((colors.pink.4))
     seam: ((std.accent))((alpha.5))
     seamMuted: ((std.accent))((alpha.4))
     seamFaint: ((std.accent))((alpha.3))

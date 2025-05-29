@@ -4,8 +4,6 @@ export default class Evaluator {
   #extract = /\(\((.*)\)\)/
 
   evaluate({vars,theme}) {
-    // console.debug(`Theme :: %o`, theme)
-
     this.#resolveVariables(vars)
     this.#resolveTheme({theme, vars})
 
@@ -20,8 +18,6 @@ export default class Evaluator {
 
       this.#substitute(vars, assoc, [])
     } while(it++ < this.maxIterations && this.#hasUnresolvedTokens(vars))
-
-    // console.debug(`Vars %o`, vars)
   }
 
   #resolveTheme({theme,vars}) {
@@ -37,7 +33,6 @@ export default class Evaluator {
   #substitute(source, assoc, vars) {
     assoc.forEach(([, matches], index) => {
       matches.forEach(match => {
-        // console.debug(`Looking for %s`, match)
         const flatPath = match.match(this.#extract)
 
         if(flatPath) {
@@ -46,7 +41,6 @@ export default class Evaluator {
             vars.find(element => element.flatPath === flatPath[1])
 
           if(target) {
-            // console.debug(`source[index]: %o`, source[index])
             source[index].value = source[index].value.replace(match, target.value)
           } else {
             console.warn(`Could not find resolution for %s`, flatPath[1])
@@ -62,8 +56,6 @@ export default class Evaluator {
 
   #findAssoc(arr) {
     const result = []
-
-    // console.debug("#findAssoc: %o", arr)
 
     // Array<Object<{path: Array<string>, key: string, value: string}>>
     arr.forEach(item => {

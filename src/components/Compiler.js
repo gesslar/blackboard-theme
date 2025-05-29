@@ -1,64 +1,92 @@
-import JSON5 from "json5"
-import Evaluate from "./Evaluator.js"
-
-import { assert } from "./Valid.js"
 import { isArrayUniform } from "./DataUtil.js"
 import Evaluator from "./Evaluator.js"
+import { loadDataFile, resolveFilename } from "./File.js"
 
-const requiredFields = {
-  name:  v => typeof(v) === "string" && v.length > 0,
-  type:  v => typeof(v) === "string" && v.length > 0,
-  theme: v => typeof(v) === "object",
-}
+export default class Compiler {
+  #evaluator = new Evaluator()
 
-export default class Compile {
   async compile(source) {
-    this.#validateSource(source)
+    const {config} = source
 
-    const result = {
-      name: source.name,
-      type: source.type
-    }
-
-    const decomposer = ({path,value}) => ({path,value})
+    const header = {name: config.name,type: config.type}
     const decomposed = {
-      vars: this.#decomposeObject(source.vars, decomposer),
-      theme: this.#decomposeObject(source.theme, decomposer),
+      vars: this.#decomposeObject(source.vars),
+      theme: this.#decomposeObject(source.theme),
     }
+    const evaluated = this.#evaluator.evaluate(decomposed)
+    const reduced = evaluated.reduce((a, c) => this.#reducer(a, c), {})
+    const result = Object.assign({},
+      header,
+      config.custom ?? {},
+      {colors: reduced}
+    );
 
-    // console.debug(`Decomposed: %o`, decomposed)
+    const imported = await this.#import(header, {
+      colors: source.config?.import?.colors ?? [],
+      tokenColors: source.config?.import?.tokenColors ?? [],
+    })
 
-    const evaluated = new Evaluator().evaluate(decomposed)
-    // console.debug(`Evaluated: %j`, evaluated)
-    const reduced = evaluated.reduce((acc,curr) => {
-      acc[curr.flatPath] = curr.value
-
-      return acc
-    }, {});
-
-    result.colors = reduced
+    Object.assign(result, imported)
 
     return result
   }
 
-  #decomposeObject(work, cb, path = []) {
+  #reducer(acc, curr) {
+    acc[curr.flatPath] = curr.value
+
+    return acc
+  }
+
+  async #import(header, imports) {
+    const result = {}
+
+    for(const [k,v] of Object.entries(imports)) {
+      if(!v)
+        continue;
+
+      if(typeof v === "string")
+        v = [v]
+      if(!isArrayUniform(v, "string"))
+        throw new TypeError(
+          `Import '${k}' must be a string or an array of strings.`
+        )
+
+      const resolved = v.map(f => {
+        const subbing = this.#decomposeObject({path: f})
+        const subbingWith = this.#decomposeObject(header)
+
+        return this.#evaluator.evaluate({theme: subbing, vars: subbingWith})[0]
+      })
+
+      const files = await Promise.all(resolved.map(f => resolveFilename(f.value)))
+      const datas = await Promise.all(files.map(f => loadDataFile(f)))
+      const imported = Object.assign({}, ...datas)
+
+      Object.assign(result, imported)
+    }
+
+    return result
+  }
+
+  #decomposeObject(work, path = []) {
+    const cb = this.#decomposer
+    const isObject = this.#isObject
+
     const result = []
-    const isObject = value =>
-      typeof value === "object" && value !== null && !Array.isArray(value)
 
     for(const key in work) {
       const currPath = [...path, key]
       const item = work[key]
 
       if(isObject(item)) {
-        result.push(...this.#decomposeObject(work[key], cb, currPath))
+        result.push(...this.#decomposeObject(work[key], currPath))
       } else if(Array.isArray(work[key])) {
         item.forEach((item, index, arr) => {
           let curr
 
           if(typeof item === "object" && item !== null) {
             console.info("Calling decomposeObject [2]")
-            curr = this.#decomposeObject(item, cb, currPath)
+            curr = this.#decomposeObject(item, currPath)
           } else {
             curr = arr[index]
           }
@@ -72,7 +100,6 @@ export default class Compile {
           })
         })
       } else {
-        // console.debug(`Key %s = %s`, key, item)
         result.push({key, value: item, path, flatPath: currPath.join(".")})
       }
     }
@@ -80,34 +107,11 @@ export default class Compile {
     return result
   }
 
-  // not going to worry about validation just yet, because it's complicated.
-  // let's just get the 🐄 moooo-ving first.
-  #validateSource(source) {
-    // Ensure we have all of the required fields in the source
-    // object.
-    this.#validateKeys(source)
+  #decomposer({path,value}) { return {path,value}; }
 
-    // Now ensure we have only strings and objects in the theme and vars.
-    // If not vars, just put in an empty object, tis le fine.
-    const subset = {
-      vars: source.vars ?? {},
-      theme: source.theme,
-    }
-
-    this.#validateStructure(subset)
-  }
-
-  #validateKeys(source) {
-    for(const [k,v] of Object.entries(requiredFields)) {
-      if(!source[k])
-        throw new Error(`Missing key '${k}' in theme source.`)
-
-      if(!v(source[k]))
-        throw new TypeError(`Invalid value for key '${k}' in theme source.`)
-    }
-  }
-
-  #validateStructure(source) {
-    return
+  #isObject(value) {
+    return typeof value === "object" &&
+           value !== null &&
+           !Array.isArray(value)
   }
 }
