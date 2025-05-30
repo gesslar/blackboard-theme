@@ -379,6 +379,71 @@ function deepFreezeObject(obj) {
   return Object.freeze(obj)
 }
 
+/**
+ * Ensures that a nested path of objects exists within the given object.
+ * Creates empty objects along the path if they don't exist.
+ *
+ * @param {Object} obj - The object to check/modify
+ * @param {Array<string>} keys=[] - Array of keys representing the path to ensure
+ * @returns {Object} Reference to the deepest nested object in the path
+ */
+function assureObjectPath(obj, keys) {
+  let current = obj  // a moving reference to internal objects within obj
+  const len = keys.length
+  for(let i = 0; i < len; i++) {
+    const elem = keys[i]
+    if(!current[elem])
+      current[elem] = {}
+
+    current = current[elem]
+  }
+
+  // Return the current pointer
+  return current
+}
+
+/**
+ * Sets a value in a nested object structure using an array of keys; creating
+ * the structure if it does not exist.
+ *
+ * @param {Object} obj - The target object to set the value in
+ * @param {string[]} keys - Array of keys representing the path to the target property
+ * @param {*} value - The value to set at the target location
+ */
+function setNestedValue(obj, keys, value) {
+  const nested = assureObjectPath(obj, keys.slice(0, -1))
+
+  nested[keys[keys.length-1]] = value
+}
+
+/**
+ * Deeply merges two or more objects. Arrays are replaced, not merged.
+ *
+ * @param {...object} sources - Objects to merge (left to right)
+ * @returns {object} The merged object
+ */
+function mergeObject(...sources) {
+  const isObject = obj => obj && typeof obj === "object" && !Array.isArray(obj)
+  return sources.reduce((acc, obj) => {
+    if(!isObject(obj))
+      return acc
+
+    Object.keys(obj).forEach(key => {
+      const accVal = acc[key]
+      const objVal = obj[key]
+
+      if(isObject(accVal) && isObject(objVal))
+        acc[key] = mergeObject(accVal, objVal)
+      else
+        acc[key] = objVal
+    })
+
+    // console.debug(`acc`, JSON.stringify(acc))
+
+    return acc
+  }, {})
+}
+
 export {
   // Classes
   TypeSpec,
@@ -390,6 +455,7 @@ export {
   appendString,
   arrayIntersection,
   arrayPad,
+  assureObjectPath,
   cloneObject,
   deepFreezeObject,
   isArrayUniform,
@@ -403,5 +469,7 @@ export {
   mapObject,
   newTypeSpec,
   prependString,
+  setNestedValue,
   typeOf,
+  mergeObject,
 }

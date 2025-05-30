@@ -4,13 +4,13 @@ import * as fd from "./components/File.js"
 import Compiler from "./components/Compiler.js"
 
 try {
-  // Create the themes directory and write all theme files
   const foundFiles = await globby("themes/src/*.{json5,yaml,yml}")
   const files = await Promise.all(foundFiles.map(f => fd.resolveFilename(f)))
   const sources = await Promise.all(files.map(file => fd.loadDataFile(file)))
+  const filtered = sources.filter(source => "config" in source)
 
   const c = new Compiler()
-  const compiled = await Promise.all(sources.map(source => c.compile(source)))
+  const compiled = await Promise.all(filtered.map(source => c.compile(source)))
 
   // Now write them out!
   const distDirectory = "./dist"
@@ -22,6 +22,6 @@ try {
     fd.writeFile(file, output)
   }))
 } catch (err) {
-  console.error("Error writing theme files:", err)
+  console.error(err)
   process.exit(1)
 }

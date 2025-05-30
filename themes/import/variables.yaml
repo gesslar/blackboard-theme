@@ -1,0 +1,67 @@
+# Variables for later substitution
+vars:
+  #            1     2     3     4     5    6      7     8    9     10
+  alpha:
+            ["00", "11", "22", "44", "66", "88", "aa", "cc", "ee", "ff"]
+
+  colors:
+    #Main        1          2          3          4          5
+    black:  ["#0e0e0e", "#181818", "#2b2b2b", "#353535", "#3f3f3f"]
+    white:  ["#f9f9f9", "#f0f0f0", "#e6e6e6", "#dcdcdc", "#d2d2d2"]
+
+    # Electric blue family - chalky but vibrant
+    blue:   ["#003d5c", "#006b8a", "#0099ff", "#4db3ff", "#80ccff"]
+    # Warm red family - softer than pure red
+    red:    ["#7a1a1a", "#a32626", "#ff0033", "#ff4d66", "#ff8099"]
+    # Golden yellow family - avoiding harsh yellows
+    yellow: ["#664d00", "#997300", "#cc9900", "#e6b333", "#f2cc66"]
+    # Vibrant orange family - warm but not burning
+    orange: ["#b34700", "#e05500", "#ff6600", "#ff8533", "#ffa366"]
+    # Forest green family - earthy but readable
+    green:  ["#004d26", "#006633", "#009900", "#4db34d", "#80cc80"]
+    # Rich purple family - deep but not muddy
+    purple: ["#330066", "#4d0099", "#6600ff", "#8533ff", "#a366ff"]
+    # Hot pink family - punchy but not neon
+    pink:   ["#7a0052", "#a3006b", "#ff0099", "#ff4db3", "#ff80cc"]
+
+  std:
+    fg: ((colors.white.2))
+    fg.muted: ((std.fg))((alpha.8))
+    fg.faint: ((std.fg))((alpha.6))
+    fg.whisper: ((std.fg))((alpha.2))
+    fg.inactive: ((colors.white.5))
+    fg.inverse: ((std.bg))
+    bg: ((colors.black.1))
+    bg.muted: ((std.bg))((alpha.4))
+    bg.faint: ((std.bg))((alpha.3))
+    bg.whisper: ((std.bg))((alpha.2))
+    bg.inverse: ((std.fg))
+    glass: "#02060C"
+    bg.glass: ((std.glass))((alpha.6))
+    bg.glass.hover: ((std.glass))((alpha.7))
+    bg.glass.dark: ((std.glass))((alpha.9))
+    bg.glass.dark.hover: ((std.glass))((alpha.10))
+    accent.muted: ((std.accent))((alpha.4))
+    accent.faint: ((std.accent))((alpha.3))
+    accent.whisper: ((std.accent))((alpha.2))
+    outline: ((std.accent))((alpha.3))
+    outline.louder: ((std.accent))((alpha.8))
+    outline.loud: ((std.accent))((alpha.6))
+    outline.muted: ((std.accent))((alpha.4))
+    outline.faint: ((std.accent))((alpha.3))
+    outline.whisper: ((std.accent))((alpha.2))
+    line: ((std.accent))((alpha.6))
+    line.muted: ((std.accent))((alpha.4))
+    shadow: ((std.accent))((alpha.4))
+    transparent: ((std.bg))((alpha.1))
+    test: "#ff0000ee"
+
+    # Debug/information colours
+    warn: ((colors.yellow.3))
+    warnInverse: ((colors.yellow.5))
+    error: ((colors.red.5))
+    errorInverse: ((colors.white.2))
+    success: ((colors.green.3))
+    successInverse: ((colors.white.2))
+    info: ((colors.purple.3))
+    infoInverse: ((colors.white.2))

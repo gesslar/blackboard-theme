@@ -1,8 +1,129 @@
 {
+  "$schema": "vscode://schemas/color-theme",
   "name": "blackboard",
   "type": "dark",
-  "$schema": "vscode://schemas/color-theme",
+  "semanticHighlighting": true,
   "colorSpaceName": "sRGB",
+  "vars": {
+    "alpha": [
+      "00",
+      "11",
+      "22",
+      "44",
+      "66",
+      "88",
+      "aa",
+      "cc",
+      "ee",
+      "ff"
+    ],
+    "colors": {
+      "black": [
+        "#0e0e0e",
+        "#181818",
+        "#2b2b2b",
+        "#353535",
+        "#3f3f3f"
+      ],
+      "white": [
+        "#f9f9f9",
+        "#f0f0f0",
+        "#e6e6e6",
+        "#dcdcdc",
+        "#d2d2d2"
+      ],
+      "blue": [
+        "#003d5c",
+        "#006b8a",
+        "#0099ff",
+        "#4db3ff",
+        "#80ccff"
+      ],
+      "red": [
+        "#7a1a1a",
+        "#a32626",
+        "#ff0033",
+        "#ff4d66",
+        "#ff8099"
+      ],
+      "yellow": [
+        "#664d00",
+        "#997300",
+        "#cc9900",
+        "#e6b333",
+        "#f2cc66"
+      ],
+      "orange": [
+        "#b34700",
+        "#e05500",
+        "#ff6600",
+        "#ff8533",
+        "#ffa366"
+      ],
+      "green": [
+        "#004d26",
+        "#006633",
+        "#009900",
+        "#4db34d",
+        "#80cc80"
+      ],
+      "purple": [
+        "#330066",
+        "#4d0099",
+        "#6600ff",
+        "#8533ff",
+        "#a366ff"
+      ],
+      "pink": [
+        "#7a0052",
+        "#a3006b",
+        "#ff0099",
+        "#ff4db3",
+        "#ff80cc"
+      ]
+    },
+    "std": {
+      "fg": "#f0f0f0",
+      "fg.muted": "#f0f0f0cc",
+      "fg.faint": "#f0f0f088",
+      "fg.whisper": "#f0f0f011",
+      "fg.inactive": "#d2d2d2",
+      "fg.inverse": "#0e0e0e",
+      "bg": "#0e0e0e",
+      "bg.muted": "#0e0e0e44",
+      "bg.faint": "#0e0e0e22",
+      "bg.whisper": "#0e0e0e11",
+      "bg.inverse": "#f0f0f0",
+      "glass": "#02060C",
+      "bg.glass": "#02060C88",
+      "bg.glass.hover": "#02060Caa",
+      "bg.glass.dark": "#02060Cee",
+      "bg.glass.dark.hover": "#02060Cff",
+      "accent.muted": "#0099ff44",
+      "accent.faint": "#0099ff22",
+      "accent.whisper": "#0099ff11",
+      "outline": "#0099ff22",
+      "outline.louder": "#0099ffcc",
+      "outline.loud": "#0099ff88",
+      "outline.muted": "#0099ff44",
+      "outline.faint": "#0099ff22",
+      "outline.whisper": "#0099ff11",
+      "line": "#0099ff88",
+      "line.muted": "#0099ff44",
+      "shadow": "#0099ff44",
+      "transparent": "#0e0e0e00",
+      "test": "#ff0000ee",
+      "warn": "#cc9900",
+      "warnInverse": "#f2cc66",
+      "error": "#ff8099",
+      "errorInverse": "#f0f0f0",
+      "success": "#009900",
+      "successInverse": "#f0f0f0",
+      "info": "#6600ff",
+      "infoInverse": "#f0f0f0",
+      "accent": "#0099ff"
+    }
+  },
   "colors": {
     "focusBorder": "#0099ff22",
     "foreground": "#f0f0f0",
@@ -199,7 +320,7 @@
     "panelStickyScroll.shadow": "#ff0000ee",
     "outputView.background": "#0e0e0e00",
     "outputViewStickyScroll.background": "#02060C88",
-    "sideBar.background": "#0e0e0e44",
+    "sideBar.background": "((std.bg.muted))",
     "sideBar.foreground": "#f0f0f0ee",
     "sideBar.border": "#0099ff22",
     "sideBar.dropBackground": "#0099ff66",
@@ -211,11 +332,11 @@
     "editorLineNumber.activeForeground": "#0099ffee",
     "editorLineNumber.dimmedForeground": "#0099ff44",
     "editorCursor.foreground": "#0099ffaa",
-    "editorCursor.background": "#0e0e0e44",
+    "editorCursor.background": "((std.bg.muted))",
     "editorMultiCursor.primary.foreground": "#0099ffaa",
-    "editorMultiCursor.primary.background": "#0e0e0e44",
+    "editorMultiCursor.primary.background": "((std.bg.muted))",
     "editorMultiCursor.secondary.foreground": "#0099ffaa",
-    "editorMultiCursor.secondary.background": "#0e0e0e44",
+    "editorMultiCursor.secondary.background": "((std.bg.muted))",
     "editor.background": "#0e0e0e44",
     "editor.foreground": "#f0f0f0",
     "editor.placeholder.foreground": "#f0f0f088",
@@ -308,7 +429,7 @@
     "profileBadge.background": "#0099ff",
     "profileBadge.foreground": "#0e0e0e",
     "profiles.sashBorder": "#0099ff22",
-    "minimap.background": "#0e0e0e44",
+    "minimap.background": "((std.bg.muted))",
     "minimap.selectionHighlight": "#0099ff22",
     "minimap.errorHighlight": "#ff809966",
     "minimap.warningHighlight": "#cc990066",

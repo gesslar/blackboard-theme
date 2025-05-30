@@ -1,12 +1,15 @@
 # Theme Config
 config:
+  $schema: vscode://schemas/color-theme
   name: ghost-in-the-machine
   type: dark
+
   import:
     tokenColors:
       - themes/import/karyprocolors-((type)).tmLanguage.yaml
+
   custom:
-    $schema: vscode://schemas/color-theme
+    semanticHighlighting: true
     colorSpaceName: sRGB
 
 # Variables for later substitution

@@ -1,105 +1,44 @@
-# Theme Config
-config:
-  name: bubblegum-goth
-  type: dark
-  import:
-    tokenColors:
-      - themes/import/karyprocolors-((type)).tmLanguage.yaml
-  custom:
-    $schema: vscode://schemas/color-theme
-    colorSpaceName: sRGB
-
-# Variables for later substitution
-vars:
-  alpha: ["00", "11", "22", "44", "66", "88", "aa", "cc", "ee", "ff"]
-
-  colors:
-    #Main
-    black:  ["#0e0e0e", "#181818", "#2b2b2b", "#353535", "#3f3f3f"]
-    white:  ["#f9f9f9", "#f0f0f0", "#e6e6e6", "#dcdcdc", "#d2d2d2"]
-
-    # Electric blue family - chalky but vibrant
-    blue:   ["#003d5c", "#006b8a", "#0099FF", "#4db3ff", "#80ccff"]
-    # Warm red family - softer than pure red
-    red:    ["#7a1a1a", "#a32626", "#FF0033", "#ff4d66", "#ff8099"]
-    # Golden yellow family - avoiding harsh yellows
-    yellow: ["#664d00", "#997300", "#CC9900", "#e6b333", "#f2cc66"]
-    # Vibrant orange family - warm but not burning
-    orange: ["#b34700", "#e05500", "#FF6600", "#ff8533", "#ffa366"]
-    # Forest green family - earthy but readable
-    green:  ["#004d26", "#006633", "#009900", "#4db34d", "#80cc80"]
-    # Rich purple family - deep but not muddy
-    purple: ["#330066", "#4d0099", "#6600FF", "#8533ff", "#a366ff"]
-    # Hot pink family - punchy but not neon
-    pink:   ["#7a0052", "#a3006b", "#FF0099", "#ff4db3", "#ff80cc"]
-
-  std:
-    fg: ((colors.white.2))
-    fgInverse: ((std.bg))
-    bg: ((colors.black.1))
-    bgInverse: ((std.fg))
-    bgGlass: ((std.bg))dd
-    accent: ((colors.pink.4))
-    seam: ((std.accent))((alpha.5))
-    seamMuted: ((std.accent))((alpha.4))
-    seamFaint: ((std.accent))((alpha.3))
-    seamWhisper: ((std.accent))((alpha.2))
-    shadow: ((std.accent))((alpha.4))
-    transparent: ((std.bg))((alpha.1))
-    test: "#ff0000ee"
-
-    # Debug/information colours
-    warn: ((colors.yellow.3))
-    warnInverse: ((colors.yellow.5))
-    error: ((colors.red.5))
-    errorInverse: ((colors.white.2))
-    success: ((colors.green.3))
-    successInverse: ((colors.white.2))
-    info: ((colors.purple.3))
-    infoInverse: ((colors.white.2))
-
-# Theme definition
-theme:
+colors:
   # Base/Global colors (the singletons!)
-  focusBorder: ((std.accent))((alpha.8))
+  focusBorder: ((std.outline.faint))
   foreground: ((std.fg))
   selection:
-    background: ((std.bg))((alpha.4))
+    background: ((std.accent))((alpha.4))
   descriptionForeground: ((std.fg))
   errorForeground: ((std.error))
   icon:
-    foreground: ((std.fg))((alpha.8))
+    foreground: ((std.fg.inactive))
   widget:
     shadow: ((std.shadow))
-    border: ((std.seamMuted))
+    border: ((std.outline.muted))
 
   # Text colors (for markdown preview, welcome page, etc)
   textBlockQuote:
-    background: ((std.bg))((alpha.2))
-    border: ((std.seamFaint))
+    background: ((std.bg.whisper))
+    border: ((std.outline.faint))
   textCodeBlock:
-    background: ((std.bg))((alpha.2))
+    background: ((std.bg.whisper))
   textLink:
     foreground: ((std.accent))
     activeForeground: ((std.accent))((alpha.8))
   textPreformat:
     foreground: ((std.info))
-    background: ((std.bg))((alpha.2))
+    background: ((std.bg.whisper))
   textSeparator:
     foreground: ((std.fg))((alpha.6))
 
   # Action colors (toolbar interactions)
   toolbar:
-    hoverBackground: ((std.fg))((alpha.6))
-    hoverOutline: ((std.fg))((alpha.8))
+    hoverBackground: ((std.accent))((alpha.5))
+    hoverOutline: ((std.outline))
     activeBackground: ((std.fg))((alpha.5))
   # Sash (splitter) colors
   sash:
-    hoverBorder: ((std.seam))
+    hoverBorder: ((std.outline))
 
   # Title bar
   titleBar:
-    border: ((std.seamFaint))
+    border: ((std.outline.faint))
     activeBackground: ((std.bg))
     activeForeground: ((std.fg))
     inactiveBackground: ((titleBar.activeBackground))aa
@@ -108,32 +47,32 @@ theme:
   # Menubar (Top-level: File Edit etc.)
   menubar:
     selectionForeground: ((std.fg))
-    selectionBackground: ((std.seamMuted))
-    selectionBorder:  ((std.seam))
+    selectionBackground: ((std.accent.muted))
+    selectionBorder:  ((std.outline))
 
   # Menu (Dropdowns themselves)
   menu:
     foreground: ((std.fg))
-    background: ((std.bg))((alpha.9))
+    background: ((std.bg.glass.dark))
     selectionForeground: ((std.fg))
-    selectionBackground: ((std.seam))
-    selectionBorder: ((std.accent))
-    separatorBackground: ((std.seamFaint))
-    border: ((std.seamMuted))
+    selectionBackground: ((std.accent.muted))
+    selectionBorder: ((std.outline))
+    separatorBackground: ((std.accent.faint))
+    border: ((std.outline))
 
   # Command Center colors
   commandCenter:
     # Colors
     background: ((titleBar.activeBackground))
     foreground: ((titleBar.activeForeground))
-    border: ((std.seam))
+    border: ((std.outline))
     # Active (hovered or clicked)
-    activeBackground: ((std.seamMuted))
+    activeBackground: ((std.accent.muted))
     activeForeground: ((colors.white.1))
-    activeBorder: ((std.seam))
+    activeBorder: ((std.outline))
     # Inactive Window
     inactiveForeground: ((colors.red.1)) # I don't think this works
-    inactiveBorder: ((std.seamMuted))
+    inactiveBorder: ((std.outline))
     # Debugging State
     debuggingBackground: ((colors.red.2))((alpha.5))
 
@@ -141,29 +80,29 @@ theme:
   activityBar:
     background: ((std.bg))
     foreground: ((std.fg))
-    inactiveForeground: ((colors.white.5))((alpha.6))
-    border: ((std.seamFaint))
+    inactiveForeground: ((std.fg))((alpha.5))
+    border: ((std.outline))
     # Active State
-    activeBackground: ((std.seam))
-    activeBorder: ((std.accent))
-    activeFocusBorder: ((std.bgInverse))
+    activeBackground: ((std.accent.muted))
+    activeBorder: ((std.outline))
+    activeFocusBorder: ((std.bg.inverse))
     # Dragging
-    dropBorder: ((std.accent))
+    dropBorder: ((std.outline))
 
   # Activity Bar Badges
   activityBarBadge:
     background: ((std.accent))
-    foreground: ((std.bgInverse))
+    foreground: ((std.bg.inverse))
 
   # Warning Badge
   activityWarningBadge:
     background: ((std.warn))
-    foreground: ((std.fgInverse))
+    foreground: ((std.fg.inverse))
 
   # Error Badge
   activityErrorBadge:
     background: ((std.error))
-    foreground: ((std.fgInverse))
+    foreground: ((std.fg.inverse))
 
   # Activity Bar Top
   activityBarTop:
@@ -174,7 +113,7 @@ theme:
     activeBorder: ((activityBar.activeBorder))
     dropBorder: ((activityBar.dropBorder))
 
-# working on this one
+  # working on this one
   # Lists and trees
   list:
     activeSelectionBackground: ((std.accent))((alpha.4))
@@ -187,15 +126,15 @@ theme:
 
     focusBackground: ((std.accent))((alpha.2))
     focusForeground: ((std.fg))
-    focusOutline: ((std.accent))((alpha.6))
-    focusHighlightForeground: ((std.bgInverse)) # I can't seem to activate this one
-    focusAndSelectionOutline: ((std.accent))
+    focusOutline: ((std.outline))
+    focusHighlightForeground: ((std.bg.inverse)) # I can't seem to activate this one
+    focusAndSelectionOutline: ((std.outline))
 
     hoverBackground: ((std.accent))((alpha.3))
-    hoverForeground: ((std.bgInverse))((alpha.9))
+    hoverForeground: ((std.bg.inverse))((alpha.9))
 
-    dropBackground: ((std.seamFaint))
-    dropBetweenBackground: ((std.seam))
+    dropBackground: ((std.accent.faint))
+    dropBetweenBackground: ((std.accent.muted))
 
     highlightForeground: ((std.accent))((alpha.8)) # I can't seem to activate this one
 
@@ -209,16 +148,16 @@ theme:
 
   # List Filter Widget
   listFilterWidget:
-    background: ((std.bgGlass))
-    outline: ((std.test))
-    noMatchesOutline: ((std.test))
+    background: ((std.bg.glass))
+    outline: "#ffffff"
+    noMatchesOutline: "#ffffff"
     shadow: ((std.shadow))
 
   # Tree guides
   tree:
-    indentGuidesStroke: ((std.seam))
-    inactiveIndentGuidesStroke: ((std.seamMuted))
-    tableColumnsBorder: ((std.seamFaint))
+    indentGuidesStroke: ((std.line))
+    inactiveIndentGuidesStroke: ((std.line.muted))
+    tableColumnsBorder: ((std.outline))
     tableOddRowsBackground: ((std.bg))
 
   # Status Bar colors
@@ -230,21 +169,21 @@ theme:
     # No Folder Open
     noFolderBackground: ((std.bg))
     noFolderForeground: ((std.fg))((alpha.5))
-    noFolderBorder: ((std.seam))
+    noFolderBorder: ((std.outline))
     # Debugging (stronger presence)
     debuggingBackground: ((std.error))
-    debuggingForeground: ((std.fgInverse))
+    debuggingForeground: ((std.fg.inverse))
     debuggingBorder: ((std.error))((alpha.6))
     # Focus
-    focusBorder: ((std.accent))((alpha.6))
+    focusBorder: ((std.outline))
 
   # Status Bar Item Interaction
   statusBarItem:
     activeBackground: ((std.accent))((alpha.6))
-    hoverBackground: ((std.seam))
+    hoverBackground: ((std.accent.muted))
     hoverForeground: ((colors.white.1))
-    compactHoverBackground: ((std.seamFaint))
-    focusBorder: ((std.accent))((alpha.6))
+    compactHoverBackground: ((std.accent.faint))
+    focusBorder: ((std.outline))
     # Prominent Items
     prominentBackground: ((std.accent))((alpha.5))
     prominentForeground: ((std.fg))
@@ -257,24 +196,24 @@ theme:
     remoteHoverForeground: ((colors.white.1))
     # Offline Indicator
     offlineBackground: ((std.warn))
-    offlineForeground: ((std.fgInverse))
+    offlineForeground: ((std.fg.inverse))
     offlineHoverBackground: ((std.warn))((alpha.2))
-    offlineHoverForeground: ((std.fgInverse))
+    offlineHoverForeground: ((std.fg.inverse))
     # Error State Items
     errorBackground: ((std.error))
-    errorForeground: ((std.fgInverse))
+    errorForeground: ((std.fg.inverse))
     errorHoverBackground: ((std.error))((alpha.2))
-    errorHoverForeground: ((std.fgInverse))
+    errorHoverForeground: ((std.fg.inverse))
     # Warning State Items
     warningBackground: ((std.warn))
-    warningForeground: ((std.fgInverse))
+    warningForeground: ((std.fg.inverse))
     warningHoverBackground: ((statusBarItem.offlineHoverBackground))
-    warningHoverForeground: ((std.fgInverse))
+    warningHoverForeground: ((std.fg.inverse))
 
   # Editor Groups & Tabs
   # Editor Action List (quick fix menu, etc)
   editorActionList:
-    background: ((std.bg))((alpha.3))
+    background: ((std.bg.faint))
     foreground: ((std.fg))
     focusBackground: ((std.accent))((alpha.3))
     focusForeground: ((std.accent))
@@ -282,45 +221,45 @@ theme:
   # Editor Advanced Features (missing from current YAML)
   # Whitespace
   editorWhitespace:
-    foreground: ((std.seamFaint))
+    foreground: ((std.accent.faint))
 
   # Editor Group
   editorGroup:
     border: ((std.transparent))
-    dropBackground: ((std.seamFaint))
+    dropBackground: ((std.accent.faint))
     emptyBackground: ((std.bg))
-    focusedEmptyBorder: ((std.seamMuted))
+    focusedEmptyBorder: ((std.outline))
     dropIntoPromptForeground: ((std.fg))
     dropIntoPromptBackground: ((std.bg))((alpha.9))
-    dropIntoPromptBorder: ((std.accent))((alpha.7))
+    dropIntoPromptBorder: ((std.outline.louder))
 
   # Editor Group Header
   editorGroupHeader:
     noTabsBackground: ((editorGroup.emptyBackground))((alpha.7))
     tabsBackground: ((std.bg))((alpha.6))
     tabsBorder: ((std.transparent))
-    border: ((std.seamFaint))
+    border: ((std.outline))
 
   # Editor Pane
   editorPane:
     background: ((std.bg))
 
   sideBySideEditor:
-    horizontalBorder: ((std.seamFaint))
-    verticalBorder: ((std.seamFaint))
+    horizontalBorder: ((std.outline))
+    verticalBorder: ((std.outline))
 
   # Tabs
   tab:
     border: ((std.fg))((alpha.4))
     activeBorder: ((std.transparent))
     unfocusedActiveBorder: ((std.transparent))
-    hoverBorder: ((std.seam))
-    unfocusedHoverBorder: ((std.accent))
-    lastPinnedBorder: ((std.seam))
+    hoverBorder: ((std.outline))
+    unfocusedHoverBorder: ((std.outline))
+    lastPinnedBorder: ((std.outline))
 
-    activeBorderTop: ((std.accent))
-    unfocusedActiveBorderTop: ((std.accent))((alpha.7))
-    selectedBorderTop: ((std.accent))
+    activeBorderTop: ((std.outline))
+    unfocusedActiveBorderTop: ((std.outline.louder))
+    selectedBorderTop: ((std.outline))
 
     activeBackground: ((std.accent))((alpha.5))
     selectedBackground: ((std.bg))((alpha.9))
@@ -339,24 +278,24 @@ theme:
     hoverForeground: ((colors.white.1))
 
     # Modified indicators
-    activeModifiedBorder: ((std.accent))
-    inactiveModifiedBorder: ((std.accent))((alpha.6))
-    unfocusedActiveModifiedBorder: ((std.accent))((alpha.7))
-    unfocusedInactiveModifiedBorder: ((std.seam))
+    activeModifiedBorder: ((std.outline))
+    inactiveModifiedBorder: ((std.outline.loud))
+    unfocusedActiveModifiedBorder: ((std.outline.louder))
+    unfocusedInactiveModifiedBorder: ((std.outline))
 
   # Panel colors
   # Panel Base + Frame
   panel:
     background: ((editorGroupHeader.tabsBackground))
-    border: ((std.seamMuted))
-    dropBorder: ((std.accent))((alpha.6))
+    border: ((std.outline.muted))
+    dropBorder: ((std.outline.loud))
 
   # Panel Title Bar
   panelTitle:
     activeBorder: ((tab.activeBorderTop))
     activeForeground: ((tab.activeForeground))
     inactiveForeground: ((tab.inactiveForeground))
-    border: ((std.seamWhisper))
+    border: ((std.outline.whisper))
 
   # Panel Title Badge (eg. terminal counts)
   panelTitleBadge:
@@ -367,16 +306,16 @@ theme:
   panelSectionHeader:
     background: ((panel.background))  # slightly elevated
     foreground: ((std.fg))
-    border: ((std.seamFaint))
+    border: ((std.outline.faint))
 
   # Panel Sections
   panelSection:
-    border: ((std.seamFaint))
-    dropBackground: ((std.seam))
+    border: ((std.outline.faint))
+    dropBackground: ((std.accent.muted))
 
   # Panel Input
   panelInput:
-    border: ((std.accent))((alpha.7))
+    border: ((std.outline.louder))
 
   # Panel Sticky Scroll
   panelStickyScroll:          # TODO: come back to this
@@ -389,13 +328,13 @@ theme:
     background: ((std.transparent))
 
   outputViewStickyScroll:
-    background: ((std.bgGlass))
+    background: ((std.bg.glass))
 
   # Side bar
   sideBar:
     background: ((editor.background))  # slightly different from main bg
     foreground: ((std.fg))((alpha.9))  # dimmer than main text
-    border: ((std.seamFaint))
+    border: ((std.outline.faint))
     dropBackground: ((std.accent))((alpha.5))
 
   # Sidebar title
@@ -406,13 +345,13 @@ theme:
   sideBarSectionHeader:
     background: ((std.accent))((alpha.3))
     foreground: ((std.fg))((alpha.8))
-    border: ((std.seamFaint))
+    border: ((std.outline.faint))
 
   # Line Numbers
   editorLineNumber:
-    foreground: ((std.accent))((alpha.6))  # subtle line numbers
-    activeForeground: ((std.accent))((alpha.9))  # highlight current line
-    dimmedForeground: ((std.accent))((alpha.5))  # barely visible final line
+    foreground: ((std.accent))((alpha.4))
+    activeForeground: ((std.accent))((alpha.9))
+    dimmedForeground: ((editorLineNumber.foreground))
 
   # Cursor
   editorCursor:
@@ -430,11 +369,11 @@ theme:
 
   # Editor colors
   editor:
-    background: ((std.bg))((alpha.3))
+    background: ((std.bg.muted))
     foreground: ((std.fg))
     placeholder:
       foreground: ((std.fg))((alpha.6))
-    compositionBorder: ((std.accent))((alpha.7))
+    compositionBorder: ((std.outline.louder))
 
     # Text selection
     selectionBackground: ((std.accent))((alpha.4))
@@ -443,11 +382,11 @@ theme:
 
     # Matching content highlights
     selectionHighlightBackground: ((std.accent))((alpha.2))
-    selectionHighlightBorder: ((std.accent))((alpha.5))
+    selectionHighlightBorder: ((std.outline))
 
     # Read access highlights (when you click on a variable)
     wordHighlightBackground: ((std.accent))((alpha.3))
-    wordHighlightBorder: ((std.accent))((alpha.5))
+    wordHighlightBorder: ((std.outline))
 
     # Write access highlights (more prominent)
     wordHighlightStrongBackground: ((std.warn))((alpha.3))
@@ -471,18 +410,18 @@ theme:
 
     # Range highlights (replacement preview, etc)
     findRangeHighlightBackground: ((std.accent))((alpha.2))
-    findRangeHighlightBorder: ((std.accent))((alpha.3))
+    findRangeHighlightBorder: ((std.outline))
 
     # Line Highlighting
-    lineHighlightBackground: ((std.accent))((alpha.3))  # #ffffff05 - very faint
-    lineHighlightBorder: ((std.seamFaint))
+    lineHighlightBackground: ((std.outline))
+    lineHighlightBorder: ((std.outline.faint))
 
     # Hover/Symbol Highlighting
     hoverHighlightBackground: ((std.accent))((alpha.2))
     symbolHighlightBackground: ((std.accent))((alpha.2))
-    symbolHighlightBorder: ((std.accent))((alpha.5))
-    rangeHighlightBackground: ((std.accent))((alpha.1))
-    rangeHighlightBorder: ((std.seamFaint))
+    symbolHighlightBorder: ((std.outline.loud))
+    rangeHighlightBackground: ((std.outline.whisper))
+    rangeHighlightBorder: ((std.outline.faint))
 
     # Folds
     ## Folded block background
@@ -500,7 +439,7 @@ theme:
 
     # Snippets
     snippetTabstopHighlightBackground: ((std.accent))((alpha.2))
-    snippetTabstopHighlightBorder: ((std.accent))((alpha.4))
+    snippetTabstopHighlightBorder: ((std.outline.muted))
     snippetFinalTabstopHighlightBackground: ((colors.blue.4))((alpha.3))  # TODO: #87c7c7 + 22
     snippetFinalTabstopHighlightBorder: ((colors.blue.4))((alpha.5))     # TODO: #87c7c7 + 55
 
@@ -509,8 +448,8 @@ theme:
     shadow: ((std.shadow))
 
   scrollbarSlider:
-    background: ((std.seamMuted))
-    hoverBackground: ((std.seam))
+    background: ((std.accent.faint))
+    hoverBackground: ((std.accent.muted))
     activeBackground: ((std.accent))((alpha.6))
 
   # Badge
@@ -524,8 +463,8 @@ theme:
 
   # Input control
   input:
-    background: ((std.bg))((alpha.4))
-    border: ((std.accent))((alpha.7))
+    background: ((std.bg.muted))
+    border: ((std.outline.louder))
     foreground: ((std.fg))
     placeholderForeground: ((std.fg))((alpha.5))
 
@@ -549,7 +488,7 @@ theme:
   # Dropdown control
   dropdown:
     background: ((input.background))
-    listBackground: ((std.bg))((alpha.3))
+    listBackground: ((std.bg.glass))
     border: ((input.border))
     foreground: ((input.foreground))
 
@@ -557,12 +496,12 @@ theme:
   button:
     background: ((std.accent))((alpha.6))
     foreground: ((std.fg))
-    border: ((std.accent))
+    border: ((std.outline))
     hoverBackground: ((std.accent))((alpha.7))
 
     # Secondary buttons
     secondaryForeground: ((std.fg))
-    secondaryBackground: ((std.bg))((alpha.4))
+    secondaryBackground: ((std.bg.muted))
     secondaryHoverBackground: ((std.bg))((alpha.5))
 
     separator: ((std.fg))((alpha.3))
@@ -571,30 +510,30 @@ theme:
   checkbox:
     background: ((std.accent))((alpha.6))
     foreground: ((std.fg))
-    border: ((std.accent))
+    border: ((std.outline))
     selectBackground: ((std.accent))((alpha.4))
-    selectBorder: ((std.accent))
+    selectBorder: ((std.outline))
     disabled:
-      background: ((std.bg))((alpha.4))
+      background: ((std.bg.muted))
       foreground: ((std.fg))((alpha.5))
 
   # Radio buttons
   radio:
     activeBackground: ((std.accent))((alpha.4))
-    activeBorder: ((std.accent))
+    activeBorder: ((std.outline))
     activeForeground: ((std.fg))
     inactiveBackground: ((std.accent))((alpha.6))
-    inactiveBorder: ((std.seamMuted))
+    inactiveBorder: ((std.outline.muted))
     inactiveForeground: ((std.fg))((alpha.7))
     inactiveHoverBackground: ((std.accent))((alpha.5))
 
-# Profiles
+  # Profiles
   profileBadge:
     background: ((std.accent))
-    foreground: ((std.fgInverse))
+    foreground: ((std.fg.inverse))
 
   profiles:
-    sashBorder: ((std.seamFaint))
+    sashBorder: ((std.outline.faint))
 
   # Minimap
   minimap:
@@ -631,7 +570,7 @@ theme:
   # Bracket Matching
   editorBracketMatch:
     background: ((colors.blue.1))((alpha.6))
-    border: ((std.accent))((alpha.5))
+    border: ((std.outline.muted))
 
   # Bracket Pair Colorization
   editorBracketHighlight:
@@ -660,8 +599,8 @@ theme:
 
   # Overview Ruler (sidebar ruler with indicators)
   editorOverviewRuler:
-    background: ((std.bgGlass))
-    border: ((std.seamFaint))
+    background: ((std.bg.glass))
+    border: ((std.outline.faint))
     # Find/Selection highlights
     findMatchForeground: ((colors.green.2))((alpha.6))  # #beff0c66 approximated
     rangeHighlightForeground: ((colors.blue.4))((alpha.7))
@@ -737,7 +676,7 @@ theme:
     itemGlyphForeground: ((std.accent))((alpha.8))            # #b0e9ff + cc - TODO: need to verify this color
     itemBackground: ((colors.blue.1))((alpha.2))             # #2e5673 + 11 - TODO: need to verify this matches
 
-# Editor Comments Widget
+  # Editor Comments Widget
   editorCommentsWidget:
     resolvedBorder: ((std.success))((alpha.5))
     unresolvedBorder: ((std.warn))((alpha.5))
@@ -748,7 +687,7 @@ theme:
   # Inline Edit (AI suggestions, etc.)
   inlineEdit:
     gutterIndicator:
-      primaryBorder: ((std.accent))
+      primaryBorder: ((std.outline))
       primaryForeground: ((std.accent))  # TODO:  #b0e9ff - need to check this color
       primaryBackground: ((colors.blue.1))((alpha.3))
       secondaryBorder: ((std.success))
@@ -765,12 +704,12 @@ theme:
     originalChangedTextBackground: ((colors.blue.1))((alpha.3))
     modifiedChangedLineBackground: ((std.accent))((alpha.3))
     modifiedChangedTextBackground: ((std.accent))((alpha.4))  # TODO: #b0e9ff + 44
-    originalBorder: ((std.accent))
-    modifiedBorder: ((std.accent))  # TODO: #b0e9ff - different from std.accent?
+    originalBorder: ((std.outline))
+    modifiedBorder: ((std.outline))  # TODO: #b0e9ff - different from std.accent?
     tabWillAcceptModifiedBorder: ((colors.green.4))
     tabWillAcceptOriginalBorder: ((std.success))
 
-# Diff Editor
+  # Diff Editor
   diffEditor:
     insertedTextBackground: ((colors.green.4))((alpha.3))  # TODO: #87b087 + 22
     insertedTextBorder: ((colors.green.4))((alpha.5))      # TODO: #87b087 + 55
@@ -791,13 +730,13 @@ theme:
   inlineChat:
     background: ((panel.background))  # TODO: #1f1f1f - verify panel.background matches
     foreground: ((std.fg))
-    border: ((std.accent))((alpha.4))
+    border: ((std.outline.muted))
     shadow: ((std.shadow))  # TODO: #00000033 - verify std.shadow matches
 
   inlineChatInput:
     background: ((input.background))
-    border: ((std.seamFaint))
-    focusBorder: ((std.accent))((alpha.6))
+    border: ((std.outline.faint))
+    focusBorder: ((std.outline.loud))
     placeholderForeground: ((std.fg))((alpha.5))
 
   inlineChatDiff:
@@ -806,20 +745,20 @@ theme:
 
   # Interactive Code Cell Borders
   interactive:
-    activeCodeBorder: ((std.accent))((alpha.5))   # TODO: #4b8ebd + 66
-    inactiveCodeBorder: ((std.seamFaint))
+    activeCodeBorder: ((std.outline.muted))   # TODO: #4b8ebd + 66
+    inactiveCodeBorder: ((std.outline.faint))
 
   # Editor Widget (Find/Replace, Peek input, etc.)
   editorWidget:
     foreground: ((std.fg))
     background: ((panel.background))  # TODO: #1f1f1f - verify match
-    border: ((std.seamFaint))
-    resizeBorder: ((std.accent))((alpha.6))
+    border: ((std.outline.faint))
+    resizeBorder: ((std.outline.louder))
 
   # Suggest Widget (autocomplete)
   editorSuggestWidget:
     background: ((panel.background))
-    border: ((std.seamFaint))
+    border: ((std.outline.faint))
     foreground: ((sideBar.foreground))  # TODO: #d1d1d1 - verify match
     focusHighlightForeground: ((std.accent))  # TODO: #b0e9ff - verify color
     highlightForeground: ((std.accent))  # TODO: #b0e9ff - verify color
@@ -834,7 +773,7 @@ theme:
   editorHoverWidget:
     foreground: ((std.fg))
     background: ((panel.background))
-    border: ((std.seamFaint))
+    border: ((std.outline.faint))
     highlightForeground: ((std.accent))  # TODO: #b0e9ff - verify color
     statusBarBackground: ((input.background))
 
@@ -842,16 +781,16 @@ theme:
   editorGhostText:
     foreground: ((std.fg))((alpha.4))  # TODO: #e1e1e144 - verify alpha
     background: ((std.transparent))
-    border: ((std.seamFaint))
+    border: ((std.outline.faint))
 
   # Sticky Scroll
   editorStickyScroll:
-    background: ((editorGroup.emptyBackground))((alpha.7))  # TODO: #0a0a0a77 - verify match
-    border: ((std.accent))((alpha.4))
-    shadow: ((std.seamWhisper))  # TODO: #4b8ebd11 - verify match
+    background: ((std.bg.glass))  # TODO: #0a0a0a77 - verify match
+    border: ((std.outline.faint))
+    shadow: ((std.shadow))  # TODO: #4b8ebd11 - verify match
 
   editorStickyScrollHover:
-    background: ((editorGroup.emptyBackground))  # TODO: #0a0a0aff - verify match
+    background: ((std.bg.glass.hover))  # TODO: #0a0a0aff - verify match
 
   # Debug Exception Widget
   debugExceptionWidget:
@@ -876,7 +815,7 @@ theme:
 
   # Peek View (Go to Definition, Find References, etc.)
   peekView:
-    border: ((std.accent))((alpha.6))
+    border: ((std.outline.louder))
 
   peekViewTitle:
     background: ((editorGroup.emptyBackground))((alpha.7))  # TODO: #0a0a0a77 - verify match
@@ -900,11 +839,11 @@ theme:
 
   peekViewEditor:
     matchHighlightBackground: ((std.accent))((alpha.3))  # TODO: #b0e9ff33 - verify color
-    matchHighlightBorder: ((std.accent))((alpha.7))
+    matchHighlightBorder: ((std.outline.louder))
     background: ((input.background))  # #2525257f
 
   peekViewEditorStickyScroll:
-    background: ((editorGroup.emptyBackground))((alpha.7))  # TODO: #0a0a0a77 - verify match
+    background: ((std.bg.glass))
 
   # Merge Conflicts
   merge:
@@ -914,7 +853,7 @@ theme:
     incomingContentBackground: ((colors.green.4))((alpha.2))  # TODO: #87b087 + 11
     commonContentBackground: ((colors.white.5))((alpha.2))  # TODO: #808080 + 11
     commonHeaderBackground: ((colors.white.5))((alpha.3))  # TODO: #808080 + 33
-    border: ((std.accent))((alpha.4))
+    border: ((std.outline))
 
   mergeEditor:
     change:
@@ -957,15 +896,15 @@ theme:
   gauge:
     background: ((std.bg))
     foreground: ((std.success))
-    border: ((std.seamFaint))
+    border: ((std.outline.faint))
     warningBackground: ((colors.yellow.1))  # #b19500
     warningForeground: ((colors.yellow.3))  # #ffd700
     errorBackground: ((colors.red.1))       # #861c11
     errorForeground: ((colors.red.5))       # #e85b4c
 
-# Notification Center
+  # Notification Center
   notificationCenter:
-    border: ((std.seamFaint))
+    border: ((std.outline.faint))
 
   notificationCenterHeader:
     foreground: ((std.fg))
@@ -973,13 +912,13 @@ theme:
 
   # Notification Toasts
   notificationToast:
-    border: ((std.accent))((alpha.5))
+    border: ((std.outline))
 
   # Notification Items
   notifications:
     foreground: ((std.fg))
     background: ((std.bg))
-    border: ((std.seamWhisper))
+    border: ((std.outline.whisper))
 
   # Links inside notifications
   notificationLink:
@@ -1009,7 +948,7 @@ theme:
     foreground: ((std.fg))
     background: ((button.secondaryBackground))
     hoverBackground: ((std.accent))
-    separator: ((std.accent))((alpha.5))  # TODO: #4b8ebd66 - verify alpha
+    separator: ((std.line))  # TODO: #4b8ebd66 - verify alpha
 
   extensionBadge:
     remoteBackground: ((std.accent))
@@ -1024,7 +963,7 @@ theme:
 
   # Quick Picker
   pickerGroup:
-    border: ((std.accent))((alpha.4))
+    border: ((std.outline))
     foreground: ((std.accent))  # TODO: #b0e9ff - verify color
 
   quickInput:
@@ -1043,8 +982,8 @@ theme:
   keybindingLabel:
     background: ((editorGroup.emptyBackground))((alpha.8))  # TODO: #0a0a0abb - verify match
     foreground: ((std.fg))
-    border: ((std.accent))((alpha.5))
-    bottomBorder: ((std.accent))((alpha.7))
+    border: ((std.outline))
+    bottomBorder: ((std.outline.louder))
 
   keybindingTable:
     headerBackground: ((panel.background))
@@ -1073,7 +1012,7 @@ theme:
     ansiYellow: "#d7c787"
     # Terminal UI
     selectionBackground: ((colors.white.5))((alpha.6))  # TODO: #505050 + 80
-    border: ((std.seamFaint))
+    border: ((std.outline.faint))
     selectionForeground: ((colors.white.1))
     inactiveSelectionBackground: ((colors.black.3))  # TODO: #3a3d41 - verify match
     findMatchBackground: ((editor.findMatchHighlightBackground))
@@ -1098,14 +1037,14 @@ theme:
   terminalOverviewRuler:
     cursorForeground: ((std.accent))((alpha.7))  # TODO: #b0e9ff + aa
     findMatchForeground: ((editor.findMatchHighlightForeground))
-    border: ((std.seamWhisper))
+    border: ((std.outline.whisper))
 
   terminalStickyScroll:
-    background: ((editorGroup.emptyBackground))((alpha.7))  # TODO: #0a0a0a77
-    border: ((std.seamFaint))
+    background: ((std.bg.glass))
+    border: ((std.outline.faint))
 
   terminalStickyScrollHover:
-    background: ((editorGroup.emptyBackground))  # TODO: #0a0a0aff
+    background: ((std.bg.glass.hover))  # TODO: #0a0a0aff
 
   terminalCommandGuide:
     foreground: ((colors.yellow.2))
@@ -1125,13 +1064,13 @@ theme:
   # Debug Toolbar
   debugToolBar:
     background: ((std.bg))
-    border: ((std.seamFaint))
+    border: ((std.outline.faint))
 
   # Debug View (variables, call stack, etc.)
   debugView:
     exceptionLabelForeground: ((colors.white.1))
     exceptionLabelBackground: ((std.error))
-    stateLabelForeground: ((std.fgInverse))
+    stateLabelForeground: ((std.fg.inverse))
     stateLabelBackground: ((std.warn))
     valueChangedHighlight: ((colors.blue.4))((alpha.5))  # TODO: #87c7c7 + 66
 
@@ -1190,7 +1129,7 @@ theme:
     "iconUnset.retired": ((colors.white.5))((alpha.5))  # TODO: #80808055
     "iconSkipped.retired": ((std.info))((alpha.5))  # TODO: #88aacc66
     # Peek view
-    peekBorder: ((std.accent))((alpha.6))
+    peekBorder: ((std.outline))
     peekHeaderBackground: ((editorGroup.emptyBackground))((alpha.7))  # TODO: #0a0a0a77
     # Messages
     message:
@@ -1198,11 +1137,11 @@ theme:
         lineBackground: ((std.error))((alpha.3))
         badgeBackground: ((std.error))
         badgeBorder: ((std.error))((alpha.6))
-        badgeForeground: ((std.fgInverse))
+        badgeForeground: ((std.fg.inverse))
       info:
         decorationForeground: ((std.info))
         lineBackground: ((std.info))((alpha.3))
-    messagePeekBorder: ((std.accent))((alpha.6))
+    messagePeekBorder: ((std.outline))
     messagePeekHeaderBackground: ((editorGroup.emptyBackground))((alpha.7))  # TODO: #0a0a0a77
     # Coverage
     coveredBackground: ((colors.green.4))((alpha.3))  # TODO: #87b08722
@@ -1223,7 +1162,7 @@ theme:
       foreground: ((std.accent))
     tileBackground: ((colors.black.3))
     tileHoverBackground: ((colors.black.4))((alpha.7))  # TODO: #3a3a3aaa
-    tileBorder: ((std.seamFaint))
+    tileBorder: ((std.outline.faint))
 
   walkThrough:
     embeddedEditorBackground: ((input.background))
@@ -1272,19 +1211,19 @@ theme:
   settings:
     headerForeground: ((std.fg))
     settingsHeaderHoverForeground: ((std.accent))  # TODO: #b0e9ff - verify color
-    headerBorder: ((std.seamFaint))
-    sashBorder: ((std.seamFaint))
+    headerBorder: ((std.outline.faint))
+    sashBorder: ((std.outline.faint))
     modifiedItemIndicator: ((colors.yellow.3))
     dropdownBackground: ((input.background))
     dropdownForeground: ((sideBar.foreground))  # TODO: #d1d1d1 - verify match
-    dropdownBorder: ((std.accent))((alpha.5))
-    dropdownListBorder: ((std.seamFaint))
+    dropdownBorder: ((std.outline.muted))
+    dropdownListBorder: ((std.outline.faint))
     checkboxBackground: ((checkbox.background))  # Reuse existing checkbox styling
     checkboxForeground: ((checkbox.foreground))
     checkboxBorder: ((checkbox.border))
     rowHoverBackground: ((button.secondaryBackground))  # TODO: #303030aa
     focusedRowBackground: ((button.secondaryBackground))  # TODO: #303030dd - verify alpha
-    focusedRowBorder: ((std.accent))((alpha.5))  # TODO: #4b8ebd66
+    focusedRowBorder: ((std.outline))  # TODO: #4b8ebd66
     textInputBackground: ((input.background))
     textInputForeground: ((sideBar.foreground))  # TODO: #d1d1d1 - verify match
     textInputBorder: ((input.border))
@@ -1324,7 +1263,7 @@ theme:
   # Charts (performance graphs, etc.)
   charts:
     foreground: ((std.fg))
-    lines: ((std.accent))
+    lines: ((std.line))
     red: ((std.error))
     blue: ((std.accent))
     yellow: ((colors.yellow.3))
@@ -1333,9 +1272,9 @@ theme:
     purple: ((colors.purple.4))  # TODO: #a58cc4 - verify match
 
   chart:
-    line: ((std.accent))
+    line: ((std.line))
     axis: ((std.accent))((alpha.5))
-    guide: ((std.seamFaint))
+    guide: ((std.line.muted))
 
   # Chat (AI assistant features)
   chat:
