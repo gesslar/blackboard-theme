@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "node src/build.js",
-    "watch": "npm run build && chokidar \"themes/{import,src}/*.{json5,yaml,yml}\" -c \"npm run build\"",
+    "watch": "npm run build && chokidar \"themes/{import,src}/*.{json5,yaml,yml}\" -c \"npm run build > output.txt\"",
     "start": "npm run watch",
     "prepublish": "npm run build",
     "publish": "vsce publish"

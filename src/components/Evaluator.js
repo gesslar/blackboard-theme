@@ -29,9 +29,7 @@ export default class Evaluator {
    * @returns {Array<Object>} The resolved theme array.
    */
   evaluate({vars,theme}) {
-    // console.debug("vars", vars)
     this.#resolveVariables(vars)
-    // console.debug("theme", theme)
     this.resolveColors({theme,vars})
 
     return theme
@@ -43,17 +41,10 @@ export default class Evaluator {
    * @private
    */
   #resolveVariables(vars) {
-    let it = 0, unresolved = true
+    let it = 0
 
-    do {
-      const assoc = this.#findAssoc(vars)
-
-      this.#substitute(vars, assoc, [])
-
-      unresolved = this.#hasUnresolvedTokens(vars)
-      // console.debug("unresolved variables", this.#unresolvedTokens(vars))
-
-    } while(it++ < this.maxIterations && unresolved)
+    do this.#substitute(vars, this.#findAssoc(vars), [])
+    while(it++ < this.maxIterations && this.#hasUnresolvedTokens(vars))
   }
 
   /**
@@ -63,17 +54,10 @@ export default class Evaluator {
    * @param {Array<Object>} params.vars - Array of variable objects for substitution.
    */
   resolveColors({theme,vars}) {
-    let it = 0, unresolved
+    let it = 0
 
-    do {
-      const assoc = this.#findAssoc(theme)
-
-      this.#substitute(theme, assoc, vars)
-
-      unresolved = this.#hasUnresolvedTokens(theme)
-      // console.debug("unresolved colors", this.#unresolvedTokens(theme))
-
-    } while(it++ < this.maxIterations && unresolved)
+    do this.#substitute(theme, this.#findAssoc(theme), vars)
+    while(it++ < this.maxIterations && this.#hasUnresolvedTokens(theme))
   }
 
   /**
@@ -87,7 +71,6 @@ export default class Evaluator {
     assoc.forEach(([, matches], index) => {
       matches.forEach(match => {
         const flatPath = match.match(this.#extract)
-        // console.debug("Trying to find", flatPath, "in", [source,vars])
 
         if(flatPath) {
           const target =
@@ -126,7 +109,7 @@ export default class Evaluator {
    * @private
    */
   #hasUnresolvedTokens(arr) {
-    return this.#unresolvedTokens(arr) > 0
+    return this.#unresolvedTokens(arr).length > 0
   }
 
   /**
@@ -137,8 +120,6 @@ export default class Evaluator {
    */
   #findAssoc(arr) {
     const result = []
-
-    // console.debug("arr", arr)
 
     // Array<Object<{path: Array<string>, key: string, value: string}>>
     arr.forEach(item => {
