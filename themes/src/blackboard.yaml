@@ -18,4 +18,17 @@ config:
 
 vars:
   std:
+    fg: ((colors.white.2))
+    bg: ((colors.black.1))
+    glass: "#02060c"
     accent: ((colors.blue.3))
+
+    # Debug/information colours
+    warn: ((colors.yellow.3))
+    warnInverse: ((colors.yellow.5))
+    error: ((colors.red.5))
+    errorInverse: ((colors.white.2))
+    success: ((colors.green.3))
+    successInverse: ((colors.white.2))
+    info: ((colors.purple.3))
+    infoInverse: ((colors.white.2))

@@ -52,8 +52,6 @@ export default class Compiler {
 
     const merged = Data.mergeObject(base, mergedImport, sourceObj)
     const decomposedVars = this.#decomposeObject(merged.vars)
-    const evaluatedVars = evaluate({vars: decomposedVars, theme: decomposedVars})
-    const vars = this.#composeObject(evaluatedVars)
 
     const decomposedColors = this.#decomposeObject(merged.theme.colors)
     const evaluatedColors = evaluate({vars: decomposedVars, theme: decomposedColors})
@@ -62,7 +60,7 @@ export default class Compiler {
     const decomposedtokenColors = this.#decomposeObject(merged.theme.tokenColors)
     const evaluatedTokenColors = evaluate({vars: decomposedVars, theme: decomposedtokenColors})
     const tokenColors = this.#composeArray(evaluatedTokenColors)
-    const theme = {vars,colors,tokenColors}
+    const theme = {colors,tokenColors}
     const result = Data.mergeObject({},header,sourceConfig.custom ?? {},theme)
 
     return result

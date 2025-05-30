@@ -34,7 +34,7 @@ colors:
     activeBackground: ((std.fg))((alpha.5))
   # Sash (splitter) colors
   sash:
-    hoverBorder: ((std.outline))
+    hoverBorder: ((std.sash))
 
   # Title bar
   titleBar:
@@ -190,7 +190,7 @@ colors:
     prominentHoverBackground: ((std.accent))aa
     prominentHoverForeground: ((colors.white.1))
     # Remote Indicator
-    remoteBackground: ((std.accent))
+    remoteBackground: ((std.accent))((alpha.3))
     remoteForeground: ((colors.white.1))
     remoteHoverBackground: ((std.accent))
     remoteHoverForeground: ((colors.white.1))
@@ -257,17 +257,17 @@ colors:
     unfocusedHoverBorder: ((std.outline))
     lastPinnedBorder: ((std.outline))
 
-    activeBorderTop: ((std.outline))
-    unfocusedActiveBorderTop: ((std.outline.louder))
-    selectedBorderTop: ((std.outline))
+    activeBorderTop: ((std.outline.louder))
+    unfocusedActiveBorderTop: ((std.transparent))
+    selectedBorderTop: ((std.outline.loud))
 
     activeBackground: ((std.accent))((alpha.5))
-    selectedBackground: ((std.bg))((alpha.9))
+    selectedBackground: ((std.accent))((alpha.8))
     unfocusedActiveBackground: ((std.accent))((alpha.4))
     inactiveBackground: ((std.transparent))
     unfocusedInactiveBackground: ((std.bg))((alpha.5))
     unfocusedHoverBackground: ((std.bg))((alpha.6))
-    hoverBackground: ((std.bg))((alpha.5))
+    hoverBackground: ((std.accent))((alpha.3))
 
     activeForeground: ((std.fg))
     selectedForeground: ((std.fg))
@@ -286,7 +286,7 @@ colors:
   # Panel colors
   # Panel Base + Frame
   panel:
-    background: ((editorGroupHeader.tabsBackground))
+    background: ((std.bg.muted))
     border: ((std.outline.muted))
     dropBorder: ((std.outline.loud))
 
@@ -533,7 +533,7 @@ colors:
     foreground: ((std.fg.inverse))
 
   profiles:
-    sashBorder: ((std.outline.faint))
+    sashBorder: ((std.sash))
 
   # Minimap
   minimap:
@@ -751,7 +751,7 @@ colors:
   # Editor Widget (Find/Replace, Peek input, etc.)
   editorWidget:
     foreground: ((std.fg))
-    background: ((panel.background))  # TODO: #1f1f1f - verify match
+    background: ((std.bg))  # TODO: #1f1f1f - verify match
     border: ((std.outline.faint))
     resizeBorder: ((std.outline.louder))
 
@@ -890,7 +890,7 @@ colors:
 
   # Simple Find Widget
   simpleFindWidget:
-    sashBorder: ((std.test))  # TODO: #ff0000 - this is red, matches your test color
+    sashBorder: ((std.sash))  # TODO: #ff0000 - this is red, matches your test color
 
   # Gauge (progress indicators)
   gauge:
@@ -1210,9 +1210,9 @@ colors:
   # Settings Editor
   settings:
     headerForeground: ((std.fg))
-    settingsHeaderHoverForeground: ((std.accent))  # TODO: #b0e9ff - verify color
+    settingsHeaderHoverForeground: ((std.accent))
     headerBorder: ((std.outline.faint))
-    sashBorder: ((std.outline.faint))
+    sashBorder: ((std.sash))
     modifiedItemIndicator: ((colors.yellow.3))
     dropdownBackground: ((input.background))
     dropdownForeground: ((sideBar.foreground))  # TODO: #d1d1d1 - verify match

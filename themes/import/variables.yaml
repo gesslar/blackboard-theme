@@ -6,7 +6,7 @@ vars:
 
   colors:
     #Main        1          2          3          4          5
-    black:  ["#0e0e0e", "#181818", "#2b2b2b", "#353535", "#3f3f3f"]
+    black:  ["#0f0f0f", "#181818", "#2b2b2b", "#353535", "#3f3f3f"]
     white:  ["#f9f9f9", "#f0f0f0", "#e6e6e6", "#dcdcdc", "#d2d2d2"]
 
     # Electric blue family - chalky but vibrant
@@ -25,18 +25,15 @@ vars:
     pink:   ["#7a0052", "#a3006b", "#ff0099", "#ff4db3", "#ff80cc"]
 
   std:
-    fg: ((colors.white.2))
     fg.muted: ((std.fg))((alpha.8))
     fg.faint: ((std.fg))((alpha.6))
     fg.whisper: ((std.fg))((alpha.2))
     fg.inactive: ((colors.white.5))
     fg.inverse: ((std.bg))
-    bg: ((colors.black.1))
     bg.muted: ((std.bg))((alpha.4))
     bg.faint: ((std.bg))((alpha.3))
     bg.whisper: ((std.bg))((alpha.2))
     bg.inverse: ((std.fg))
-    glass: "#02060C"
     bg.glass: ((std.glass))((alpha.6))
     bg.glass.hover: ((std.glass))((alpha.7))
     bg.glass.dark: ((std.glass))((alpha.9))
@@ -50,18 +47,9 @@ vars:
     outline.muted: ((std.accent))((alpha.4))
     outline.faint: ((std.accent))((alpha.3))
     outline.whisper: ((std.accent))((alpha.2))
+    sash: ((std.outline))
     line: ((std.accent))((alpha.6))
     line.muted: ((std.accent))((alpha.4))
     shadow: ((std.accent))((alpha.4))
     transparent: ((std.bg))((alpha.1))
     test: "#ff0000ee"
-
-    # Debug/information colours
-    warn: ((colors.yellow.3))
-    warnInverse: ((colors.yellow.5))
-    error: ((colors.red.5))
-    errorInverse: ((colors.white.2))
-    success: ((colors.green.3))
-    successInverse: ((colors.white.2))
-    info: ((colors.purple.3))
-    infoInverse: ((colors.white.2))
