@@ -1,43 +1,64 @@
+import console from "node:console"
+import Colour from "./Colour.js"
 /**
  * Evaluator class for resolving variables and color tokens in theme objects.
  * Handles recursive substitution of token references in arrays of objects.
  */
 export default class Evaluator {
   /**
-   * Maximum number of iterations for resolving tokens to prevent infinite loops.
+   * Maximum number of iterations for resolving tokens to prevent infinite
+   * loops.
+   *
    * @type {number}
    */
   maxIterations = 10
 
   /**
-   * Regex to match token patterns like ((token.path)).
+   * Regex to extract token patterns like ((token.path)).
+   *
    * @type {RegExp}
    */
-  #match = /(\(\(.*?\)\))/g
-
-  /**
-   * Regex to extract the token path from a token string.
-   * @type {RegExp}
-   */
-  #extract = /\(\((.*)\)\)/
+  #token = new RegExp(
+    "(\\(\\("+
+        "("+
+          "(?<transform>~)"+                              // inverse
+          "|"+
+          "(?<transform>[+-])(?<token>[\\w\\.]+)"+        // lighten/darken+value
+          "|"+
+          "(?<transform>[\\^])(?<token>[+-]?[\\w\\.]+)"+  // increase transparency
+          "|"+
+          "(?<token>[\\w\\.]+)"+                          // ordinary token
+        ")"+
+      "\\)\\))",
+    "g")
 
   /**
    * Evaluates the theme by resolving variables and color tokens.
-   * @param {Object} params
-   * @param {Array<Object>} params.vars - Array of variable objects to resolve.
-   * @param {Array<Object>} params.theme - Array of theme objects to resolve.
-   * @returns {Array<Object>} The resolved theme array.
+   *
+   * @param {object} params - The source object to evaluate.
+   * @param {Array<object>} params.vars - Array of variable objects to resolve.
+   * @param {Array<object>} params.theme - Array of theme objects to resolve.
+   * @returns {Array<object>} The resolved theme array.
    */
-  evaluate({vars,theme}) {
-    this.#resolveVariables(vars)
-    this.resolveColors({theme,vars})
+  evaluate({vars: against,theme: evaluating}) {
+    this.#resolveVariables(against)
+    this.#applyTransformations(against)
 
-    return theme
+    // console.debug("vars", JSON.stringify(vars, null, 2))
+
+    console.debug("theme", JSON.stringify(evaluating))
+    this.#resolveColors({theme: evaluating,vars: against})
+    this.#applyTransformations(evaluating)
+
+    // console.debug("vars", vars, "theme", theme)
+
+    return evaluating
   }
 
   /**
    * Recursively resolves variable tokens in the provided array.
-   * @param {Array<Object>} vars - Array of variable objects to resolve.
+   *
+   * @param {Array<object>} vars - Array of variable objects to resolve.
    * @private
    */
   #resolveVariables(vars) {
@@ -45,42 +66,53 @@ export default class Evaluator {
 
     do this.#substitute(vars, this.#findAssoc(vars), [])
     while(it++ < this.maxIterations && this.#hasUnresolvedTokens(vars))
+
+    if(it === this.maxIterations)
+      console.warn("Too deep recursion looking for", JSON.stringify(this.#unresolvedTokens(vars)))
+
   }
 
   /**
    * Recursively resolves color tokens in the theme array using variables.
-   * @param {Object} params
-   * @param {Array<Object>} params.theme - Array of theme objects to resolve.
-   * @param {Array<Object>} params.vars - Array of variable objects for substitution.
+   *
+   * @param {object} params - The parameters object to resolve.
+   * @param {Array<object>} params.theme - Array of theme objects to resolve.
+   * @param {Array<object>} params.vars - Array of variable objects for substitution.
+   * @private
    */
-  resolveColors({theme,vars}) {
+  #resolveColors({theme,vars}) {
     let it = 0
 
     do this.#substitute(theme, this.#findAssoc(theme), vars)
     while(it++ < this.maxIterations && this.#hasUnresolvedTokens(theme))
+
+    if(it === this.maxIterations)
+      console.warn("Too deep recursion looking for", JSON.stringify(this.#unresolvedTokens(theme)))
   }
 
   /**
-   * Substitutes token references in the source array with their resolved values.
-   * @param {Array<Object>} source - Array of objects to perform substitution on.
+   * Substitutes token references in the source array with their resolved
+   * values.
+   *
+   * @param {Array<object>} source - Array of objects to perform substitution on.
    * @param {Array<Array>} assoc - Array of [item, matches] pairs from #findAssoc.
-   * @param {Array<Object>} vars - Array of variable objects for lookup.
+   * @param {Array<object>} vars - Array of variable objects for lookup.
    * @private
    */
   #substitute(source, assoc, vars) {
-    assoc.forEach(([, matches], index) => {
+    assoc.forEach(([_, matches], index) => {
       matches.forEach(match => {
-        const flatPath = match.match(this.#extract)
-
-        if(flatPath) {
+        const {fullMatch,token,transform} = match
+        if(token && !transform) {
           const target =
-            source.find(element => element.flatPath === flatPath[1]) ||
-            vars.find(element => element.flatPath === flatPath[1])
+            source.find(element => element.flatPath === token) ||
+            vars.find(element => element.flatPath === token)
 
           if(target) {
-            source[index].value = source[index].value.replace(match, target.value)
+            source[index].value =
+              source[index].value.replace(fullMatch, target.value)
           } else {
-            throw new Error(`Could not find resolution for '${flatPath[1]}'`)
+            throw new Error(`Unable to find resolution for '${token}'`)
           }
         }
       })
@@ -89,14 +121,15 @@ export default class Evaluator {
 
   /**
    * Returns an array of unresolved token objects from the input array.
-   * @param {Array<Object>} arr - Array to search for unresolved tokens.
-   * @returns {Array<Object>} Array of unresolved token objects.
+   *
+   * @param {Array<object>} arr - Array to search for unresolved tokens.
+   * @returns {Array<object>} Array of unresolved token objects.
    * @private
    */
   #unresolvedTokens(arr) {
     const unresolved = arr.filter(item => {
       return typeof item?.value === "string" &&
-             item?.value?.match(this.#match)
+             item?.value?.match(this.#token)
     })
 
     return unresolved
@@ -104,7 +137,8 @@ export default class Evaluator {
 
   /**
    * Checks if there are any unresolved tokens in the array.
-   * @param {Array<Object>} arr - Array to check for unresolved tokens.
+   *
+   * @param {Array<object>} arr - Array to check for unresolved tokens.
    * @returns {boolean} True if unresolved tokens exist, false otherwise.
    * @private
    */
@@ -114,7 +148,8 @@ export default class Evaluator {
 
   /**
    * Finds all items in the array with token references and their matches.
-   * @param {Array<Object>} arr - Array to search for token references.
+   *
+   * @param {Array<object>} arr - Array to search for token references.
    * @returns {Array<Array>} Array of [item, matches] pairs.
    * @private
    */
@@ -123,19 +158,122 @@ export default class Evaluator {
 
     // Array<Object<{path: Array<string>, key: string, value: string}>>
     arr.forEach(item => {
-      if(typeof item.value !== "string") {
-        result.push([item,[]])
-      } else {
-        const matches = item?.value?.match(this.#match)
-
+      if(typeof item.value === "string") {
+        const matches = this.#extractMatches(item.value)
+        // console.debug("matches", matches)
         if(matches) {
           result.push([item, matches])
         } else {
           result.push([item,[]])
         }
+      } else {
+        result.push([item,[]])
       }
     })
 
     return result
   }
+
+  #extractMatches(value) {
+    const matches = [...value.matchAll(this.#token)]
+
+    return matches.map(match => ({
+      transform: match.groups?.transform || "",
+      token: match.groups?.token || "",
+      fullMatch: match[0],
+      innerContent: match[1]
+    }))
+  }
+
+  #collectTransformations(...arrs) {
+    arrs.forEach(arr => {
+      const assoc = this.#findAssoc(arr)
+
+      // console.debug("arr", arr)
+      assoc.forEach(([curr, matches]) => {
+        matches.forEach(match => {
+          if(match.transform) {
+            if(!curr.transform) {
+              curr.transform = [match]
+            } else {
+              curr.transform.push(match)
+            }
+          }
+        })
+      })
+    })
+  }
+
+  #applyTransformations(...assocs) {
+    this.#collectTransformations(...assocs)
+
+    assocs.forEach(assoc => {
+      // console.debug(Array.isArray(assoc))
+      // console.debug("assoc", assoc)
+      // console.debug(assoc.length)
+
+      assoc.forEach((currAssoc, index, arr) => {
+        // console.debug("currAssoc", JSON.stringify(currAssoc))
+        // console.debug("transform", JSON.stringify(currAssoc.transform))
+        // console.debug(Array.isArray(currAssoc.transform))
+
+        if(!currAssoc.transform)
+          return
+
+        // Remove all traces from the value, first before we perform
+        // the transform.
+        arr[index].value = currAssoc.transform.reduce(
+          (_, {fullMatch,transform}) => {
+            if(!(typeof currAssoc.value === "string" && transform))
+              return currAssoc.value
+
+            // console.debug("Working on", JSON.stringify(currAssoc))
+
+            return currAssoc.value = currAssoc.value.replace(fullMatch, "").trim()
+          },
+          "")
+
+        // Perform the transform! YIPPEE KI YAY MFER!
+        arr[index].value = currAssoc.transform.reduce(
+          (_, {token,transform}) => {
+            if(!(typeof currAssoc.value === "string" && transform))
+              return currAssoc.value
+
+            // console.debug("current transform", JSON.stringify(currAssoc.value))
+            switch(transform) {
+              case "+": case "-": {
+                currAssoc.value = Colour.lightenOrDarken(
+                  currAssoc.value,
+                  parseInt(`${transform}${token}`)
+                )
+                break
+              }
+
+              case "^": {
+                currAssoc.value = Colour.addAlpha(
+                  currAssoc.value,
+                  parseInt(token)
+                )
+                break
+              }
+
+              case "~": {
+                currAssoc.value = Colour.invert(currAssoc.value)
+                break
+              }
+            }
+
+            return currAssoc.value
+          },
+          "")
+      })
+      // console.debug("done transform", assoc)
+    })
+  }
 }
+// transform {
+//   transform: '+',
+//   token: '25',
+//   fullMatch: '((+25))',
+//   innerContent: '((+25))'
+// }

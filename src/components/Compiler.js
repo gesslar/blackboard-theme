@@ -1,3 +1,4 @@
+import console from "node:console"
 import * as Data from "./DataUtil.js"
 import Evaluator from "./Evaluator.js"
 import * as File from "./File.js"
@@ -28,37 +29,37 @@ export default class Compiler {
     const imports = recomposedConfig.import ?? {}
     const imported = await this.#import(header, imports)
 
-    const mergedImport = {vars: {}, theme: {}}
-    const importedGlobal = imported.global
-    if(importedGlobal)
-      Object.assign(mergedImport, importedGlobal)
-
-    // Now the theme
-    const importedColors = imported.colors
-    const importedTokenColors = imported.tokenColors
-
-    mergedImport.theme = Data.mergeObject(
-      mergedImport.theme,
-      importedColors ?? {},
-      importedTokenColors ?? {}
-    )
-
-    const base = {vars: {}, theme: {}}
     const sourceObj = {}
     if(sourceVars && Object.keys(sourceVars).length > 0)
       sourceObj.vars = sourceVars
+
     if(sourceTheme && Object.keys(sourceTheme).length > 0)
       sourceObj.theme = sourceTheme
 
-    const merged = Data.mergeObject(base, mergedImport, sourceObj)
+    const merged = Data.mergeObject({},
+      imported.global,
+      imported.colors,
+      imported.tokenColors,
+      sourceObj
+    )
+
     const decomposedVars = this.#decomposeObject(merged.vars)
 
+    // console.debug("merged", JSON.stringify(merged, null, 2))
+
     const decomposedColors = this.#decomposeObject(merged.theme.colors)
-    const evaluatedColors = evaluate({vars: decomposedVars, theme: decomposedColors})
+    const evaluatedColors = evaluate({
+      vars: decomposedVars, theme: decomposedColors
+    })
     const colors = evaluatedColors.reduce((a, c) => this.#reducer(a, c), {})
 
-    const decomposedtokenColors = this.#decomposeObject(merged.theme.tokenColors)
-    const evaluatedTokenColors = evaluate({vars: decomposedVars, theme: decomposedtokenColors})
+    const decomposedtokenColors = this.#decomposeObject(
+      merged.theme.tokenColors
+    )
+    const evaluatedTokenColors = evaluate({
+      vars: decomposedVars, theme: decomposedtokenColors
+    })
+    // console.debug(JSON.stringify(evaluatedTokenColors))
     const tokenColors = this.#composeArray(evaluatedTokenColors)
     const theme = {colors,tokenColors}
     const result = Data.mergeObject({},header,sourceConfig.custom ?? {},theme)
@@ -76,7 +77,9 @@ export default class Compiler {
     const result = {}
 
     for(const [sectionName,section] of Object.entries(imports)) {
-      const inner = {}
+      let inner = {}
+
+      console.debug("Importing", JSON.stringify(sectionName, null, 2))
 
       for(let [key,toImport] of Object.entries(section)) {
         if(!toImport)
@@ -94,25 +97,38 @@ export default class Compiler {
           const subbing = this.#decomposeObject({path: target})
           const subbingWith = this.#decomposeObject(header)
 
-          return this.#evaluator.evaluate({theme: subbing, vars: subbingWith})[0]
+          return this.#evaluator.evaluate({
+            theme: subbing, vars: subbingWith
+          })[0]
         })
 
+        // console.debug("Resolved", JSON.stringify(resolved, null, 2))
 
-        const files = await Promise.all(resolved.map(f => File.resolveFilename(f.value)))
+        const files = await Promise.all(resolved.map(f =>
+          File.resolveFilename(f.value)
+        ))
+
+        // console.debug("Files", JSON.stringify(resolved, null, 2))
+
         const datas = await Promise.all(files.map(f => File.loadDataFile(f)))
         const imported = Data.mergeObject({}, ...datas)
 
-        Object.assign(inner, imported)
+        inner = Data.mergeObject(inner, imported)
+
+        // console.debug("Inner", JSON.stringify(inner, null, 2))
+
+        // Object.assign(inner, imported)
       }
 
       result[sectionName] = inner
     }
 
+    // console.debug("Result", JSON.stringify(result, null, 2))
+
     return result
   }
 
   #decomposeObject(work, path = []) {
-    const cb = this.#decomposer
     const isObject = this.#isObject
 
     const result = []
@@ -124,16 +140,7 @@ export default class Compiler {
       if(isObject(item)) {
         result.push(...this.#decomposeObject(work[key], currPath))
       } else if(Array.isArray(work[key])) {
-        item.forEach((item, index, arr) => {
-          let curr
-
-          if(typeof item === "object" && item !== null) {
-            // console.info("Calling decomposeObject [2]")
-            curr = this.#decomposeObject(item, currPath)
-          } else {
-            curr = arr[index]
-          }
-
+        item.forEach((item, index) => {
           const path = [...currPath, String(index+1)]
           result.push({
             key,
@@ -190,7 +197,7 @@ export default class Compiler {
 
   #composeArray(decomposed) {
 
-    const sections = decomposed.reduce((acc,curr,index,arr) => {
+    const sections = decomposed.reduce((acc,curr) => {
       if(!acc.includes(curr.path[0]))
         acc.push(curr.path[0])
 
@@ -198,7 +205,7 @@ export default class Compiler {
     }, [])
     const sorted = sections.sort((a,b) => parseInt(a) - parseInt(b))
 
-    return sorted.map((curr,index,arr) => {
+    return sorted.map(curr => {
       const section = decomposed
         .filter(c => c.path[0] === curr)
         .map(c => {
@@ -214,8 +221,6 @@ export default class Compiler {
       return this.#composeObject(section)
     })
   }
-
-  #decomposer = ({path,value}) => {path,value}
 
   #isObject(value) {
     return typeof value === "object" &&

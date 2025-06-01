@@ -1,55 +1,55 @@
 # Variables for later substitution
 vars:
-  #            1     2     3     4     5    6      7     8    9     10
-  alpha:
-            ["00", "11", "22", "44", "66", "88", "aa", "cc", "ee", "ff"]
-
   colors:
-    #Main        1          2          3          4          5
-    black:  ["#0f0f0f", "#181818", "#2b2b2b", "#353535", "#3f3f3f"]
-    white:  ["#f9f9f9", "#f0f0f0", "#e6e6e6", "#dcdcdc", "#d2d2d2"]
-
-    # Electric blue family - chalky but vibrant
-    blue:   ["#003d5c", "#006b8a", "#0099ff", "#4db3ff", "#80ccff"]
-    # Warm red family - softer than pure red
-    red:    ["#7a1a1a", "#a32626", "#ff0033", "#ff4d66", "#ff8099"]
-    # Golden yellow family - avoiding harsh yellows
-    yellow: ["#664d00", "#997300", "#cc9900", "#e6b333", "#f2cc66"]
-    # Vibrant orange family - warm but not burning
-    orange: ["#b34700", "#e05500", "#ff6600", "#ff8533", "#ffa366"]
-    # Forest green family - earthy but readable
-    green:  ["#004d26", "#006633", "#009900", "#4db34d", "#80cc80"]
-    # Rich purple family - deep but not muddy
-    purple: ["#330066", "#4d0099", "#6600ff", "#8533ff", "#a366ff"]
-    # Hot pink family - punchy but not neon
-    pink:   ["#7a0052", "#a3006b", "#ff0099", "#ff4db3", "#ff80cc"]
+    black: "#0e0e0e"
+    white: "#e0e0e0"
+    blue: "#0099ff"
+    red: "#d8002b"
+    yellow: "#cc9900"
+    orange: "#ff6600"
+    green: "#009900"
+    purple: "#6600ff"
+    pink: "#ff0099"
 
   std:
-    fg.muted: ((std.fg))((alpha.8))
-    fg.faint: ((std.fg))((alpha.6))
-    fg.whisper: ((std.fg))((alpha.2))
-    fg.inactive: ((colors.white.5))
-    fg.inverse: ((std.bg))
-    bg.muted: ((std.bg))((alpha.4))
-    bg.faint: ((std.bg))((alpha.3))
-    bg.whisper: ((std.bg))((alpha.2))
-    bg.inverse: ((std.fg))
-    bg.glass: ((std.glass))((alpha.6))
-    bg.glass.hover: ((std.glass))((alpha.7))
-    bg.glass.dark: ((std.glass))((alpha.9))
-    bg.glass.dark.hover: ((std.glass))((alpha.10))
-    accent.muted: ((std.accent))((alpha.4))
-    accent.faint: ((std.accent))((alpha.3))
-    accent.whisper: ((std.accent))((alpha.2))
-    outline: ((std.accent))((alpha.3))
-    outline.louder: ((std.accent))((alpha.8))
-    outline.loud: ((std.accent))((alpha.6))
-    outline.muted: ((std.accent))((alpha.4))
-    outline.faint: ((std.accent))((alpha.3))
-    outline.whisper: ((std.accent))((alpha.2))
+    fg.dark: ((std.fg))((-25))
+    fg.darker: ((std.fg.dark))((-25))
+    fg.darkest: ((std.fg.darker))((-25))
+    fg.inverse: ((std.fg))((~))
+    fg.debug: ((std.warnInverse))
+
+    bg.light: ((std.bg))((+25))
+    bg.lighter: ((std.bg.light))((+25))
+    bg.lightest: ((std.bg.lighter))((+25))
+    bg.inverse: ((std.bg))((~))
+    bg.debug: ((std.warn))((^50))
+
+    bg.glass: ((std.glass))((-75))
+    bg.glass.hover: ((std.bg.glass))((+50))
+    bg.glass.dark: ((std.bg.glass))((-25))
+    bg.glass.dark.hover: ((std.bg.glass.dark))((+50))
+
+    accent.light: ((std.accent))((+25))
+    accent.lighter: ((std.accent.light))((+25))
+    accent.lightest: ((std.accent.lighter))((+25))
+    accent.dark: ((std.accent))((-25))
+    accent.darker: ((std.accent.dark))((-25))
+    accent.darkest: ((std.accent.darker))((-25))
+
+    outline: ((std.accent))((-50))
+    outline.loud: ((std.outline))((+25))
+    outline.louder: ((std.outline.loud))((+25))
+    outline.muted: ((std.outline))((-25))
+    outline.faint: ((std.accent.dark))((-25))
+    outline.whisper: ((std.accent.darker))((-25))
+    outline.debug: ((std.warn))((-10))
+
     sash: ((std.outline))
-    line: ((std.accent))((alpha.6))
-    line.muted: ((std.accent))((alpha.4))
-    shadow: ((std.accent))((alpha.4))
-    transparent: ((std.bg))((alpha.1))
+
+    line: ((std.accent))((-25))
+    line.muted: ((std.line))((-25))
+    line.faint: ((std.line.muted))((-25))
+
+    shadow: ((std.accent))((^15))
+    transparent: ((std.bg))((^100))
     test: "#ff0000ee"

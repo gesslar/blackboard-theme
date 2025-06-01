@@ -1,4 +1,6 @@
 import {globby} from "globby"
+import console from "node:console"
+import process from "node:process"
 
 import * as fd from "./components/File.js"
 import Compiler from "./components/Compiler.js"
@@ -21,7 +23,7 @@ try {
     const output = `${JSON.stringify(theme,null,2)}\n`
     fd.writeFile(file, output)
   }))
-} catch (err) {
+} catch(err) {
   console.error(err)
   process.exit(1)
 }

@@ -18,31 +18,87 @@ vars:
 
   colors:
     #Main
-    black:  ["#0e0e0e", "#181818", "#2b2b2b", "#353535", "#3f3f3f"]
-    white:  ["#f9f9f9", "#f0f0f0", "#e6e6e6", "#dcdcdc", "#d2d2d2"]
+    black:
+      [
+        "#0e0e0e",
+        ((colors.black.1))((+10)),
+        ((colors.black.2))((+10)),
+        ((colors.black.3))((+10)),
+        ((colors.black.4))((+10)),
+      ]
+    white:
+      [
+        "#f9f9f9",
+        ((colors.white.1))((-10)),
+        ((colors.white.2))((-10)),
+        ((colors.white.3))((-10)),
+        ((colors.white.4))((-10)),
+      ]
 
     # Electric blue family - chalky but vibrant
-    blue:   ["#003d5c", "#006b8a", "#0099FF", "#4db3ff", "#80ccff"]
+    blue: [
+      ((colors.blue.2))((-10)),
+      ((colors.blue.3))((-10)),
+      "#0099ff",
+      ((colors.blue.3))((+10)),
+      ((colors.blue.4))((+10)),
+    ]
     # Warm red family - softer than pure red
-    red:    ["#7a1a1a", "#a32626", "#FF0033", "#ff4d66", "#ff8099"]
+    red: [
+        ((colors.red.2))((-10)),
+        ((colors.red.3))((-10)),
+        "#ff0033",
+        ((colors.red.3))((+10)),
+        ((colors.red.4))((+10)),
+    ]
     # Golden yellow family - avoiding harsh yellows
-    yellow: ["#664d00", "#997300", "#CC9900", "#e6b333", "#f2cc66"]
+    yellow: [
+        ((colors.yellow.2))((-10)),
+        ((colors.yellow.3))((-10)),
+        "#cc9900",
+        ((colors.yellow.3))((+10)),
+        ((colors.yellow.4))((+10)),
+    ]
     # Vibrant orange family - warm but not burning
-    orange: ["#b34700", "#e05500", "#FF6600", "#ff8533", "#ffa366"]
+    orange: [
+      ((colors.orange.2))((-10)),
+      ((colors.orange.3))((-10)),
+      "#ff6600",
+      ((colors.orange.3))((+10)),
+      ((colors.orange.4))((+10)),
+    ]
     # Forest green family - earthy but readable
-    green:  ["#004d26", "#006633", "#009900", "#4db34d", "#80cc80"]
+    green: [
+        ((colors.green.2))((-10)),
+        ((colors.green.3))((-10)),
+        "#009900",
+        ((colors.green.3))((+10)),
+        ((colors.green.4))((+10)),
+    ]
     # Rich purple family - deep but not muddy
-    purple: ["#330066", "#4d0099", "#6600FF", "#8533ff", "#a366ff"]
+    purple: [
+        ((colors.purple.2))((-10)),
+        ((colors.purple.3))((-10)),
+        "#6600ff",
+        ((colors.purple.3))((+10)),
+        ((colors.purple.4))((+10)),
+    ]
     # Hot pink family - punchy but not neon
-    pink:   ["#7a0052", "#a3006b", "#FF0099", "#ff4db3", "#ff80cc"]
+    pink: [
+        ((colors.pink.2))((-10)),
+        ((colors.pink.3))((-10)),
+        "#ff0099",
+        ((colors.pink.3))((+10)),
+        ((colors.pink.4))((+10)),
+    ]
 
   std:
     fg: ((colors.white.2))
-    fgInverse: ((std.bg))
+    fgInverse: ((std.fg))((~))
     bg: ((colors.black.1))
-    bgInverse: ((std.fg))
+    bgInverse: ((std.bg))((~))
     bgGlass: ((std.bg))dd
-    accent: ((colors.pink.4))
+    accent: ((colors.purple.3))
     seam: ((std.accent))((alpha.5))
     seamMuted: ((std.accent))((alpha.4))
     seamFaint: ((std.accent))((alpha.3))
@@ -113,7 +169,7 @@ theme:
     menubar:
       selectionForeground: ((std.fg))
       selectionBackground: ((std.seamMuted))
-      selectionBorder:  ((std.seam))
+      selectionBorder: ((std.seam))
 
     # Menu (Dropdowns themselves)
     menu:
@@ -178,7 +234,7 @@ theme:
       activeBorder: ((activityBar.activeBorder))
       dropBorder: ((activityBar.dropBorder))
 
-  # working on this one
+    # working on this one
     # Lists and trees
     list:
       activeSelectionBackground: ((std.accent))((alpha.4))
@@ -369,7 +425,7 @@ theme:
 
     # Panel Section Headers
     panelSectionHeader:
-      background: ((panel.background))  # slightly elevated
+      background: ((panel.background)) # slightly elevated
       foreground: ((std.fg))
       border: ((std.seamFaint))
 
@@ -383,7 +439,7 @@ theme:
       border: ((std.accent))((alpha.7))
 
     # Panel Sticky Scroll
-    panelStickyScroll:          # TODO: come back to this
+    panelStickyScroll: # TODO: come back to this
       background: ((std.test))
       border: ((std.test))
       shadow: ((std.test))
@@ -397,14 +453,14 @@ theme:
 
     # Side bar
     sideBar:
-      background: ((editor.background))  # slightly different from main bg
-      foreground: ((std.fg))((alpha.9))  # dimmer than main text
+      background: ((editor.background)) # slightly different from main bg
+      foreground: ((std.fg))((alpha.9)) # dimmer than main text
       border: ((std.seamFaint))
       dropBackground: ((std.accent))((alpha.5))
 
     # Sidebar title
     sideBarTitle:
-      foreground: ((std.fg))((alpha.7))  # even dimmer for titles
+      foreground: ((std.fg))((alpha.7)) # even dimmer for titles
 
     # Sidebar section headers
     sideBarSectionHeader:
@@ -414,14 +470,14 @@ theme:
 
     # Line Numbers
     editorLineNumber:
-      foreground: ((std.accent))((alpha.6))  # subtle line numbers
-      activeForeground: ((std.accent))((alpha.9))  # highlight current line
-      dimmedForeground: ((std.accent))((alpha.5))  # barely visible final line
+      foreground: ((std.accent))((alpha.6)) # subtle line numbers
+      activeForeground: ((std.accent))((alpha.9)) # highlight current line
+      dimmedForeground: ((std.accent))((alpha.5)) # barely visible final line
 
     # Cursor
     editorCursor:
-      foreground: ((std.accent))((alpha.7))  # visible but not screaming
-      background: ((editor.background))  # block cursor background
+      foreground: ((std.accent))((alpha.7)) # visible but not screaming
+      background: ((editor.background)) # block cursor background
 
     # Multi-cursor
     editorMultiCursor:
@@ -429,7 +485,7 @@ theme:
         foreground: ((editorCursor.foreground))
         background: ((editorCursor.background))
       secondary:
-        foreground: ((std.accent))((alpha.7))  # slightly dimmer
+        foreground: ((std.accent))((alpha.7)) # slightly dimmer
         background: ((editorCursor.background))
 
     # Editor colors
@@ -478,7 +534,7 @@ theme:
       findRangeHighlightBorder: ((std.accent))((alpha.3))
 
       # Line Highlighting
-      lineHighlightBackground: ((std.accent))((alpha.3))  # #ffffff05 - very faint
+      lineHighlightBackground: ((std.accent))((alpha.3)) # #ffffff05 - very faint
       lineHighlightBorder: ((std.seamFaint))
 
       # Hover/Symbol Highlighting
@@ -499,14 +555,14 @@ theme:
       focusedStackFrameHighlightBackground: ((std.error))((alpha.3))
 
       # Inline Values (debug hover values)
-      inlineValuesBackground: ((colors.blue.1))  # TODO: #0D4699 - verify match
+      inlineValuesBackground: ((colors.blue.1)) # TODO: #0D4699 - verify match
       inlineValuesForeground: ((std.fg))
 
       # Snippets
       snippetTabstopHighlightBackground: ((std.accent))((alpha.2))
       snippetTabstopHighlightBorder: ((std.accent))((alpha.4))
-      snippetFinalTabstopHighlightBackground: ((colors.blue.4))((alpha.3))  # TODO: #87c7c7 + 22
-      snippetFinalTabstopHighlightBorder: ((colors.blue.4))((alpha.5))     # TODO: #87c7c7 + 55
+      snippetFinalTabstopHighlightBackground: ((colors.blue.4))((alpha.3)) # TODO: #87c7c7 + 22
+      snippetFinalTabstopHighlightBorder: ((colors.blue.4))((alpha.5)) # TODO: #87c7c7 + 55
 
     # Scrollbar control
     scrollbar:
@@ -592,7 +648,7 @@ theme:
       inactiveForeground: ((std.fg))((alpha.7))
       inactiveHoverBackground: ((std.accent))((alpha.5))
 
-  # Profiles
+    # Profiles
     profileBadge:
       background: ((std.accent))
       foreground: ((std.fgInverse))
@@ -619,13 +675,13 @@ theme:
 
     # Indent Guides
     editorIndentGuide:
-      background1: ((colors.blue.1))((alpha.1))  # Very faint blue guides
+      background1: ((colors.blue.1))((alpha.1)) # Very faint blue guides
       background2: ((colors.blue.1))((alpha.2))
       background3: ((colors.blue.1))((alpha.3))
       background4: ((colors.blue.1))((alpha.4))
       background5: ((colors.blue.1))((alpha.5))
       background6: ((colors.blue.1))((alpha.6))
-      activeBackground1: ((std.accent))((alpha.5))  # All active guides same color
+      activeBackground1: ((std.accent))((alpha.5)) # All active guides same color
       activeBackground2: ((std.accent))((alpha.5))
       activeBackground3: ((std.accent))((alpha.5))
       activeBackground4: ((std.accent))((alpha.5))
@@ -639,14 +695,14 @@ theme:
 
     # Bracket Pair Colorization
     editorBracketHighlight:
-      foreground1: ((colors.blue.4))((alpha.9))  # dd rounds to e
+      foreground1: ((colors.blue.4))((alpha.9)) # dd rounds to e
       foreground2: ((colors.yellow.2))((alpha.9))
       foreground3: ((colors.green.3))((alpha.9))
-      foreground4: ((colors.purple.3))((alpha.9))  # colors.purple.3 exists = #a700a7
+      foreground4: ((colors.purple.3))((alpha.9)) # colors.purple.3 exists = #a700a7
       foreground5: ((std.accent))((alpha.9))
       foreground6: ((std.error))((alpha.9))
       unexpectedBracket:
-        foreground: ((colors.pink.1))  # #ff0077 from JSON
+        foreground: ((colors.pink.1)) # #ff0077 from JSON
 
     editorBracketPairGuide:
       background1: ((colors.blue.1))((alpha.1))
@@ -667,35 +723,35 @@ theme:
       background: ((std.bgGlass))
       border: ((std.seamFaint))
       # Find/Selection highlights
-      findMatchForeground: ((colors.green.2))((alpha.6))  # #beff0c66 approximated
+      findMatchForeground: ((colors.green.2))((alpha.6)) # #beff0c66 approximated
       rangeHighlightForeground: ((colors.blue.4))((alpha.7))
       selectionHighlightForeground: ((colors.blue.4))((alpha.7))
       # Word highlights
-      wordHighlightForeground: ((colors.blue.4))((alpha.6))  # read access
-      wordHighlightStrongForeground: ((std.error))((alpha.6))  # write access
-      wordHighlightTextForeground: ((std.warn))((alpha.6))  # generic text match
+      wordHighlightForeground: ((colors.blue.4))((alpha.6)) # read access
+      wordHighlightStrongForeground: ((std.error))((alpha.6)) # write access
+      wordHighlightTextForeground: ((std.warn))((alpha.6)) # generic text match
       # Git/SCM modifications
-      modifiedForeground: ((colors.yellow.3))((alpha.7))  # #d7c787aa
-      addedForeground: ((colors.green.4))  # #87b087
-      deletedForeground: ((std.error))  # #cc5c5c
+      modifiedForeground: ((colors.yellow.3))((alpha.7)) # #d7c787aa
+      addedForeground: ((colors.green.4)) # #87b087
+      deletedForeground: ((std.error)) # #cc5c5c
       # Diagnostics
       errorForeground: ((std.error))
       warningForeground: ((std.warn))
-      infoForeground: ((colors.blue.5))  # #88aacc approximated
+      infoForeground: ((colors.blue.5)) # #88aacc approximated
       # Bracket matching
       bracketMatchForeground: ((std.accent))
       # Inline chat (AI content)
       inlineChatInserted: ((colors.green.4))
       inlineChatRemoved: ((std.error))
-      currentContentForeground: ((colors.blue.4))  # #87C7C7
-      incomingContentForeground: ((colors.purple.2))  # #8787D7
-      commonContentForeground: ((colors.yellow.4))  # #D7AF87 - need colors.yellow.4
+      currentContentForeground: ((colors.blue.4)) # #87C7C7
+      incomingContentForeground: ((colors.purple.2)) # #8787D7
+      commonContentForeground: ((colors.yellow.4)) # #D7AF87 - need colors.yellow.4
 
     # TODO: Fix to use std status colours
     # Error/Warning/Info decorations in editor
     editorError:
       foreground: ((std.error))
-      border: ((std.error))((alpha.6))  # 99 rounds to 88 = alpha.6
+      border: ((std.error))((alpha.6)) # 99 rounds to 88 = alpha.6
       background: ((std.error))((alpha.3))
 
     editorWarning:
@@ -704,7 +760,7 @@ theme:
       background: ((std.warn))((alpha.3))
 
     editorInfo:
-      foreground: ((colors.blue.5))  # #88aacc
+      foreground: ((colors.blue.5)) # #88aacc
       border: ((colors.blue.5))((alpha.6))
       background: ((colors.blue.5))((alpha.3))
 
@@ -725,78 +781,78 @@ theme:
     editorGutter:
       background: ((std.bg))
       # Git modification indicators
-      modifiedBackground: ((colors.yellow.3))((alpha.6))        # #d7c787 + 88
+      modifiedBackground: ((colors.yellow.3))((alpha.6)) # #d7c787 + 88
       modifiedSecondaryBackground: ((colors.yellow.2))((alpha.6)) # #c9b27c + 88
-      addedBackground: ((colors.green.4))((alpha.6))            # #87b087 + 88
-      addedSecondaryBackground: ((std.success))((alpha.6))      # #a3c4a3 + 88
-      deletedBackground: ((std.error))                          # #cc5c5c (solid)
-      deletedSecondaryBackground: ((colors.red.3))              # #b66c6c - TODO: need to check colors.red array
+      addedBackground: ((colors.green.4))((alpha.6)) # #87b087 + 88
+      addedSecondaryBackground: ((std.success))((alpha.6)) # #a3c4a3 + 88
+      deletedBackground: ((std.error)) # #cc5c5c (solid)
+      deletedSecondaryBackground: ((colors.red.3)) # #b66c6c - TODO: need to check colors.red array
       # Comment indicators
-      commentRangeForeground: ((std.fg))((alpha.7))             # #e1e1e1 + aa
-      commentGlyphForeground: ((std.success))                   # #a3c4a3
-      commentUnresolvedGlyphForeground: ((std.warn))            # #e5bf72
+      commentRangeForeground: ((std.fg))((alpha.7)) # #e1e1e1 + aa
+      commentGlyphForeground: ((std.success)) # #a3c4a3
+      commentUnresolvedGlyphForeground: ((std.warn)) # #e5bf72
       # UI controls
-      foldingControlForeground: ((std.accent))                  # #4b8ebd
+      foldingControlForeground: ((std.accent)) # #4b8ebd
       # Generic item indicators
-      itemGlyphForeground: ((std.accent))((alpha.8))            # #b0e9ff + cc - TODO: need to verify this color
-      itemBackground: ((colors.blue.1))((alpha.2))             # #2e5673 + 11 - TODO: need to verify this matches
+      itemGlyphForeground: ((std.accent))((alpha.8)) # #b0e9ff + cc - TODO: need to verify this color
+      itemBackground: ((colors.blue.1))((alpha.2)) # #2e5673 + 11 - TODO: need to verify this matches
 
-  # Editor Comments Widget
+    # Editor Comments Widget
     editorCommentsWidget:
       resolvedBorder: ((std.success))((alpha.5))
       unresolvedBorder: ((std.warn))((alpha.5))
-      rangeBackground: ((colors.blue.1))((alpha.2))  # TODO: #2e5673 + 11
+      rangeBackground: ((colors.blue.1))((alpha.2)) # TODO: #2e5673 + 11
       rangeActiveBackground: ((std.accent))((alpha.3))
-      replyInputBackground: ((input.background))  # Reuse input styling
+      replyInputBackground: ((input.background)) # Reuse input styling
 
     # Inline Edit (AI suggestions, etc.)
     inlineEdit:
       gutterIndicator:
         primaryBorder: ((std.accent))
-        primaryForeground: ((std.accent))  # TODO:  #b0e9ff - need to check this color
+        primaryForeground: ((std.accent)) # TODO:  #b0e9ff - need to check this color
         primaryBackground: ((colors.blue.1))((alpha.3))
         secondaryBorder: ((std.success))
-        secondaryForeground: ((colors.yellow.2))  # TODO: #c9b27c
+        secondaryForeground: ((colors.yellow.2)) # TODO: #c9b27c
         secondaryBackground: ((colors.blue.1))((alpha.2))
-        successfulBorder: ((colors.green.4))  # TODO: #87b087
+        successfulBorder: ((colors.green.4)) # TODO: #87b087
         successfulForeground: ((std.success))
-        successfulBackground: ((colors.blue.1))((alpha.3))  # TODO: #2e5673 + 22
+        successfulBackground: ((colors.blue.1))((alpha.3)) # TODO: #2e5673 + 22
         background: ((std.bg))
 
       originalBackground: ((std.accent))((alpha.3))
-      modifiedBackground: ((std.accent))((alpha.3))  # TODO: #b0e9ff - different shade?
+      modifiedBackground: ((std.accent))((alpha.3)) # TODO: #b0e9ff - different shade?
       originalChangedLineBackground: ((std.accent))((alpha.4))
       originalChangedTextBackground: ((colors.blue.1))((alpha.3))
       modifiedChangedLineBackground: ((std.accent))((alpha.3))
-      modifiedChangedTextBackground: ((std.accent))((alpha.4))  # TODO: #b0e9ff + 44
+      modifiedChangedTextBackground: ((std.accent))((alpha.4)) # TODO: #b0e9ff + 44
       originalBorder: ((std.accent))
-      modifiedBorder: ((std.accent))  # TODO: #b0e9ff - different from std.accent?
+      modifiedBorder: ((std.accent)) # TODO: #b0e9ff - different from std.accent?
       tabWillAcceptModifiedBorder: ((colors.green.4))
       tabWillAcceptOriginalBorder: ((std.success))
 
-  # Diff Editor
+    # Diff Editor
     diffEditor:
-      insertedTextBackground: ((colors.green.4))((alpha.3))  # TODO: #87b087 + 22
-      insertedTextBorder: ((colors.green.4))((alpha.5))      # TODO: #87b087 + 55
+      insertedTextBackground: ((colors.green.4))((alpha.3)) # TODO: #87b087 + 22
+      insertedTextBorder: ((colors.green.4))((alpha.5)) # TODO: #87b087 + 55
       removedTextBackground: ((std.error))((alpha.3))
       removedTextBorder: ((std.error))((alpha.5))
-      insertedLineBackground: ((colors.green.4))((alpha.2))  # TODO: #87b087 + 11
+      insertedLineBackground: ((colors.green.4))((alpha.2)) # TODO: #87b087 + 11
       removedLineBackground: ((std.error))((alpha.2))
 
     diffEditorGutter:
-      insertedLineBackground: ((colors.green.4))((alpha.3))  # TODO: #87b087 + 33
+      insertedLineBackground: ((colors.green.4))((alpha.3)) # TODO: #87b087 + 33
       removedLineBackground: ((std.error))((alpha.3))
 
     diffEditorOverview:
-      insertedForeground: ((colors.green.4))((alpha.6))      # TODO: #87b087 + 88
+      insertedForeground: ((colors.green.4))((alpha.6)) # TODO: #87b087 + 88
       removedForeground: ((std.error))((alpha.6))
 
     # Inline Chat (AI assistant features)
     inlineChat:
-      background: ((panel.background))  # TODO: #1f1f1f - verify panel.background matches
+      background: ((panel.background)) # TODO: #1f1f1f - verify panel.background matches
       foreground: ((std.fg))
       border: ((std.accent))((alpha.4))
-      shadow: ((std.shadow))  # TODO: #00000033 - verify std.shadow matches
+      shadow: ((std.shadow)) # TODO: #00000033 - verify std.shadow matches
 
     inlineChatInput:
       background: ((input.background))
@@ -805,18 +861,18 @@ theme:
       placeholderForeground: ((std.fg))((alpha.5))
 
     inlineChatDiff:
-      inserted: ((colors.green.4))((alpha.3))  # TODO: #87b087 + 22
+      inserted: ((colors.green.4))((alpha.3)) # TODO: #87b087 + 22
       removed: ((std.error))((alpha.3))
 
     # Interactive Code Cell Borders
     interactive:
-      activeCodeBorder: ((std.accent))((alpha.5))   # TODO: #4b8ebd + 66
+      activeCodeBorder: ((std.accent))((alpha.5)) # TODO: #4b8ebd + 66
       inactiveCodeBorder: ((std.seamFaint))
 
     # Editor Widget (Find/Replace, Peek input, etc.)
     editorWidget:
       foreground: ((std.fg))
-      background: ((panel.background))  # TODO: #1f1f1f - verify match
+      background: ((panel.background)) # TODO: #1f1f1f - verify match
       border: ((std.seamFaint))
       resizeBorder: ((std.accent))((alpha.6))
 
@@ -824,100 +880,100 @@ theme:
     editorSuggestWidget:
       background: ((panel.background))
       border: ((std.seamFaint))
-      foreground: ((sideBar.foreground))  # TODO: #d1d1d1 - verify match
-      focusHighlightForeground: ((std.accent))  # TODO: #b0e9ff - verify color
-      highlightForeground: ((std.accent))  # TODO: #b0e9ff - verify color
+      foreground: ((sideBar.foreground)) # TODO: #d1d1d1 - verify match
+      focusHighlightForeground: ((std.accent)) # TODO: #b0e9ff - verify color
+      highlightForeground: ((std.accent)) # TODO: #b0e9ff - verify color
       selectedBackground: ((list.activeSelectionBackground))
       selectedForeground: ((std.fg))
-      selectedIconForeground: ((std.accent))  # TODO: #b0e9ff - verify color
+      selectedIconForeground: ((std.accent)) # TODO: #b0e9ff - verify color
 
     editorSuggestWidgetStatus:
-      foreground: ((list.deemphasizedForeground))  # TODO: #808080aa - verify match
+      foreground: ((list.deemphasizedForeground)) # TODO: #808080aa - verify match
 
     # Editor Hover Widget
     editorHoverWidget:
       foreground: ((std.fg))
       background: ((panel.background))
       border: ((std.seamFaint))
-      highlightForeground: ((std.accent))  # TODO: #b0e9ff - verify color
+      highlightForeground: ((std.accent)) # TODO: #b0e9ff - verify color
       statusBarBackground: ((input.background))
 
     # Ghost Text (Inline Suggest/Preview)
     editorGhostText:
-      foreground: ((std.fg))((alpha.4))  # TODO: #e1e1e144 - verify alpha
+      foreground: ((std.fg))((alpha.4)) # TODO: #e1e1e144 - verify alpha
       background: ((std.transparent))
       border: ((std.seamFaint))
 
     # Sticky Scroll
     editorStickyScroll:
-      background: ((editorGroup.emptyBackground))((alpha.7))  # TODO: #0a0a0a77 - verify match
+      background: ((editorGroup.emptyBackground))((alpha.7)) # TODO: #0a0a0a77 - verify match
       border: ((std.accent))((alpha.4))
-      shadow: ((std.seamWhisper))  # TODO: #4b8ebd11 - verify match
+      shadow: ((std.seamWhisper)) # TODO: #4b8ebd11 - verify match
 
     editorStickyScrollHover:
-      background: ((editorGroup.emptyBackground))  # TODO: #0a0a0aff - verify match
+      background: ((editorGroup.emptyBackground)) # TODO: #0a0a0aff - verify match
 
     # Debug Exception Widget
     debugExceptionWidget:
       background: ((panel.background))
-      border: ((std.error))((alpha.7))  # TODO: #cc5c5caa - verify alpha
+      border: ((std.error))((alpha.7)) # TODO: #cc5c5caa - verify alpha
 
     # Marker Navigation (error/warning navigation)
     editorMarkerNavigation:
       background: ((std.bg))
 
     editorMarkerNavigationError:
-      background: ((std.error))((alpha.7))  # TODO: #cc5c5caa - verify alpha
+      background: ((std.error))((alpha.7)) # TODO: #cc5c5caa - verify alpha
       headerBackground: ((std.error))((alpha.4))
 
     editorMarkerNavigationWarning:
-      background: ((std.warn))((alpha.7))  # TODO: #e5bf72aa - verify alpha
+      background: ((std.warn))((alpha.7)) # TODO: #e5bf72aa - verify alpha
       headerBackground: ((std.warn))((alpha.4))
 
     editorMarkerNavigationInfo:
-      background: ((std.info))((alpha.7))  # TODO: #88aaccaa - verify alpha and std.info color
-      headerBackground: ((std.info))((alpha.4))  # TODO: verify std.info exists
+      background: ((std.info))((alpha.7)) # TODO: #88aaccaa - verify alpha and std.info color
+      headerBackground: ((std.info))((alpha.4)) # TODO: verify std.info exists
 
     # Peek View (Go to Definition, Find References, etc.)
     peekView:
       border: ((std.accent))((alpha.6))
 
     peekViewTitle:
-      background: ((editorGroup.emptyBackground))((alpha.7))  # TODO: #0a0a0a77 - verify match
+      background: ((editorGroup.emptyBackground))((alpha.7)) # TODO: #0a0a0a77 - verify match
 
     peekViewTitleLabel:
       foreground: ((std.fg))
 
     peekViewTitleDescription:
-      foreground: ((colors.white.5))((alpha.9))  # TODO: #808080ee - verify match
+      foreground: ((colors.white.5))((alpha.9)) # TODO: #808080ee - verify match
 
     peekViewResult:
-      background: ((editorGroup.emptyBackground))((alpha.7))  # TODO: #0a0a0a77 - verify match
+      background: ((editorGroup.emptyBackground))((alpha.7)) # TODO: #0a0a0a77 - verify match
       fileForeground: ((std.fg))
-      lineForeground: ((sideBarTitle.foreground))  # TODO: #a0a0a0 - verify match
+      lineForeground: ((sideBarTitle.foreground)) # TODO: #a0a0a0 - verify match
       matchHighlightBackground: ((std.transparent))
       selectionBackground: ((list.activeSelectionBackground))
       selectionForeground: ((std.fg))
 
     peekViewEditorGutter:
-      background: ((std.accent))((alpha.2))  # TODO: #4b8ebd11 - verify alpha
+      background: ((std.accent))((alpha.2)) # TODO: #4b8ebd11 - verify alpha
 
     peekViewEditor:
-      matchHighlightBackground: ((std.accent))((alpha.3))  # TODO: #b0e9ff33 - verify color
+      matchHighlightBackground: ((std.accent))((alpha.3)) # TODO: #b0e9ff33 - verify color
       matchHighlightBorder: ((std.accent))((alpha.7))
-      background: ((input.background))  # #2525257f
+      background: ((input.background)) # #2525257f
 
     peekViewEditorStickyScroll:
-      background: ((editorGroup.emptyBackground))((alpha.7))  # TODO: #0a0a0a77 - verify match
+      background: ((editorGroup.emptyBackground))((alpha.7)) # TODO: #0a0a0a77 - verify match
 
     # Merge Conflicts
     merge:
       currentHeaderBackground: ((std.accent))((alpha.3))
       currentContentBackground: ((std.accent))((alpha.2))
-      incomingHeaderBackground: ((colors.green.4))((alpha.3))  # TODO: #87b087 + 33
-      incomingContentBackground: ((colors.green.4))((alpha.2))  # TODO: #87b087 + 11
-      commonContentBackground: ((colors.white.5))((alpha.2))  # TODO: #808080 + 11
-      commonHeaderBackground: ((colors.white.5))((alpha.3))  # TODO: #808080 + 33
+      incomingHeaderBackground: ((colors.green.4))((alpha.3)) # TODO: #87b087 + 33
+      incomingContentBackground: ((colors.green.4))((alpha.2)) # TODO: #87b087 + 11
+      commonContentBackground: ((colors.white.5))((alpha.2)) # TODO: #808080 + 11
+      commonHeaderBackground: ((colors.white.5))((alpha.3)) # TODO: #808080 + 33
       border: ((std.accent))((alpha.4))
 
     mergeEditor:
@@ -929,45 +985,45 @@ theme:
         unhandledUnfocused:
           border: ((std.error))((alpha.5))
         unhandledFocused:
-          border: ((std.error))((alpha.7))  # TODO: #cc5c5caa - verify alpha
+          border: ((std.error))((alpha.7)) # TODO: #cc5c5caa - verify alpha
         handledUnfocused:
-          border: ((colors.green.4))((alpha.5))  # TODO: #87b087 + 55
+          border: ((colors.green.4))((alpha.5)) # TODO: #87b087 + 55
         handledFocused:
-          border: ((colors.green.4))((alpha.7))  # TODO: #87b087 + aa
+          border: ((colors.green.4))((alpha.7)) # TODO: #87b087 + aa
         handled:
-          minimapOverViewRuler: ((colors.green.4))((alpha.7))  # TODO: #87b087 + aa
+          minimapOverViewRuler: ((colors.green.4))((alpha.7)) # TODO: #87b087 + aa
         unhandled:
-          minimapOverViewRuler: ((std.error))((alpha.7))  # TODO: #cc5c5caa - verify alpha
+          minimapOverViewRuler: ((std.error))((alpha.7)) # TODO: #cc5c5caa - verify alpha
         input1:
           background: ((std.accent))((alpha.3))
         input2:
-          background: ((colors.green.4))((alpha.3))  # TODO: #87b087 + 22
+          background: ((colors.green.4))((alpha.3)) # TODO: #87b087 + 22
       conflictingLines:
         background: ((std.error))((alpha.3))
       changeBase:
-        background: ((colors.white.5))((alpha.3))  # TODO: #808080 + 22
+        background: ((colors.white.5))((alpha.3)) # TODO: #808080 + 22
         word:
-          background: ((colors.white.5))((alpha.4))  # TODO: #808080 + 44
+          background: ((colors.white.5))((alpha.4)) # TODO: #808080 + 44
 
     # Action Bar
     actionBar:
-      toggledBackground: ((colors.black.3))  # TODO: #383a49 - verify match to colors.black.3
+      toggledBackground: ((colors.black.3)) # TODO: #383a49 - verify match to colors.black.3
 
     # Simple Find Widget
     simpleFindWidget:
-      sashBorder: ((std.test))  # TODO: #ff0000 - this is red, matches your test color
+      sashBorder: ((std.test)) # TODO: #ff0000 - this is red, matches your test color
 
     # Gauge (progress indicators)
     gauge:
       background: ((std.bg))
       foreground: ((std.success))
       border: ((std.seamFaint))
-      warningBackground: ((colors.yellow.1))  # #b19500
-      warningForeground: ((colors.yellow.3))  # #ffd700
-      errorBackground: ((colors.red.1))       # #861c11
-      errorForeground: ((colors.red.5))       # #e85b4c
+      warningBackground: ((colors.yellow.1)) # #b19500
+      warningForeground: ((colors.yellow.3)) # #ffd700
+      errorBackground: ((colors.red.1)) # #861c11
+      errorForeground: ((colors.red.5)) # #e85b4c
 
-  # Notification Center
+    # Notification Center
     notificationCenter:
       border: ((std.seamFaint))
 
@@ -987,7 +1043,7 @@ theme:
 
     # Links inside notifications
     notificationLink:
-      foreground: ((std.accent))  # TODO: #b0e9ff - verify color match
+      foreground: ((std.accent)) # TODO: #b0e9ff - verify color match
 
     # Icons
     notificationsErrorIcon:
@@ -997,23 +1053,23 @@ theme:
       foreground: ((std.warn))
 
     notificationsInfoIcon:
-      foreground: ((std.info))  # TODO: #88aacc - verify std.info exists
+      foreground: ((std.info)) # TODO: #88aacc - verify std.info exists
 
     # Banner (top-of-workbench notifications)
     banner:
       background: ((std.accent))((alpha.7))
       foreground: ((colors.white.1))
-      iconForeground: ((std.accent))  # TODO: #b0e9ff - verify color match
+      iconForeground: ((std.accent)) # TODO: #b0e9ff - verify color match
 
     # Extension View
     extensionButton:
       prominentForeground: ((std.fg))
-      prominentBackground: ((button.background))  # TODO: #1a2f4f - verify match
+      prominentBackground: ((button.background)) # TODO: #1a2f4f - verify match
       prominentHoverBackground: ((std.accent))
       foreground: ((std.fg))
       background: ((button.secondaryBackground))
       hoverBackground: ((std.accent))
-      separator: ((std.accent))((alpha.5))  # TODO: #4b8ebd66 - verify alpha
+      separator: ((std.accent))((alpha.5)) # TODO: #4b8ebd66 - verify alpha
 
     extensionBadge:
       remoteBackground: ((std.accent))
@@ -1022,30 +1078,30 @@ theme:
     extensionIcon:
       starForeground: ((std.warn))
       verifiedForeground: ((std.info))
-      preReleaseForeground: ((std.accent))  # TODO: #b0e9ff - verify color
+      preReleaseForeground: ((std.accent)) # TODO: #b0e9ff - verify color
       sponsorForeground: ((std.error))
       privateForeground: ((std.success))
 
     # Quick Picker
     pickerGroup:
       border: ((std.accent))((alpha.4))
-      foreground: ((std.accent))  # TODO: #b0e9ff - verify color
+      foreground: ((std.accent)) # TODO: #b0e9ff - verify color
 
     quickInput:
-      background: ((editorGroup.emptyBackground))((alpha.8))  # TODO: #0a0a0abb - verify match
+      background: ((editorGroup.emptyBackground))((alpha.8)) # TODO: #0a0a0abb - verify match
       foreground: ((std.fg))
 
     quickInputList:
       focusBackground: ((std.accent))((alpha.5))
       focusForeground: ((colors.white.1))
-      focusIconForeground: ((std.accent))  # TODO: #b0e9ff - verify color
+      focusIconForeground: ((std.accent)) # TODO: #b0e9ff - verify color
 
     quickInputTitle:
-      background: ((editorGroup.emptyBackground))((alpha.8))  # TODO: #0a0a0abb - verify match
+      background: ((editorGroup.emptyBackground))((alpha.8)) # TODO: #0a0a0abb - verify match
 
     # Keybinding Labels
     keybindingLabel:
-      background: ((editorGroup.emptyBackground))((alpha.8))  # TODO: #0a0a0abb - verify match
+      background: ((editorGroup.emptyBackground))((alpha.8)) # TODO: #0a0a0abb - verify match
       foreground: ((std.fg))
       border: ((std.accent))((alpha.5))
       bottomBorder: ((std.accent))((alpha.7))
@@ -1057,7 +1113,7 @@ theme:
     # Terminal
     terminal:
       background: ((std.bg))
-      foreground: ((std.fg))  # TODO: #d1d1d1 - verify match
+      foreground: ((std.fg)) # TODO: #d1d1d1 - verify match
       # ANSI Colors (hard-coded as requested)
       ansiBlack: "#1e1e1e"
       ansiBlue: "#8787d7"
@@ -1076,19 +1132,19 @@ theme:
       ansiWhite: "#d1d1d1"
       ansiYellow: "#d7c787"
       # Terminal UI
-      selectionBackground: ((colors.white.5))((alpha.6))  # TODO: #505050 + 80
+      selectionBackground: ((colors.white.5))((alpha.6)) # TODO: #505050 + 80
       border: ((std.seamFaint))
       selectionForeground: ((colors.white.1))
-      inactiveSelectionBackground: ((colors.black.3))  # TODO: #3a3d41 - verify match
+      inactiveSelectionBackground: ((colors.black.3)) # TODO: #3a3d41 - verify match
       findMatchBackground: ((editor.findMatchHighlightBackground))
       findMatchBorder: ((editor.findMatchHighlightBorder))
       findMatchHighlightBackground: ((editor.findRangeHighlightBackground))
       findMatchHighlightBorder: ((editor.findRangeHighlightBorder))
-      hoverHighlightBackground: ((std.accent))((alpha.3))  # TODO: #b0e9ff22 - verify color
+      hoverHighlightBackground: ((std.accent))((alpha.3)) # TODO: #b0e9ff22 - verify color
       dropBackground: ((std.accent))((alpha.3))
       tab:
-        activeBorder: "#0078d4"  # TODO: hard-coded blue, different from accent
-      initialHintForeground: ((colors.white.5))((alpha.7))  # TODO: #808080aa
+        activeBorder: "#0078d4" # TODO: hard-coded blue, different from accent
+      initialHintForeground: ((colors.white.5))((alpha.7)) # TODO: #808080aa
 
     terminalCursor:
       background: ((input.background))
@@ -1100,29 +1156,29 @@ theme:
       errorBackground: ((std.error))
 
     terminalOverviewRuler:
-      cursorForeground: ((std.accent))((alpha.7))  # TODO: #b0e9ff + aa
+      cursorForeground: ((std.accent))((alpha.7)) # TODO: #b0e9ff + aa
       findMatchForeground: ((editor.findMatchHighlightForeground))
       border: ((std.seamWhisper))
 
     terminalStickyScroll:
-      background: ((editorGroup.emptyBackground))((alpha.7))  # TODO: #0a0a0a77
+      background: ((editorGroup.emptyBackground))((alpha.7)) # TODO: #0a0a0a77
       border: ((std.seamFaint))
 
     terminalStickyScrollHover:
-      background: ((editorGroup.emptyBackground))  # TODO: #0a0a0aff
+      background: ((editorGroup.emptyBackground)) # TODO: #0a0a0aff
 
     terminalCommandGuide:
       foreground: ((colors.yellow.2))
 
     # Terminal Symbol Icons
     terminalSymbolIcon:
-      aliasForeground: ((std.accent))  # TODO: #b0e9ff
+      aliasForeground: ((std.accent)) # TODO: #b0e9ff
       flagForeground: ((std.warn))
-      optionForeground: ((colors.purple.4))  # TODO: #c787b0
-      optionValueForeground: ((colors.blue.4))  # TODO: #87c7c7
+      optionForeground: ((colors.purple.4)) # TODO: #c787b0
+      optionValueForeground: ((colors.blue.4)) # TODO: #87c7c7
       methodForeground: ((std.success))
-      argumentForeground: ((colors.red.4))  # TODO: #d78787
-      inlineSuggestionForeground: ((colors.purple.2))  # TODO: #8787d7
+      argumentForeground: ((colors.red.4)) # TODO: #d78787
+      inlineSuggestionForeground: ((colors.purple.2)) # TODO: #8787d7
       fileForeground: ((colors.white.1))
       folderForeground: ((std.fg))
 
@@ -1137,22 +1193,22 @@ theme:
       exceptionLabelBackground: ((std.error))
       stateLabelForeground: ((std.fgInverse))
       stateLabelBackground: ((std.warn))
-      valueChangedHighlight: ((colors.blue.4))((alpha.5))  # TODO: #87c7c7 + 66
+      valueChangedHighlight: ((colors.blue.4))((alpha.5)) # TODO: #87c7c7 + 66
 
     # Debug Token Expression (variable values in hover/watch)
     debugTokenExpression:
       name: ((std.fg))
-      value: ((std.accent))  # TODO: #b0e9ff - verify color
-      string: ((colors.purple.4))  # TODO: #c787b0 - verify match
+      value: ((std.accent)) # TODO: #b0e9ff - verify color
+      string: ((colors.purple.4)) # TODO: #c787b0 - verify match
       boolean: ((std.error))
       number: ((colors.yellow.3))
-      error: ((colors.pink.1))  # #ff0077
-      type: ((colors.white.5))((alpha.7))  # TODO: #808080aa
+      error: ((colors.pink.1)) # #ff0077
+      type: ((colors.white.5))((alpha.7)) # TODO: #808080aa
 
     # Debug Icons
     debugIcon:
       breakpointForeground: ((std.error))
-      breakpointDisabledForeground: ((colors.white.5))  # TODO: #666666 - verify match
+      breakpointDisabledForeground: ((colors.white.5)) # TODO: #666666 - verify match
       breakpointUnverifiedForeground: ((std.error))((alpha.7))
       breakpointCurrentStackframeForeground: ((std.warn))
       breakpointStackframeForeground: ((colors.green.4))
@@ -1163,7 +1219,7 @@ theme:
       restartForeground: ((colors.blue.4))
       stepOverForeground: ((std.info))
       stepIntoForeground: ((std.success))
-      stepOutForeground: ((std.accent))  # TODO: #b0e9ff - verify color
+      stepOutForeground: ((std.accent)) # TODO: #b0e9ff - verify color
       continueForeground: ((colors.green.4))
       stepBackForeground: ((colors.purple.4))
 
@@ -1175,7 +1231,7 @@ theme:
       sourceForeground: ((std.accent))
 
     debugConsoleInputIcon:
-      foreground: ((sideBarTitle.foreground))  # TODO: #8090A0 - verify match
+      foreground: ((sideBarTitle.foreground)) # TODO: #8090A0 - verify match
 
     # Testing
     testing:
@@ -1184,18 +1240,18 @@ theme:
       iconFailed: ((std.error))
       iconPassed: ((colors.green.4))
       iconQueued: ((colors.yellow.3))
-      iconUnset: ((colors.white.5))((alpha.7))  # TODO: #808080aa
+      iconUnset: ((colors.white.5))((alpha.7)) # TODO: #808080aa
       iconSkipped: ((std.info))
       # Retired (faded versions) - these are actually flat dotted keys in VS Code
-      "iconErrored.retired": ((std.error))((alpha.5))  # TODO: #cc5c5c66
+      "iconErrored.retired": ((std.error))((alpha.5)) # TODO: #cc5c5c66
       "iconFailed.retired": ((std.error))((alpha.5))
-      "iconPassed.retired": ((colors.green.4))((alpha.5))  # TODO: #87b08766
-      "iconQueued.retired": ((colors.yellow.3))((alpha.5))  # TODO: #d7c78766
-      "iconUnset.retired": ((colors.white.5))((alpha.5))  # TODO: #80808055
-      "iconSkipped.retired": ((std.info))((alpha.5))  # TODO: #88aacc66
+      "iconPassed.retired": ((colors.green.4))((alpha.5)) # TODO: #87b08766
+      "iconQueued.retired": ((colors.yellow.3))((alpha.5)) # TODO: #d7c78766
+      "iconUnset.retired": ((colors.white.5))((alpha.5)) # TODO: #80808055
+      "iconSkipped.retired": ((std.info))((alpha.5)) # TODO: #88aacc66
       # Peek view
       peekBorder: ((std.accent))((alpha.6))
-      peekHeaderBackground: ((editorGroup.emptyBackground))((alpha.7))  # TODO: #0a0a0a77
+      peekHeaderBackground: ((editorGroup.emptyBackground))((alpha.7)) # TODO: #0a0a0a77
       # Messages
       message:
         error:
@@ -1207,11 +1263,11 @@ theme:
           decorationForeground: ((std.info))
           lineBackground: ((std.info))((alpha.3))
       messagePeekBorder: ((std.accent))((alpha.6))
-      messagePeekHeaderBackground: ((editorGroup.emptyBackground))((alpha.7))  # TODO: #0a0a0a77
+      messagePeekHeaderBackground: ((editorGroup.emptyBackground))((alpha.7)) # TODO: #0a0a0a77
       # Coverage
-      coveredBackground: ((colors.green.4))((alpha.3))  # TODO: #87b08722
-      coveredBorder: ((colors.green.4))((alpha.6))  # TODO: #87b08788
-      coveredGutterBackground: ((colors.green.4))((alpha.3))  # TODO: #87b08733
+      coveredBackground: ((colors.green.4))((alpha.3)) # TODO: #87b08722
+      coveredBorder: ((colors.green.4))((alpha.6)) # TODO: #87b08788
+      coveredGutterBackground: ((colors.green.4))((alpha.3)) # TODO: #87b08733
       uncoveredBranchBackground: ((std.error))((alpha.2))
       uncoveredBackground: ((std.error))((alpha.3))
       uncoveredBorder: ((std.error))((alpha.6))
@@ -1226,7 +1282,7 @@ theme:
         background: ((std.accent))((alpha.3))
         foreground: ((std.accent))
       tileBackground: ((colors.black.3))
-      tileHoverBackground: ((colors.black.4))((alpha.7))  # TODO: #3a3a3aaa
+      tileHoverBackground: ((colors.black.4))((alpha.7)) # TODO: #3a3a3aaa
       tileBorder: ((std.seamFaint))
 
     walkThrough:
@@ -1234,25 +1290,25 @@ theme:
 
     walkthrough:
       stepTitle:
-        foreground: ((std.accent))  # TODO: #b0e9ff - verify color
+        foreground: ((std.accent)) # TODO: #b0e9ff - verify color
 
     # Git Decorations (file explorer indicators)
     gitDecoration:
       addedResourceForeground: ((colors.green.4))
       modifiedResourceForeground: ((colors.yellow.3))
-      deletedResourceForeground: ((colors.red.3))  # TODO: #ff0000 - verify red.3 or use different
+      deletedResourceForeground: ((colors.red.3)) # TODO: #ff0000 - verify red.3 or use different
       renamedResourceForeground: ((std.info))
       stageModifiedResourceForeground: ((colors.yellow.2))
-      stageDeletedResourceForeground: ((colors.red.3))  # TODO: #b66c6c - verify match
+      stageDeletedResourceForeground: ((colors.red.3)) # TODO: #b66c6c - verify match
       untrackedResourceForeground: ((std.warn))
-      ignoredResourceForeground: ((colors.white.5))((alpha.7))  # TODO: #505050aa
+      ignoredResourceForeground: ((colors.white.5))((alpha.7)) # TODO: #505050aa
       conflictingResourceForeground: ((colors.pink.1))
-      submoduleResourceForeground: ((std.accent))  # TODO: #b0e9ff - verify color
+      submoduleResourceForeground: ((std.accent)) # TODO: #b0e9ff - verify color
 
     # Git Blame
     git:
       blame:
-        editorDecorationForeground: ((colors.white.5))((alpha.7))  # TODO: #808080aa
+        editorDecorationForeground: ((colors.white.5))((alpha.7)) # TODO: #808080aa
 
     # SCM Graph (commit history visualization)
     scmGraph:
@@ -1268,62 +1324,62 @@ theme:
       foreground4: ((colors.purple.4))
       foreground5: ((std.info))
       # Reference colors
-      historyItemRefColor: ((colors.yellow.1))  # TODO: #8f6f16 - verify match
-      historyItemRemoteRefColor: ((colors.blue.1))  # TODO: #215e7a - verify match
-      historyItemBaseRefColor: ((colors.green.1))  # TODO: #2b4636 - verify match
+      historyItemRefColor: ((colors.yellow.1)) # TODO: #8f6f16 - verify match
+      historyItemRemoteRefColor: ((colors.blue.1)) # TODO: #215e7a - verify match
+      historyItemBaseRefColor: ((colors.green.1)) # TODO: #2b4636 - verify match
 
     # Settings Editor
     settings:
       headerForeground: ((std.fg))
-      settingsHeaderHoverForeground: ((std.accent))  # TODO: #b0e9ff - verify color
+      settingsHeaderHoverForeground: ((std.accent)) # TODO: #b0e9ff - verify color
       headerBorder: ((std.seamFaint))
       sashBorder: ((std.seamFaint))
       modifiedItemIndicator: ((colors.yellow.3))
       dropdownBackground: ((input.background))
-      dropdownForeground: ((sideBar.foreground))  # TODO: #d1d1d1 - verify match
+      dropdownForeground: ((sideBar.foreground)) # TODO: #d1d1d1 - verify match
       dropdownBorder: ((std.accent))((alpha.5))
       dropdownListBorder: ((std.seamFaint))
-      checkboxBackground: ((checkbox.background))  # Reuse existing checkbox styling
+      checkboxBackground: ((checkbox.background)) # Reuse existing checkbox styling
       checkboxForeground: ((checkbox.foreground))
       checkboxBorder: ((checkbox.border))
-      rowHoverBackground: ((button.secondaryBackground))  # TODO: #303030aa
-      focusedRowBackground: ((button.secondaryBackground))  # TODO: #303030dd - verify alpha
-      focusedRowBorder: ((std.accent))((alpha.5))  # TODO: #4b8ebd66
+      rowHoverBackground: ((button.secondaryBackground)) # TODO: #303030aa
+      focusedRowBackground: ((button.secondaryBackground)) # TODO: #303030dd - verify alpha
+      focusedRowBorder: ((std.accent))((alpha.5)) # TODO: #4b8ebd66
       textInputBackground: ((input.background))
-      textInputForeground: ((sideBar.foreground))  # TODO: #d1d1d1 - verify match
+      textInputForeground: ((sideBar.foreground)) # TODO: #d1d1d1 - verify match
       textInputBorder: ((input.border))
       numberInputBackground: ((input.background))
-      numberInputForeground: ((sideBar.foreground))  # TODO: #d1d1d1 - verify match
+      numberInputForeground: ((sideBar.foreground)) # TODO: #d1d1d1 - verify match
       numberInputBorder: ((input.border))
 
     # Breadcrumbs (navigation path at top of editor)
     breadcrumb:
-      foreground: ((sideBarTitle.foreground))  # TODO: #8090A0 - verify match
-      background: ((editorGroup.emptyBackground))((alpha.5))  # TODO: #0a0a0a55
-      focusForeground: ((sideBar.foreground))  # TODO: #D1D1D1 - verify match
+      foreground: ((sideBarTitle.foreground)) # TODO: #8090A0 - verify match
+      background: ((editorGroup.emptyBackground))((alpha.5)) # TODO: #0a0a0a55
+      focusForeground: ((sideBar.foreground)) # TODO: #D1D1D1 - verify match
       activeSelectionForeground: ((std.fg))
 
     breadcrumbPicker:
-      background: ((editorGroup.emptyBackground))((alpha.7))  # TODO: #0a0a0aaa
+      background: ((editorGroup.emptyBackground))((alpha.7)) # TODO: #0a0a0aaa
 
     # Editor Links
     editorLink:
-      activeForeground: ((colors.blue.4))  # TODO: #87C7C7
+      activeForeground: ((colors.blue.4)) # TODO: #87C7C7
 
     # Editor Ruler (vertical line guides)
     editorRuler:
-      foreground: ((colors.black.4))  # TODO: ## Breadcrumbs (navigation path at top of editor)
+      foreground: ((colors.black.4)) # TODO: ## Breadcrumbs (navigation path at top of editor)
 
     # Editor Code Lens (inline hints)
     editorCodeLens:
-      foreground: ((sideBarTitle.foreground))  # TODO: #A0A0A0 - verify match
+      foreground: ((sideBarTitle.foreground)) # TODO: #A0A0A0 - verify match
 
     # Editor Light Bulb (quick fixes)
     editorLightBulb:
       foreground: ((colors.yellow.3))
 
     editorLightBulbAutoFix:
-      foreground: ((colors.purple.2))  # TODO: #8787D7
+      foreground: ((colors.purple.2)) # TODO: #8787D7
 
     # Charts (performance graphs, etc.)
     charts:
@@ -1332,9 +1388,9 @@ theme:
       red: ((std.error))
       blue: ((std.accent))
       yellow: ((colors.yellow.3))
-      orange: ((colors.orange.2))  # TODO: #c97c4b - verify match
+      orange: ((colors.orange.2)) # TODO: #c97c4b - verify match
       green: ((colors.green.4))
-      purple: ((colors.purple.4))  # TODO: #a58cc4 - verify match
+      purple: ((colors.purple.4)) # TODO: #a58cc4 - verify match
 
     chart:
       line: ((std.accent))
@@ -1343,10 +1399,10 @@ theme:
 
     # Chat (AI assistant features)
     chat:
-      editedFileForeground: ((colors.yellow.4))  # TODO: #e2c08d - verify match
-      slashCommandBackground: ((colors.black.3))  # TODO: #34414b - verify match
-      slashCommandForeground: ((std.accent))  # TODO: #40a6ff - different blue?
+      editedFileForeground: ((colors.yellow.4)) # TODO: #e2c08d - verify match
+      slashCommandBackground: ((colors.black.3)) # TODO: #34414b - verify match
+      slashCommandForeground: ((std.accent)) # TODO: #40a6ff - different blue?
 
     # Ports (development server indicators)
     ports:
-      iconRunningProcessForeground: ((colors.green.2))  # TODO: #369432 - verify match
+      iconRunningProcessForeground: ((colors.green.2)) # TODO: #369432 - verify match

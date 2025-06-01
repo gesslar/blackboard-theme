@@ -1,3 +1,93 @@
-{
+# Variables for later substitution
+vars:
+  #            1     2     3     4     5    6      7     8    9     10
+  alpha:
+            ["00", "11", "22", "44", "66", "88", "aa", "cc", "ee", "ff"]
 
-}
+  colors:
+    #Main
+    black:
+      [
+        "#0e0e0e",
+        ((colors.black.1))((+10)), ((colors.black.2))((+10)),
+        ((colors.black.3))((+10)), ((colors.black.4))((+10)),
+      ]
+    white:
+      [
+        "#f9f9f9",
+        ((colors.white.1))((-10)), ((colors.white.2))((-10)),
+        ((colors.white.3))((-10)), ((colors.white.4))((-10)),
+      ]
+
+    # Electric blue family - chalky but vibrant
+    blue: [
+      ((colors.blue.2))((-10)), ((colors.blue.3))((-10)),
+      "#0099ff",
+      ((colors.blue.3))((+10)), ((colors.blue.4))((+10)),
+    ]
+    # Warm red family - softer than pure red
+    red: [
+        ((colors.red.2))((-10)), ((colors.red.3))((-10)),
+        "#ff0033",
+        ((colors.red.3))((+10)), ((colors.red.4))((+10)),
+    ]
+    # Golden yellow family - avoiding harsh yellows
+    yellow: [
+        ((colors.yellow.2))((-10)), ((colors.yellow.3))((-10)),
+        "#cc9900",
+        ((colors.yellow.3))((+10)), ((colors.yellow.4))((+10)),
+    ]
+    # Vibrant orange family - warm but not burning
+    orange: [
+      ((colors.orange.2))((-10)), ((colors.orange.3))((-10)),
+      "#ff6600",
+      ((colors.orange.3))((+10)), ((colors.orange.4))((+10)),
+    ]
+    # Forest green family - earthy but readable
+    green: [
+        ((colors.green.2))((-10)), ((colors.green.3))((-10)),
+        "#009900",
+        ((colors.green.3))((+10)), ((colors.green.4))((+10)),
+    ]
+    # Rich purple family - deep but not muddy
+    purple: [
+        ((colors.purple.2))((-10)), ((colors.purple.3))((-10)),
+        "#6600ff",
+        ((colors.purple.3))((+10)), ((colors.purple.4))((+10)),
+    ]
+    # Hot pink family - punchy but not neon
+    pink: [
+        ((colors.pink.2))((-10)), ((colors.pink.3))((-10)),
+        "#ff0099",
+        ((colors.pink.3))((+10)), ((colors.pink.4))((+10)),
+    ]
+
+  std:
+    fg.muted: ((std.fg))((alpha.8))
+    fg.faint: ((std.fg))((alpha.6))
+    fg.whisper: ((std.fg))((alpha.2))
+    fg.inactive: ((colors.white.5))
+    fg.inverse: ((std.bg))
+    bg.muted: ((std.bg))((alpha.4))
+    bg.faint: ((std.bg))((alpha.3))
+    bg.whisper: ((std.bg))((alpha.2))
+    bg.inverse: ((std.fg))
+    bg.glass: ((std.glass))((alpha.6))
+    bg.glass.hover: ((std.glass))((alpha.7))
+    bg.glass.dark: ((std.glass))((alpha.9))
+    bg.glass.dark.hover: ((std.glass))((alpha.10))
+    accent.muted: ((std.accent))((alpha.4))
+    accent.faint: ((std.accent))((alpha.3))
+    accent.whisper: ((std.accent))((alpha.2))
+    outline: ((std.accent))((alpha.3))
+    outline.louder: ((std.accent))((alpha.8))
+    outline.loud: ((std.accent))((alpha.6))
+    outline.muted: ((std.accent))((alpha.4))
+    outline.faint: ((std.accent))((alpha.3))
+    outline.whisper: ((std.accent))((alpha.2))
+    sash: ((std.outline))
+    line: ((std.accent))((alpha.6))
+    line.muted: ((std.accent))((alpha.4))
+    shadow: ((std.accent))((alpha.4))
+    transparent: ((std.bg))((alpha.1))
+    test: "#ff0000ee"
