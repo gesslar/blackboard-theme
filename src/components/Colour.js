@@ -19,7 +19,7 @@ export default class Colour {
       throw new Error("Invalid or missing hex value.")
 
     const colour = Color(extracted.colour)
-    const change = Math.abs(clamp(amount/100, 0, 1))
+    const change = clamp(Math.abs(amount/100), 0, 1)
 
     const modifiedColour = amount >= 0
       ? colour.lighten(change).hex()

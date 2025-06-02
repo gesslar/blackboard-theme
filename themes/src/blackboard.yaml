@@ -18,7 +18,7 @@ config:
 
 vars:
   std:
-    fg: darken($(colors.white), 15)
+    fg: darken(#ff0000, 20)
     bg: $(colors.black)
     glass: darken($(std.accent.dark), 50)
     accent: darken($(colors.blue), 35)
