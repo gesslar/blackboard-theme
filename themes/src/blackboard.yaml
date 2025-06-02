@@ -8,9 +8,9 @@ config:
     global:
       - themes/import/variables.yaml
     colors:
-      - themes/import/colors-((type)).yaml
+      - themes/import/colors-$(type).yaml
     tokenColors:
-      - themes/import/karyprocolors-((type)).tmLanguage.yaml
+      - themes/import/karyprocolors-$(type).tmLanguage.yaml
 
   custom:
     semanticHighlighting: true
@@ -18,17 +18,22 @@ config:
 
 vars:
   std:
-    fg: ((colors.white))((-15))
-    bg: ((colors.black))
-    glass: ((std.accent.darkest))((-50))
-    accent: ((colors.blue))((-35))
+    fg: darken($(colors.white), 15)
+    bg: $(colors.black)
+    glass: darken($(std.accent.dark), 50)
+    accent: darken($(colors.blue), 35)
 
     # Debug/information colours
-    warn: ((colors.yellow))
-    warnInverse: ((colors.black))
-    error: ((colors.red))
-    errorInverse: ((std.fg.darker))
-    success: ((colors.green))
-    successInverse: ((std.fg.darker))
-    info: ((colors.purple))
-    infoInverse: ((std.fg.darker))
+    warn: $(colors.yellow)
+    warnInverse: darken($(std.warn), 80)
+    error: $(colors.red)
+    errorInverse: darken($(std.error), 80)
+    success: $(colors.green)
+    successInverse: darken($(std.success), 80)
+    info: darken($(colors.teal), 15)
+    infoInverse: darken($(std.info), 80)
+
+    # Special for find matches.
+    fg.findMatch: "#000000ee"
+    bg.findMatch: "#a0f0aa"
+    outline.findMatch: "#1b4711aa"

@@ -1,0 +1,13 @@
+{
+  "name": "test-theme",
+  "type": "dark",
+  "semanticHighlighting": true,
+  "colorSpaceName": "sRGB",
+  "colors": {
+    "bg": "#0e0e0e",
+    "bg.alpha": "#00000003",
+    "bg.alpha.more": "#00000005",
+    "bg.inverted": "#f1f1f1"
+  },
+  "tokenColors": []
+}

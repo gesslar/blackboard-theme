@@ -1,4 +1,3 @@
-import console from "node:console"
 import * as Data from "./DataUtil.js"
 import Evaluator from "./Evaluator.js"
 import * as File from "./File.js"
@@ -45,8 +44,6 @@ export default class Compiler {
 
     const decomposedVars = this.#decomposeObject(merged.vars)
 
-    // console.debug("merged", JSON.stringify(merged, null, 2))
-
     const decomposedColors = this.#decomposeObject(merged.theme.colors)
     const evaluatedColors = evaluate({
       vars: decomposedVars, theme: decomposedColors
@@ -56,10 +53,10 @@ export default class Compiler {
     const decomposedtokenColors = this.#decomposeObject(
       merged.theme.tokenColors
     )
+
     const evaluatedTokenColors = evaluate({
       vars: decomposedVars, theme: decomposedtokenColors
     })
-    // console.debug(JSON.stringify(evaluatedTokenColors))
     const tokenColors = this.#composeArray(evaluatedTokenColors)
     const theme = {colors,tokenColors}
     const result = Data.mergeObject({},header,sourceConfig.custom ?? {},theme)
@@ -78,8 +75,6 @@ export default class Compiler {
 
     for(const [sectionName,section] of Object.entries(imports)) {
       let inner = {}
-
-      console.debug("Importing", JSON.stringify(sectionName, null, 2))
 
       for(let [key,toImport] of Object.entries(section)) {
         if(!toImport)
@@ -102,28 +97,18 @@ export default class Compiler {
           })[0]
         })
 
-        // console.debug("Resolved", JSON.stringify(resolved, null, 2))
-
         const files = await Promise.all(resolved.map(f =>
           File.resolveFilename(f.value)
         ))
-
-        // console.debug("Files", JSON.stringify(resolved, null, 2))
 
         const datas = await Promise.all(files.map(f => File.loadDataFile(f)))
         const imported = Data.mergeObject({}, ...datas)
 
         inner = Data.mergeObject(inner, imported)
-
-        // console.debug("Inner", JSON.stringify(inner, null, 2))
-
-        // Object.assign(inner, imported)
       }
 
       result[sectionName] = inner
     }
-
-    // console.debug("Result", JSON.stringify(result, null, 2))
 
     return result
   }

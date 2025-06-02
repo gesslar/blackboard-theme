@@ -1,998 +1,997 @@
 theme:
   colors:
     # Base/Global colors (the singletons!)
-    focusBorder: ((std.outline.faint))
-    foreground: ((std.fg))
+    focusBorder: $(std.outline.faint)
+    foreground: $(std.fg)
     selection:
-      background: ((std.accent))
-    descriptionForeground: ((std.fg))
-    errorForeground: ((std.error))
+      background: $(std.accent)
+    descriptionForeground: $(std.fg)
+    errorForeground: $(std.error)
     icon:
-      foreground: ((std.fg.darker))
+      foreground: $(std.fg.darker)
     widget:
-      shadow: ((std.shadow))
-      border: ((std.outline.muted))
+      shadow: $(std.shadow)
+      border: $(std.outline.muted)
 
     # Text colors (for markdown preview, welcome page, etc)
     textBlockQuote:
-      background: ((std.bg.lightest))
-      border: ((std.outline.faint))
+      background: $(std.bg.lightest)
+      border: $(std.outline.faint)
     textCodeBlock:
-      background: ((std.bg.lightest))
+      background: $(std.bg.lightest)
     textLink:
-      foreground: ((std.accent))
-      activeForeground: ((std.accent))
+      foreground: $(std.accent)
+      activeForeground: $(std.accent)
     textPreformat:
-      foreground: ((std.info))
-      background: ((std.bg.lightest))
+      foreground: $(std.info)
+      background: $(std.bg.lightest)
     textSeparator:
-      foreground: ((std.fg))
+      foreground: $(std.fg)
 
     # Action colors (toolbar interactions)
     toolbar:
-      hoverBackground: ((std.accent))
-      hoverOutline: ((std.outline.loud))
-      activeBackground: ((std.accent.light))
+      hoverBackground: $(std.accent)
+      hoverOutline: $(std.outline.loud)
+      activeBackground: $(std.accent.light)
     # Sash (splitter) colors
     sash:
-      hoverBorder: ((std.sash))
+      hoverBorder: $(std.sash)
 
     # Title bar
     titleBar:
-      border: ((std.outline.whisper))
-      activeBackground: ((std.bg))
-      activeForeground: ((std.fg))
-      inactiveBackground: ((std.bg.lighter))
-      inactiveForeground: ((std.fg.darker))
+      border: $(std.outline.whisper)
+      activeBackground: $(std.bg)
+      activeForeground: $(std.fg)
+      inactiveBackground: $(std.bg.lighter)
+      inactiveForeground: $(std.fg.darker)
 
     # Menubar (Top-level: File Edit etc.)
     menubar:
-      selectionForeground: ((std.fg))
-      selectionBackground: ((std.accent.light))
-      selectionBorder: ((std.outline.louder))
+      selectionForeground: $(std.fg)
+      selectionBackground: alpha($(std.accent), 30)
+      selectionBorder: $(std.outline.louder)
 
     # Menu (Dropdowns themselves)
     menu:
-      foreground: ((std.fg))
-      background: ((std.bg.glass.dark))
-      selectionForeground: ((menubar.selectionForeground))
-      selectionBackground: ((menubar.selectionBackground))((+15))
-      selectionBorder: ((menubar.selectionBorder))
-      separatorBackground: ((std.accent.darkest))
-      border: ((std.outline))
+      foreground: $(std.fg)
+      background: $(std.bg.secondary)
+      selectionForeground: $(menubar.selectionForeground)
+      selectionBackground: lighten($(menubar.selectionBackground), 15)
+      selectionBorder: $(menubar.selectionBorder)
+      separatorBackground: $(std.accent.darkest)
+      border: $(std.outline)
 
     # Command Center colors
     commandCenter:
       # Colors
-      background: ((std.bg.glass))((-25))
-      foreground: ((titleBar.activeForeground))((-25))
-      border: ((std.outline))((-25))
+      background: darken($(std.bg.secondary), 25)
+      foreground: darken($(titleBar.activeForeground), 25)
+      border: darken($(std.outline), 25)
       # Active (hovered or clicked)
-      activeBackground: ((commandCenter.background))((+30))
-      activeForeground: ((commandCenter.foreground))((+30))
-      activeBorder: ((commandCenter.border))((+30))
+      activeBackground: lighten($(commandCenter.background), 30)
+      activeForeground: lighten($(commandCenter.foreground), 30)
+      activeBorder: lighten($(commandCenter.border), 30)
       # Inactive Window
-      inactiveForeground: ((commandCenter.background))((-10))
-      inactiveBorder: ((commandCenter.border))((-10))
+      inactiveForeground: darken($(commandCenter.background), 10)
+      inactiveBorder: darken($(commandCenter.border), 10)
       # Debugging State
-      debuggingBackground: ((std.bg.debug))
+      debuggingBackground: $(std.bg.debug)
 
     # Activity Bar
     activityBar:
-      background: ((std.transparent))
-      foreground: ((std.fg))
-      inactiveForeground: ((std.fg.darker))
-      border: ((std.outline))
+      background: $(std.transparent)
+      foreground: $(std.fg)
+      inactiveForeground: $(std.fg.darker)
+      border: $(std.outline)
       # Active State
-      activeBackground: ((std.transparent))
-      activeBorder: ((std.accent.lightest))
-      activeFocusBorder: ((activityBar.activeBorder))
+      activeBackground: $(std.transparent)
+      activeBorder: $(std.accent.lightest)
+      activeFocusBorder: $(activityBar.activeBorder)
       # Dragging
-      dropBorder: ((std.outline.louder))
+      dropBorder: $(std.outline.drop)
 
     # Activity Bar Badges
     activityBarBadge:
-      background: ((std.accent))
-      foreground: ((std.bg.inverse))
+      background: $(std.bg.badge)
+      foreground: $(std.fg.badge)
 
     # Warning Badge
     activityWarningBadge:
-      background: ((std.warn))
-      foreground: ((std.warnInverse))
+      background: $(std.warn)
+      foreground: $(std.warnInverse)
 
     # Error Badge
     activityErrorBadge:
-      background: ((std.error))
-      foreground: ((std.errorInverse))
+      background: $(std.error)
+      foreground: $(std.errorInverse)
 
     # Activity Bar Top
     activityBarTop:
-      background: ((activityBar.background))
-      foreground: ((activityBar.foreground))
-      inactiveForeground: ((activityBar.inactiveForeground))
-      activeBackground: ((activityBar.activeBackground))
-      activeBorder: ((activityBar.activeBorder))
-      dropBorder: ((activityBar.dropBorder))
+      background: $(activityBar.background)
+      foreground: $(activityBar.foreground)
+      inactiveForeground: $(activityBar.inactiveForeground)
+      activeBackground: $(activityBar.activeBackground)
+      activeBorder: $(activityBar.activeBorder)
+      dropBorder: $(std.outline.drop)
 
     # Lists and trees
     list:
-      activeSelectionBackground: ((std.accent.dark))
-      activeSelectionForeground: ((std.fg))
-      activeSelectionIconForeground: ((std.fg))
+      activeSelectionBackground: $(std.accent.dark)
+      activeSelectionForeground: $(std.fg)
+      activeSelectionIconForeground: $(std.fg)
 
-      inactiveSelectionBackground: ((list.activeSelectionBackground))((^50))
-      inactiveSelectionForeground: ((list.activeSelectionForeground))
-      inactiveSelectionIconForeground: ((list.activeSelectionIconForeground))((^50))
+      inactiveSelectionBackground: alpha($(list.activeSelectionBackground), 50)
+      inactiveSelectionForeground: $(list.activeSelectionForeground)
+      inactiveSelectionIconForeground: alpha($(list.activeSelectionIconForeground), 50)
 
-      focusBackground: ((list.activeSelectionBackground))((+25))
-      focusForeground: ((list.activeSelectionForeground))((+25))
-      focusOutline: ((std.outline))
-      focusHighlightForeground: ((list.focusBackground))((+25))
-      focusAndSelectionOutline: ((list.focusOutline))((+25))
+      focusBackground: lighten($(list.activeSelectionBackground), 25)
+      focusForeground: lighten($(list.activeSelectionForeground), 25)
+      focusOutline: $(std.outline)
+      focusHighlightForeground: lighten($(list.focusBackground), 25)
+      focusAndSelectionOutline: lighten($(list.focusOutline), 25)
 
-      hoverBackground: ((std.accent.darkest))
-      hoverForeground: ((std.bg.inverse))
+      hoverBackground: $(std.accent.darkest)
+      hoverForeground: $(std.bg.inverse)
 
-      dropBackground: ((std.accent.darkest))
-      dropBetweenBackground: ((std.accent))
+      dropBackground: $(std.bg.drop)
+      dropBetweenBackground: $(std.accent)
 
-      highlightForeground: ((std.accent)) # I can't seem to activate this one
+      highlightForeground: $(std.accent) # I can't seem to activate this one
 
-      filterMatchBackground: ((std.accent))
-      filterMatchBorder: ((std.accent))((+50))
+      filterMatchBackground: $(std.accent)
+      filterMatchBorder: lighten($(std.accent), 50)
 
-      errorForeground: ((std.error))
-      warningForeground: ((std.warn))
-      invalidItemForeground: ((std.info))
-      deemphasizedForeground: ((std.fg))
+      errorForeground: $(std.error)
+      warningForeground: $(std.warn)
+      invalidItemForeground: $(std.info)
+      deemphasizedForeground: $(std.fg)
 
     # List Filter Widget
     listFilterWidget:
-      background: ((std.bg.glass))
-      outline: ((std.outline))
-      noMatchesOutline: ((colors.purple))
-      shadow: ((std.shadow))
+      background: $(std.bg.secondary)
+      outline: $(std.outline)
+      noMatchesOutline: $(colors.purple)
+      shadow: $(std.shadow)
 
     # Tree guides
     tree:
-      indentGuidesStroke: ((std.line))
-      inactiveIndentGuidesStroke: ((std.line.muted))
-      tableColumnsBorder: ((std.outline))
-      tableOddRowsBackground: ((std.bg))
+      indentGuidesStroke: $(std.line)
+      inactiveIndentGuidesStroke: $(std.line.muted)
+      tableColumnsBorder: $(std.outline)
+      tableOddRowsBackground: $(std.bg)
 
     # Status Bar colors
     # Base Status Bar
     statusBar:
-      background: ((titleBar.activeBackground))
-      foreground: ((titleBar.activeForeground))
-      border: ((titleBar.border))
+      background: $(titleBar.activeBackground)
+      foreground: $(titleBar.activeForeground)
+      border: $(titleBar.border)
       # No Folder Open
-      noFolderBackground: ((statusBar.background))
-      noFolderForeground: ((statusBar.foreground))
-      noFolderBorder: ((statusBar.border))
+      noFolderBackground: $(statusBar.background)
+      noFolderForeground: $(statusBar.foreground)
+      noFolderBorder: $(statusBar.border)
       # Debugging (stronger presence)
-      debuggingBackground: ((std.bg.debug))
-      debuggingForeground: ((std.fg.debug))
-      debuggingBorder: ((std.outline.debug))
+      debuggingBackground: $(std.bg.debug)
+      debuggingForeground: $(std.fg.debug)
+      debuggingBorder: $(std.outline.debug)
       # Focus
-      focusBorder: ((std.outline))
+      focusBorder: $(std.outline)
 
     # Status Bar Item Interaction
     statusBarItem:
-      activeBackground: ((std.accent))
-      hoverBackground: ((std.accent.dark))
-      hoverForeground: ((std.fg))
-      compactHoverBackground: ((std.accent.darker))
-      focusBorder: ((std.outline))
+      activeBackground: $(std.accent.light)
+      # hoverBackground: $(std.accent)
+      hoverForeground: $(std.fg)
+      # compactHoverBackground: $(std.accent.darker)
+      focusBorder: $(std.outline)
       # Prominent Items
-      prominentBackground: ((std.accent))
-      prominentForeground: ((std.fg))
-      prominentHoverBackground: ((std.accent))
-      prominentHoverForeground: ((std.fg))
+      # prominentBackground: $(std.accent)
+      prominentForeground: $(std.fg)
+      prominentHoverBackground: $(std.accent)
+      prominentHoverForeground: $(std.fg)
       # Remote Indicator
-      remoteBackground: ((std.accent))
-      remoteForeground: ((std.fg))
-      remoteHoverBackground: ((std.accent))
-      remoteHoverForeground: ((std.fg))
+      remoteBackground: $(std.transparent)
+      remoteForeground: $(std.fg)
+      remoteHoverBackground: $(std.accent)
+      remoteHoverForeground: $(std.fg)
       # Offline Indicator
-      offlineBackground: ((std.warn))
-      offlineForeground: ((std.fg.inverse))
-      offlineHoverBackground: ((std.warn))
-      offlineHoverForeground: ((std.fg.inverse))
+      offlineBackground: $(std.warn)
+      offlineForeground: $(std.fg.inverse)
+      offlineHoverBackground: $(std.warn)
+      offlineHoverForeground: $(std.fg.inverse)
       # Error State Items
-      errorBackground: ((std.error))
-      errorForeground: ((std.fg.inverse))
-      errorHoverBackground: ((std.error))
-      errorHoverForeground: ((std.fg.inverse))
+      # errorBackground: $(std.error)
+      errorForeground: $(std.fg.inverse)
+      errorHoverBackground: $(std.error)
+      errorHoverForeground: $(std.fg.inverse)
       # Warning State Items
-      warningBackground: ((std.warn))
-      warningForeground: ((std.fg.inverse))
-      warningHoverBackground: ((statusBarItem.offlineHoverBackground))
-      warningHoverForeground: ((std.fg.inverse))
+      warningBackground: $(std.warn)
+      warningForeground: $(std.fg.inverse)
+      warningHoverBackground: $(statusBarItem.offlineHoverBackground)
+      warningHoverForeground: $(std.fg.inverse)
 
-    # Editor Groups & Tabs
     # Editor Action List (quick fix menu, etc)
     editorActionList:
-      background: ((std.bg.lighter))
-      foreground: ((std.fg))
-      focusBackground: ((std.accent))
-      focusForeground: ((std.accent))
+      background: $(menu.background)
+      foreground: $(menu.foreground)
+      focusForeground: $(menu.selectionForeground)
+      focusBackground: $(menu.selectionBackground)
 
-    # Editor Advanced Features (missing from current YAML)
-    # Whitespace
+    # Whitespace - when toggle whitespace is on
     editorWhitespace:
-      foreground: ((std.accent.darker))
+      foreground: alpha($(std.accent), 25)
 
+    # Editor Groups & Tabs
     # Editor Group
     editorGroup:
-      border: ((std.transparent))
-      dropBackground: ((std.accent.darker))
-      emptyBackground: ((std.bg))
-      focusedEmptyBorder: ((std.outline))
-      dropIntoPromptForeground: ((std.fg))
-      dropIntoPromptBackground: ((std.bg))
-      dropIntoPromptBorder: ((std.outline.louder))
+      border: $(std.accent.darkest)
+      dropBackground: $(std.bg.drop)
+      emptyBackground: $(std.bg.light) # workbench.editor.closeEmptyGroups: false
+      focusedEmptyBorder: $(std.outline)
+      # Drag a file onto the editor
+      dropIntoPromptForeground: $(std.fg)
+      dropIntoPromptBackground: $(std.bg)
+      dropIntoPromptBorder: $(std.outline.louder)
 
     # Editor Group Header
     editorGroupHeader:
-      noTabsBackground: ((editorGroup.emptyBackground))
-      tabsBackground: ((std.bg))
-      tabsBorder: ((std.transparent))
-      border: ((std.outline))
+      noTabsBackground: $(std.bg.light) # workbench.editor.showTabs = single
+      tabsBackground: $(std.bg.light)
+      tabsBorder: darken($(std.outline), 65)
+      border: $(editorGroupHeader.tabsBorder) # same as tabsBorder
 
     # Editor Pane
     editorPane:
-      background: ((std.bg))
+      background: $(std.bg.lighter) # When "View: Toggle Centered Layout" is on.
 
-    sideBySideEditor:
-      horizontalBorder: ((std.outline))
-      verticalBorder: ((std.outline))
+    sideBySideEditor: # Right-click tab and "Split in group"
+      horizontalBorder: $(std.outline)
+      verticalBorder: $(std.outline)
 
     # Tabs
     tab:
-      border: ((std.fg))
-      activeBorder: ((std.transparent))
-      unfocusedActiveBorder: ((std.transparent))
-      hoverBorder: ((std.outline))
-      unfocusedHoverBorder: ((std.outline))
-      lastPinnedBorder: ((std.outline))
+      border: $(std.outline.faint)
+      activeBorder: $(std.transparent)
+      unfocusedActiveBorder: $(std.transparent)
+      hoverBorder: $(std.outline.loudest)
+      unfocusedHoverBorder: $(std.outline)
+      lastPinnedBorder: $(std.outline.loudest)
 
-      activeBorderTop: ((std.outline.louder))
-      unfocusedActiveBorderTop: ((std.transparent))
-      selectedBorderTop: ((std.outline.loud))
+      activeBorderTop: $(std.outline.louder)
+      unfocusedActiveBorderTop: $(std.outline.loud)
+      selectedBorderTop: $(std.outline.louder)
 
-      activeBackground: ((std.accent))
-      selectedBackground: ((std.accent))
-      unfocusedActiveBackground: ((std.accent))
-      inactiveBackground: ((std.transparent))
-      unfocusedInactiveBackground: ((std.bg))
-      unfocusedHoverBackground: ((std.bg))
-      hoverBackground: ((std.accent))
+      activeBackground: alpha($(std.bg.accent), 30)
+      selectedBackground: $(std.bg.accent)
+      unfocusedActiveBackground: darken($(tab.activeBackground), 15)
+      inactiveBackground: $(std.transparent)
+      unfocusedInactiveBackground: $(std.transparent)
+      unfocusedHoverBackground: lighten($(std.bg.accent), 15)
+      hoverBackground: lighten($(std.bg.accent), 10)
 
-      activeForeground: ((std.fg))
-      selectedForeground: ((std.fg))
-      unfocusedActiveForeground: ((std.fg))
-      inactiveForeground: ((std.fg))
-      unfocusedInactiveForeground: ((std.fg))
-      unfocusedHoverForeground: ((std.fg.dark))
-      hoverForeground: ((std.fg))
+      activeForeground: $(std.fg)
+      selectedForeground: $(std.fg)
+      unfocusedActiveForeground: $(std.fg)
+      inactiveForeground: $(std.fg)
+      unfocusedInactiveForeground: $(std.fg)
+      unfocusedHoverForeground: lighten($(std.fg), 25)
+      hoverForeground: lighten($(std.fg), 25)
 
-      # Modified indicators
-      activeModifiedBorder: ((std.outline))
-      inactiveModifiedBorder: ((std.outline.loud))
-      unfocusedActiveModifiedBorder: ((std.outline.louder))
-      unfocusedInactiveModifiedBorder: ((std.outline))
+      # Modified indicators - shows atop the tab when editor is changed, but unsaved
+      activeModifiedBorder: lighten($(std.outline.warn), 80)
+      inactiveModifiedBorder: darken($(tab.activeModifiedBorder), 25)
+      unfocusedActiveModifiedBorder: $(tab.activeModifiedBorder)
+      unfocusedInactiveModifiedBorder: $(tab.inactiveModifiedBorder)
 
     # Panel colors
     # Panel Base + Frame
     panel:
-      background: ((std.bg.light))
-      border: ((std.outline.muted))
-      dropBorder: ((std.outline.loud))
+      background: $(std.bg.light)
+      border: $(std.outline.whisper)
+      dropBorder: $(std.outline.loud)
 
     # Panel Title Bar
     panelTitle:
-      activeBorder: ((tab.activeBorderTop))
-      activeForeground: ((tab.activeForeground))
-      inactiveForeground: ((tab.inactiveForeground))
-      border: ((std.outline.whisper))
+      activeBorder: $(tab.activeBorderTop)
+      activeForeground: $(tab.activeForeground)
+      inactiveForeground: $(tab.inactiveForeground)
+      border: $(std.outline.whisper)
 
     # Panel Title Badge (eg. terminal counts)
     panelTitleBadge:
-      background: ((std.accent))
-      foreground: ((std.fg))
+      background: $(std.bg.badge)
+      foreground: $(std.fg.badge)
 
     # Panel Section Headers
     panelSectionHeader:
-      background: ((panel.background)) # slightly elevated
-      foreground: ((std.fg))
-      border: ((std.outline.faint))
+      background: $(std.bg.secondary)
+      foreground: $(std.fg)
+      border: $(std.outline.whisper)
 
     # Panel Sections
     panelSection:
-      border: ((std.outline.faint))
-      dropBackground: ((std.accent.dark))
+      border: $(std.outline.whisper)
+      dropBackground: $(std.bg.drop)
 
     # Panel Input
     panelInput:
-      border: ((std.outline.louder))
+      border: $(input.border)
 
     # Panel Sticky Scroll
-    panelStickyScroll: # TODO: come back to this
-      background: ((std.test))
-      border: ((std.test))
-      shadow: ((std.test))
+    panelStickyScroll: # I have no idea how to surface this
+      background: $(std.bg.secondary)
+      border: $(std.outline.whisper)
+      shadow: $(std.shadow)
 
     # Output View
     outputView:
-      background: ((std.transparent))
+      background: $(std.bg.light)
 
     outputViewStickyScroll:
-      background: ((std.bg.glass))
+      background: $(std.bg.secondary)
 
     # Side bar
     sideBar:
-      background: ((editor.background)) # slightly different from main bg
-      foreground: ((std.fg)) # dimmer than main text
-      border: ((std.outline.faint))
-      dropBackground: ((std.accent))
+      background: $(std.bg.lighter)
+      foreground: $(std.fg)
+      border: $(std.outline.whisper)
+      dropBackground: $(std.bg.drop)
 
     # Sidebar title
     sideBarTitle:
-      foreground: ((std.fg)) # even dimmer for titles
+      foreground: $(std.fg)
 
     # Sidebar section headers
     sideBarSectionHeader:
-      background: ((std.accent))
-      foreground: ((std.fg))
-      border: ((std.outline.faint))
+      background: $(tab.activeBackground)
+      foreground: $(tab.activeForeground)
+      border: $(std.outline.whisper)
 
     # Line Numbers
     editorLineNumber:
-      foreground: ((std.accent))
-      activeForeground: ((std.accent))
-      dimmedForeground: ((editorLineNumber.foreground))
+      activeForeground: $(std.fg.accent)
+      foreground: darken($(editorLineNumber.activeForeground), 40)
+      dimmedForeground: darken($(editorLineNumber.foreground), 30)
 
     # Cursor
     editorCursor:
-      foreground: ((std.accent)) # visible but not screaming
-      background: ((editor.background)) # block cursor background
+      foreground: $(std.fg.accent) # cursor background
+      background: invert($(std.fg.accent)) # colour of font behind block cursor
 
     # Multi-cursor
     editorMultiCursor:
       primary:
-        foreground: ((editorCursor.foreground))
-        background: ((editorCursor.background))
+        foreground: $(editorCursor.foreground)
+        background: $(editorCursor.background)
       secondary:
-        foreground: ((std.accent)) # slightly dimmer
-        background: ((editorCursor.background))
+        foreground: darken($(editorMultiCursor.primary.foreground), 15)
+        background: darken($(editorMultiCursor.primary.background), 15)
 
     # Editor colors
     editor:
-      background: ((std.bg.light))
-      foreground: ((std.fg))
+      background: $(std.bg.lighter)
+      foreground: $(std.fg)
       placeholder:
-        foreground: ((std.fg))
-      compositionBorder: ((std.outline.louder))
+        foreground: $(std.fg.darker)
+      compositionBorder: $(std.outline.whisper)
 
       # Text selection
-      selectionBackground: ((std.accent))
-      selectionForeground: ((std.fg))
-      inactiveSelectionBackground: ((std.accent))((^50))
+      selectionBackground: $(std.bg.accent)
+      selectionForeground: $(std.fg)
+      inactiveSelectionBackground: alpha(darken($(std.bg.accent), 10), 99)
 
       # Matching content highlights
-      selectionHighlightBackground: ((std.accent))((^50))
-      selectionHighlightBorder: ((std.outline))
+      selectionHighlightBackground: alpha($(std.bg.accent), 99)
+      selectionHighlightBorder: $(std.outline)
 
       # Read access highlights (when you click on a variable)
-      wordHighlightBackground: ((std.accent))((^50))
-      wordHighlightBorder: ((std.outline))
+      wordHighlightBackground: alpha(lighten($(std.bg.info), 90), 99)
+      wordHighlightBorder: $(std.outline.info)
 
       # Write access highlights (more prominent)
-      wordHighlightStrongBackground: ((std.warn))((^50))
-      wordHighlightStrongBorder: ((std.warn))
+      wordHighlightStrongBackground: alpha(lighten($(std.bg.warn), 90), 99)
+      wordHighlightStrongBorder: $(std.outline.warn)
 
       # Generic text matches
-      wordHighlightTextBackground: ((std.info))((^50))
-      wordHighlightTextBorder: ((std.info))
+      wordHighlightTextBackground: alpha(lighten($(std.info), 90), 99)
+      wordHighlightTextBorder: $(std.info)
 
       # CURRENT match (the focused one) - needs to pop!
-      findMatchBackground: ((std.success))
+      findMatchBackground: $(std.bg.findMatch)
       # Thanks MS for swapping this with editor.findMatchForeground
-      findMatchHighlightForeground: ((std.successInverse))((^50))
-      findMatchBorder: ((std.success))
+      findMatchHighlightForeground: alpha($(std.fg.findMatch), 60)
+      findMatchBorder: $(std.outline.findMatch)
 
       # OTHER matches (passive highlights) - whisper mode
-      findMatchHighlightBackground: ((std.success))((^50))
+      findMatchHighlightBackground: alpha(darken($(editor.findMatchBackground), 50), 50)
       # Thanks MS for swapping this with editor.findMatchHighlightForeground
-      findMatchForeground: ((std.successInverse))
-      findMatchHighlightBorder: ((std.success))
+      findMatchForeground: invert($(editor.findMatchHighlightForeground))
+      findMatchHighlightBorder: darken($(editor.findMatchBorder), 50)
 
       # Range highlights (replacement preview, etc)
-      findRangeHighlightBackground: ((std.accent))((^50))
-      findRangeHighlightBorder: ((std.outline))((^50))
+      findRangeHighlightBackground: alpha($(std.bg.accent), 50)
+      findRangeHighlightBorder: alpha($(std.outline.whisper), 50)
 
       # Line Highlighting
-      lineHighlightBackground: ((std.outline))
-      lineHighlightBorder: ((std.outline.faint))
+      lineHighlightBackground: $(std.bg.lightest)
+      lineHighlightBorder: $(std.outline.faint)
 
       # Hover/Symbol Highlighting
-      hoverHighlightBackground: ((std.accent))((^50))
-      symbolHighlightBackground: ((std.accent))((^50))
-      symbolHighlightBorder: ((std.outline.loud))
-      rangeHighlightBackground: ((std.outline.whisper))((^50))
-      rangeHighlightBorder: ((std.outline.faint))
+      hoverHighlightBackground: alpha($(std.accent), 50)
+      symbolHighlightBackground: alpha($(std.accent), 50)
+      symbolHighlightBorder: $(std.outline.loud)
+      rangeHighlightBackground: alpha($(std.outline.whisper), 50)
+      rangeHighlightBorder: $(std.outline.faint)
 
       # Folds
       ## Folded block background
-      foldBackground: ((std.accent))((^50))
+      foldBackground: alpha($(std.accent), 25)
       # Folded placeholder text (the little …)
-      foldPlaceholderForeground: ((std.accent))
+      foldPlaceholderForeground: $(std.accent.lightest)
 
       # Debug Stack Frame Highlights
-      stackFrameHighlightBackground: ((std.accent))
-      focusedStackFrameHighlightBackground: ((std.error))
+      stackFrameHighlightBackground: $(std.accent)
+      focusedStackFrameHighlightBackground: $(std.error)
 
       # Inline Values (debug hover values)
-      inlineValuesBackground: ((colors.blue))((-50))
-      inlineValuesForeground: ((std.fg))
+      inlineValuesBackground: darken($(colors.blue), 50)
+      inlineValuesForeground: $(std.fg)
 
       # Snippets
-      snippetTabstopHighlightBackground: ((std.accent))
-      snippetTabstopHighlightBorder: ((std.outline.muted))
-      snippetFinalTabstopHighlightBackground: ((colors.blue))((+50)) # TODO: #87c7c7 + 22
-      snippetFinalTabstopHighlightBorder: ((colors.blue))((+50)) # TODO: #87c7c7 + 55
+      snippetTabstopHighlightBackground: lighten($(std.bg.accent), 50)
+      snippetTabstopHighlightBorder: $(std.outline.louder) # this doesn't seem used
+      snippetFinalTabstopHighlightBackground: $(colors.blue) # this doesn't seem used
+      snippetFinalTabstopHighlightBorder: lighten($(editor.snippetTabstopHighlightBorder), 15)
 
     # Scrollbar control
     scrollbar:
-      shadow: ((std.shadow))
+      shadow: $(std.shadow)
 
     scrollbarSlider:
-      background: ((std.accent.darker))
-      hoverBackground: ((std.accent.dark))
-      activeBackground: ((std.accent))
+      background: alpha($(std.bg.accent), 75)
+      hoverBackground: lighten($(scrollbarSlider.background), 25)
+      activeBackground: lighten($(scrollbarSlider.hoverBackground), 25)
 
     # Badge
     badge:
-      foreground: ((std.accent))
-      background: ((std.accent))
+      foreground: $(std.fg.badge)
+      background: $(std.bg.badge)
 
     # Progress bar
     progressBar:
-      background: ((std.success))
+      background: $(std.success)
 
     # Input control
     input:
-      background: ((std.bg.light))
-      border: ((std.outline.louder))
-      foreground: ((std.fg))
-      placeholderForeground: ((std.fg))
+      background: darken($(std.bg.accent), 50)
+      border: $(std.outline.whisper)
+      foreground: $(std.fg)
+      placeholderForeground: $(std.fg.ghost)
 
     inputOption:
-      activeBackground: ((std.accent))
-      activeBorder: ((std.fg))
-      activeForeground: ((std.fg))
+      activeBackground: alpha($(std.bg.accent), 90)
+      activeBorder: $(std.outline.louder)
+      activeForeground: $(std.fg)
 
     # Input validation states
     inputValidation:
-      errorBackground: ((input.background))
-      errorForeground: ((std.error))
-      errorBorder: ((std.error))
-      warningBackground: ((input.background))
-      warningForeground: ((std.warn))
-      warningBorder: ((std.warn))
-      infoBackground: ((input.background))
-      infoForeground: ((std.info))
-      infoBorder: ((std.info))
+      errorBackground: $(std.bg.error)
+      errorForeground: $(std.fg.error)
+      errorBorder: $(std.outline.error)
+      warningBackground: $(std.bg.warn)
+      warningForeground: $(std.fg.warn)
+      warningBorder: $(std.outline.warn)
+      infoBackground: $(std.bg.info)
+      infoForeground: $(std.fg.info)
+      infoBorder: $(std.outline.info)
 
     # Dropdown control
     dropdown:
-      background: ((input.background))
-      listBackground: ((std.bg.glass))
-      border: ((input.border))
-      foreground: ((input.foreground))
+      background: $(input.background)
+      listBackground: $(std.bg.secondary)
+      border: $(input.border)
+      foreground: $(input.foreground)
 
     # Button control
     button:
-      background: ((std.accent))
-      foreground: ((std.fg))
-      border: ((std.outline))
-      hoverBackground: ((std.accent))
+      background: $(std.bg.accent)
+      foreground: $(std.fg)
+      border: $(input.border)
+      hoverBackground: lighten($(button.background), 25)
 
       # Secondary buttons
-      secondaryForeground: ((std.fg))
-      secondaryBackground: ((std.bg.light))
-      secondaryHoverBackground: ((std.bg))
+      secondaryForeground: $(input.foreground)
+      secondaryBackground: darken($(button.background), 25)
+      secondaryHoverBackground: lighten($(button.secondaryBackground), 25)
 
-      separator: ((std.fg))
+      separator: $(std.line)
 
     # Checkbox
     checkbox:
-      background: ((std.accent))
-      foreground: ((std.fg))
-      border: ((std.outline))
-      selectBackground: ((std.accent))
-      selectBorder: ((std.outline))
+      background: $(input.background)
+      foreground: $(input.foreground)
+      border: $(input.border)
+      selectBackground: lighten($(checkbox.background), 50)
+      selectBorder: lighten($(std.outline), 50)
       disabled:
-        background: ((std.bg.light))
-        foreground: ((std.fg))
+        background: darken($(checkbox.background), 25)
+        foreground: darken($(checkbox.foreground), 25)
 
     # Radio buttons
     radio:
-      activeBackground: ((std.accent))
-      activeBorder: ((std.outline))
-      activeForeground: ((std.fg))
-      inactiveBackground: ((std.accent))
-      inactiveBorder: ((std.outline.muted))
-      inactiveForeground: ((std.fg))
-      inactiveHoverBackground: ((std.accent))
+      activeBackground: $(input.background)
+      activeForeground: $(input.foreground)
+      activeBorder: $(std.outline)
+      inactiveBackground: $(std.accent)
+      inactiveBorder: $(std.outline.muted)
+      inactiveForeground: $(std.fg)
+      inactiveHoverBackground: $(std.accent)
 
     # Profiles
     profileBadge:
-      background: ((std.accent))
-      foreground: ((std.fg.inverse))
+      background: $(std.success)
+      foreground: $(std.successInverse)
 
     profiles:
-      sashBorder: ((std.sash))
+      sashBorder: $(std.sash)
 
     # Minimap
     minimap:
-      background: ((sideBar.background))
-      selectionHighlight: ((std.accent))((^50))
-      errorHighlight: ((std.error))
-      warningHighlight: ((std.warn))
+      background: $(sideBar.background)
+      selectionHighlight: alpha($(std.accent), 50)
+      errorHighlight: $(std.error)
+      warningHighlight: $(std.warn)
 
     minimapSlider:
-      background: ((std.accent))
-      hoverBackground: ((std.accent))
-      activeBackground: ((std.accent))
+      background: $(std.accent)
+      hoverBackground: $(std.accent)
+      activeBackground: $(std.accent)
 
     minimapGutter:
-      addedBackground: ((std.success))
-      modifiedBackground: ((colors.yellow))((-50))
-      deletedBackground: ((std.error))
+      addedBackground: $(std.success)
+      modifiedBackground: darken($(colors.yellow), 50)
+      deletedBackground: $(std.error)
 
     # Indent Guides
     editorIndentGuide:
-      background1: ((colors.blue))((-50)) # Very faint blue guides
-      background2: ((colors.blue))((-50))
-      background3: ((colors.blue))((-50))
-      background4: ((colors.blue))((-50))
-      background5: ((colors.blue))((-50))
-      background6: ((colors.blue))((-50))
-      activeBackground1: ((std.accent)) # All active guides same color
-      activeBackground2: ((std.accent))
-      activeBackground3: ((std.accent))
-      activeBackground4: ((std.accent))
-      activeBackground5: ((std.accent))
-      activeBackground6: ((std.accent))
+      background1: $(std.line.whisper) # Very faint blue guides
+      background2: lighten($(editorIndentGuide.background1), 10)
+      background3: lighten($(editorIndentGuide.background2), 10)
+      background4: lighten($(editorIndentGuide.background3), 10)
+      background5: lighten($(editorIndentGuide.background4), 10)
+      background6: lighten($(editorIndentGuide.background5), 10)
+      activeBackground1: $(std.bg.accent) # All active guides same color
+      activeBackground2: $(std.bg.accent)
+      activeBackground3: $(std.bg.accent)
+      activeBackground4: $(std.bg.accent)
+      activeBackground5: $(std.bg.accent)
+      activeBackground6: $(std.bg.accent)
 
     # Bracket Matching
     editorBracketMatch:
-      background: ((colors.blue))((-50))
-      border: ((std.outline.muted))
+      background: alpha($(std.bg.accent.loudest), 50)
+      border: $(std.outline)
 
     # Bracket Pair Colorization
     editorBracketHighlight:
-      foreground1: ((colors.blue))((+50)) # dd rounds to e
-      foreground2: ((colors.yellow))((-50))
-      foreground3: ((colors.green))
-      foreground4: ((colors.purple))
-      foreground5: ((std.accent))
-      foreground6: ((std.error))
+      foreground1: $(colors.blue)
+      foreground2: $(colors.pink)
+      foreground3: $(colors.orange)
+      foreground4: $(colors.green)
+      foreground5: $(colors.purple)
+      foreground6: $(colors.red)
       unexpectedBracket:
-        foreground: ((colors.pink))((-70)) # #ff0077 from JSON
+        foreground: lighten($(std.fg), 10)
 
     editorBracketPairGuide:
-      background1: ((colors.blue))((-50))
-      background2: ((colors.blue))((-50))
-      background3: ((colors.blue))((-50))
-      background4: ((colors.blue))((-50))
-      background5: ((colors.blue))((-50))
-      background6: ((colors.blue))((-50))
-      activeBackground1: ((std.accent))
-      activeBackground2: ((std.accent))
-      activeBackground3: ((std.accent))
-      activeBackground4: ((std.accent))
-      activeBackground5: ((std.accent))
-      activeBackground6: ((std.accent))
+      background1: darken($(colors.blue), 50)
+      background2: darken($(colors.blue), 50)
+      background3: darken($(colors.blue), 50)
+      background4: darken($(colors.blue), 50)
+      background5: darken($(colors.blue), 50)
+      background6: darken($(colors.blue), 50)
+      activeBackground1: $(std.accent)
+      activeBackground2: $(std.accent)
+      activeBackground3: $(std.accent)
+      activeBackground4: $(std.accent)
+      activeBackground5: $(std.accent)
+      activeBackground6: $(std.accent)
 
     # Overview Ruler (sidebar ruler with indicators)
     editorOverviewRuler:
-      background: ((std.bg.glass))
-      border: ((std.outline.faint))
+      background: $(std.bg.secondary)
+      border: $(std.outline.whisper)
       # Find/Selection highlights
-      findMatchForeground: ((colors.green))((-50))((^50))
-      rangeHighlightForeground: ((colors.blue))((+50))((^50))
-      selectionHighlightForeground: ((colors.blue))((+50))((^50))
+      findMatchForeground: alpha($(editor.findMatchBackground), 50)
+      rangeHighlightForeground: $(editor.findRangeHighlightBackground)
+      selectionHighlightForeground: alpha(lighten($(colors.blue), 50), 50)
       # Word highlights
-      wordHighlightForeground: ((colors.blue))((+50))((^50)) # read access
-      wordHighlightStrongForeground: ((std.error))((^50)) # write access
-      wordHighlightTextForeground: ((std.warn))((^50)) # generic text match
+      wordHighlightForeground: alpha(lighten($(colors.blue), 50), 50) # read access
+      wordHighlightStrongForeground: alpha($(std.error), 50) # write access
+      wordHighlightTextForeground: alpha($(std.warn), 50) # generic text match
       # Git/SCM modifications
-      modifiedForeground: ((colors.yellow)) # #d7c787aa
-      addedForeground: ((colors.green))((+50)) # #87b087
-      deletedForeground: ((std.error)) # #cc5c5c
+      modifiedForeground: $(std.fg.changed) # #d7c787aa
+      addedForeground: $(std.fg.added) # #87b087
+      deletedForeground: $(std.fg.deleted) # #cc5c5c
       # Diagnostics
-      errorForeground: ((std.error))
-      warningForeground: ((std.warn))
-      infoForeground: ((colors.blue))((+75)) # #88aacc approximated
+      errorForeground: $(std.fg.error)
+      warningForeground: $(std.fg.warn)
+      infoForeground: $(std.fg.info)
       # Bracket matching
-      bracketMatchForeground: ((std.accent))
+      bracketMatchForeground: $(std.accent)
       # Inline chat (AI content)
-      inlineChatInserted: ((colors.green))((+50))
-      inlineChatRemoved: ((std.error))
-      currentContentForeground: ((colors.blue))((+50)) # #87C7C7
-      incomingContentForeground: ((colors.purple)) # #8787D7
-      commonContentForeground: ((colors.yellow))((+50))
+      inlineChatInserted: alpha($(std.bg.added), 50)
+      inlineChatRemoved: alpha($(std.bg.deleted), 50)
+      currentContentForeground: alpha($(std.bg.accent), 50)
+      incomingContentForeground: $(std.bg.debug)
+      commonContentForeground: alpha($(std.bg.warn), 50)
 
-    # TODO: Fix to use std status colours
     # Error/Warning/Info decorations in editor
     editorError:
-      foreground: ((std.error))
-      border: ((std.error))
-      background: ((std.error))((^50))
+      foreground: $(std.error)
+      border: $(std.error)
+      background: alpha($(std.error), 50)
 
     editorWarning:
-      foreground: ((std.warn))
-      border: ((std.warn))
-      background: ((std.warn))((^50))
+      foreground: $(std.warn)
+      border: $(std.warn)
+      background: alpha($(std.warn), 50)
 
     editorInfo:
-      foreground: ((colors.blue))((+75)) # #88aacc
-      border: ((colors.blue))((+75))
-      background: ((colors.blue))((+75))((^50))
+      foreground: lighten($(colors.blue), 75) # #88aacc
+      border: lighten($(colors.blue), 75)
+      background: alpha(lighten($(colors.blue), 75), 50)
 
     editorHint:
-      foreground: ((std.success))
-      border: ((std.success))
+      foreground: $(std.success)
+      border: $(std.success)
 
     # Problems panel icons
     problemsErrorIcon:
-      foreground: ((std.error))
+      foreground: $(std.error)
     problemsWarningIcon:
-      foreground: ((std.warn))
+      foreground: $(std.warn)
     problemsInfoIcon:
-      foreground: ((colors.blue))((+75))
+      foreground: lighten($(colors.blue), 75)
 
     # TODO: Fix to use std status colours
     # Editor Gutter (line number area with git indicators, etc.)
     editorGutter:
-      background: ((std.bg))
+      background: $(std.bg)
       # Git modification indicators
-      modifiedBackground: ((colors.yellow)) # #d7c787 + 88
-      modifiedSecondaryBackground: ((colors.yellow))((-50)) # #c9b27c + 88
-      addedBackground: ((colors.green))((+50)) # #87b087 + 88
-      addedSecondaryBackground: ((std.success)) # #a3c4a3 + 88
-      deletedBackground: ((std.error)) # #cc5c5c (solid)
-      deletedSecondaryBackground: ((colors.red)) # #b66c6c - TODO: need to check colors.red array
+      modifiedBackground: $(std.bg.changed) # #d7c787 + 88
+      modifiedSecondaryBackground: darken($(editorGutter.modifiedBackground), 15) # #c9b27c + 88
+      addedBackground: $(std.bg.added) # #87b087 + 88
+      addedSecondaryBackground: darken($(editorGutter.addedBackground), 15) # #a3c4a3 + 88
+      deletedBackground: $(std.bg.deleted) # #cc5c5c (solid)
+      deletedSecondaryBackground: darken($(editorGutter.deletedBackground), 15) # #b66c6c - TODO: need to check colors.red array
       # Comment indicators
-      commentRangeForeground: ((std.fg)) # #e1e1e1 + aa
-      commentGlyphForeground: ((std.success)) # #a3c4a3
-      commentUnresolvedGlyphForeground: ((std.warn)) # #e5bf72
+      commentRangeForeground: $(std.fg) # #e1e1e1 + aa
+      commentGlyphForeground: $(std.success) # #a3c4a3
+      commentUnresolvedGlyphForeground: $(std.warn) # #e5bf72
       # UI controls
-      foldingControlForeground: ((std.accent)) # #4b8ebd
+      foldingControlForeground: $(std.accent) # #4b8ebd
       # Generic item indicators
-      itemGlyphForeground: ((std.accent)) # #b0e9ff + cc - TODO: need to verify this color
-      itemBackground: ((colors.blue))((-50)) # #2e5673 + 11 - TODO: need to verify this matches
+      itemGlyphForeground: $(std.accent) # #b0e9ff + cc - TODO: need to verify this color
+      itemBackground: darken($(colors.blue), 50) # #2e5673 + 11 - TODO: need to verify this matches
 
     # Editor Comments Widget
     editorCommentsWidget:
-      resolvedBorder: ((std.success))
-      unresolvedBorder: ((std.warn))
-      rangeBackground: ((colors.blue))((-50)) # TODO: #2e5673 + 11
-      rangeActiveBackground: ((std.accent))
-      replyInputBackground: ((input.background)) # Reuse input styling
+      resolvedBorder: $(std.success)
+      unresolvedBorder: $(std.warn)
+      rangeBackground: darken($(colors.blue), 50) # TODO: #2e5673 + 11
+      rangeActiveBackground: $(std.accent)
+      replyInputBackground: $(input.background) # Reuse input styling
 
     # Inline Edit (AI suggestions, etc.)
     inlineEdit:
       gutterIndicator:
-        primaryBorder: ((std.outline))
-        primaryForeground: ((std.accent)) # TODO:  #b0e9ff - need to check this color
-        primaryBackground: ((colors.blue))((-50))
-        secondaryBorder: ((std.success))
-        secondaryForeground: ((colors.yellow))((-50)) # TODO: #c9b27c
-        secondaryBackground: ((colors.blue))((-50))
-        successfulBorder: ((colors.green))((+50)) # TODO: #87b087
-        successfulForeground: ((std.success))
-        successfulBackground: ((colors.blue))((-50)) # TODO: #2e5673 + 22
-        background: ((std.bg))
+        primaryBorder: $(std.outline)
+        primaryForeground: $(std.accent) # TODO:  #b0e9ff - need to check this color
+        primaryBackground: darken($(colors.blue), 50)
+        secondaryBorder: $(std.success)
+        secondaryForeground: darken($(colors.yellow), 50) # TODO: #c9b27c
+        secondaryBackground: darken($(colors.blue), 50)
+        successfulBorder: lighten($(colors.green), 50) # TODO: #87b087
+        successfulForeground: $(std.success)
+        successfulBackground: darken($(colors.blue), 50) # TODO: #2e5673 + 22
+        background: $(std.bg)
 
-      originalBackground: ((std.accent))((^50))
-      modifiedBackground: ((std.accent))((^50))
-      originalChangedLineBackground: ((std.accent))((^50))
-      originalChangedTextBackground: ((colors.blue))((-50))((^50))
-      modifiedChangedLineBackground: ((std.accent))((^50))
-      modifiedChangedTextBackground: ((std.accent))((^50))
-      originalBorder: ((std.outline))
-      modifiedBorder: ((std.outline)) # TODO: #b0e9ff - different from std.accent?
-      tabWillAcceptModifiedBorder: ((colors.green))((+50))
-      tabWillAcceptOriginalBorder: ((std.success))
+      originalBackground: alpha($(std.accent), 50)
+      modifiedBackground: alpha($(std.accent), 50)
+      originalChangedLineBackground: alpha($(std.accent), 50)
+      originalChangedTextBackground: alpha(darken($(colors.blue), 50), 50)
+      modifiedChangedLineBackground: alpha($(std.accent), 50)
+      modifiedChangedTextBackground: alpha($(std.accent), 50)
+      originalBorder: $(std.outline)
+      modifiedBorder: $(std.outline)
+      tabWillAcceptModifiedBorder: lighten($(std.success), 50)
+      tabWillAcceptOriginalBorder: $(std.success)
 
     # Diff Editor
     diffEditor:
-      insertedTextBackground: ((colors.green))((+50))((^50))
-      insertedTextBorder: ((colors.green))((+50))
-      removedTextBackground: ((std.error))((^50))
-      removedTextBorder: ((std.error))
-      insertedLineBackground: ((colors.green))((+50))((^50))
-      removedLineBackground: ((std.error))((^50))
+      insertedTextBackground: alpha($(std.bg.added), 25)
+      insertedTextBorder: alpha($(std.outline.added), 25)
+      removedTextBackground: alpha($(std.bg.deleted), 25)
+      removedTextBorder: alpha($(std.outline.deleted), 25)
+      insertedLineBackground: alpha($(std.bg.added), 5)
+      removedLineBackground: alpha($(std.bg.deleted), 5)
 
     diffEditorGutter:
-      insertedLineBackground: ((colors.green))((+50)) # TODO: #87b087 + 33
-      removedLineBackground: ((std.error))
+      insertedLineBackground: alpha($(std.bg.added), 10)
+      removedLineBackground: alpha($(std.bg.deleted), 10)
 
     diffEditorOverview:
-      insertedForeground: ((colors.green))((+50)) # TODO: #87b087 + 88
-      removedForeground: ((std.error))
+      insertedForeground: alpha($(std.bg.added), 60)
+      removedForeground: alpha($(std.bg.deleted), 60)
 
     # Inline Chat (AI assistant features)
     inlineChat:
-      background: ((panel.background)) # TODO: #1f1f1f - verify panel.background matches
-      foreground: ((std.fg))
-      border: ((std.outline.muted))
-      shadow: ((std.shadow)) # TODO: #00000033 - verify std.shadow matches
+      background: $(panel.background)
+      foreground: $(std.fg)
+      border: $(input.border)
+      shadow: $(std.shadow)
 
     inlineChatInput:
-      background: ((input.background))
-      border: ((std.outline.faint))
-      focusBorder: ((std.outline.loud))
-      placeholderForeground: ((std.fg))
+      background: $(input.background)
+      border: $(input.border)
+      focusBorder: $(std.outline.loud)
+      placeholderForeground: $(std.fg.ghost)
 
     inlineChatDiff:
-      inserted: ((colors.green))((+50)) # TODO: #87b087 + 22
-      removed: ((std.error))
+      inserted: darken($(std.bg.added), 50)
+      removed: darken($(std.bg.deleted), 50)
 
     # Interactive Code Cell Borders
     interactive:
-      activeCodeBorder: ((std.outline.muted)) # TODO: #4b8ebd + 66
-      inactiveCodeBorder: ((std.outline.faint))
+      activeCodeBorder: $(std.outline.muted)
+      inactiveCodeBorder: $(std.outline.faint)
 
     # Editor Widget (Find/Replace, Peek input, etc.)
     editorWidget:
-      foreground: ((std.fg))
-      background: ((std.bg)) # TODO: #1f1f1f - verify match
-      border: ((std.outline.faint))
-      resizeBorder: ((std.outline.louder))
+      foreground: $(std.fg)
+      background: $(std.bg)
+      border: $(std.outline.faint)
+      resizeBorder: $(std.outline.louder)
 
     # Suggest Widget (autocomplete)
     editorSuggestWidget:
-      background: ((panel.background))
-      border: ((std.outline.faint))
-      foreground: ((sideBar.foreground)) # TODO: #d1d1d1 - verify match
-      focusHighlightForeground: ((std.accent)) # TODO: #b0e9ff - verify color
-      highlightForeground: ((std.accent)) # TODO: #b0e9ff - verify color
-      selectedBackground: ((list.activeSelectionBackground))
-      selectedForeground: ((std.fg))
-      selectedIconForeground: ((std.accent)) # TODO: #b0e9ff - verify color
+      background: $(panel.background)
+      border: $(std.outline.faint)
+      foreground: $(sideBar.foreground)
+      focusHighlightForeground: $(std.accent)
+      highlightForeground: $(std.accent)
+      selectedBackground: $(list.activeSelectionBackground)
+      selectedForeground: $(std.fg)
+      selectedIconForeground: $(std.accent)
 
     editorSuggestWidgetStatus:
-      foreground: ((list.deemphasizedForeground)) # TODO: #808080aa - verify match
+      foreground: $(list.deemphasizedForeground)
 
     # Editor Hover Widget
     editorHoverWidget:
-      foreground: ((std.fg))
-      background: ((panel.background))
-      border: ((std.outline.faint))
-      highlightForeground: ((std.accent)) # TODO: #b0e9ff - verify color
-      statusBarBackground: ((input.background))
+      foreground: $(std.fg)
+      background: $(std.bg.secondary)
+      border: $(std.outline.whisper)
+      highlightForeground: $(std.accent)
+      statusBarBackground: $(input.background)
 
     # Ghost Text (Inline Suggest/Preview)
     editorGhostText:
-      foreground: ((std.fg))
-      background: ((std.transparent))
-      border: ((std.outline.faint))
+      foreground: $(std.fg.ghost)
+      background: $(std.transparent)
+      border: $(std.outline.whisper)
 
     # Sticky Scroll
     editorStickyScroll:
-      background: ((std.bg.glass)) # TODO: #0a0a0a77 - verify match
-      border: ((std.outline.faint))
-      shadow: ((std.shadow)) # TODO: #4b8ebd11 - verify match
+      background: $(std.bg.secondary)
+      border: $(std.outline.faint)
+      shadow: $(std.shadow)
 
     editorStickyScrollHover:
-      background: ((std.bg.glass.hover)) # TODO: #0a0a0aff - verify match
+      background: $(std.bg.secondary.hover)
 
     # Debug Exception Widget
     debugExceptionWidget:
-      background: ((panel.background))
-      border: ((std.error))
+      background: $(panel.background)
+      border: $(std.outline.error)
 
     # Marker Navigation (error/warning navigation)
     editorMarkerNavigation:
-      background: ((std.bg))
+      background: $(std.bg)
 
     editorMarkerNavigationError:
-      background: ((std.error))
-      headerBackground: ((std.error))
+      background: $(std.error)
+      headerBackground: $(std.error)
 
     editorMarkerNavigationWarning:
-      background: ((std.warn))
-      headerBackground: ((std.warn))
+      background: $(std.warn)
+      headerBackground: $(std.warn)
 
     editorMarkerNavigationInfo:
-      background: ((std.info))
-      headerBackground: ((std.info))
+      background: $(std.info)
+      headerBackground: $(std.info)
 
     # Peek View (Go to Definition, Find References, etc.)
     peekView:
-      border: ((std.outline.louder))
+      border: $(std.outline)
 
     peekViewTitle:
-      background: ((editorGroup.emptyBackground)) # TODO: #0a0a0a77 - verify match
+      background: $(editorGroup.emptyBackground)
 
     peekViewTitleLabel:
-      foreground: ((std.fg))
+      foreground: $(std.fg)
 
     peekViewTitleDescription:
-      foreground: ((std.fg.dark))
+      foreground: $(std.fg.ghost)
 
     peekViewResult:
-      background: ((editorGroup.emptyBackground)) # TODO: #0a0a0a77 - verify match
-      fileForeground: ((std.fg))
-      lineForeground: ((sideBarTitle.foreground)) # TODO: #a0a0a0 - verify match
-      matchHighlightBackground: ((std.transparent))
-      selectionBackground: ((list.activeSelectionBackground))
-      selectionForeground: ((std.fg))
+      background: $(editorGroup.emptyBackground)
+      fileForeground: $(std.fg.accent)
+      lineForeground: $(std.fg)
+      matchHighlightBackground: $(std.transparent)
+      selectionBackground: $(std.bg.accent)
+      selectionForeground: $(std.fg)
 
     peekViewEditorGutter:
-      background: ((std.accent))
+      background: alpha($(std.bg.accent), 25)
 
     peekViewEditor:
-      matchHighlightBackground: ((std.accent)) # TODO: #b0e9ff33 - verify color
-      matchHighlightBorder: ((std.outline.louder))
-      background: ((input.background)) # #2525257f
+      matchHighlightBackground: $(std.accent)
+      matchHighlightBorder: $(std.outline.louder)
+      background: $(input.background)
 
     peekViewEditorStickyScroll:
-      background: ((std.bg.glass))
+      background: $(std.bg.secondary)
 
     # Merge Conflicts
     merge:
-      currentHeaderBackground: ((std.accent))((^50))
-      currentContentBackground: ((std.accent))((^50))
-      incomingHeaderBackground: ((colors.green))((+50))((^50))
-      incomingContentBackground: ((colors.green))((+50))((^50))
-      commonContentBackground: ((std.bg.inverse))((^50))
-      commonHeaderBackground: ((std.bg.inverse))((^75))
-      border: ((std.outline))
+      currentHeaderBackground: alpha($(std.accent), 50)
+      currentContentBackground: alpha($(std.accent), 50)
+      incomingHeaderBackground: alpha(lighten($(colors.green), 50), 50)
+      incomingContentBackground: alpha(lighten($(colors.green), 50), 50)
+      commonContentBackground: alpha($(std.bg.inverse), 50)
+      commonHeaderBackground: alpha($(std.bg.inverse), 75)
+      border: $(std.outline)
 
     mergeEditor:
       change:
-        background: ((std.accent))
+        background: $(std.accent)
         word:
-          background: ((std.accent))
+          background: $(std.accent)
       conflict:
         unhandledUnfocused:
-          border: ((std.error))
+          border: $(std.error)
         unhandledFocused:
-          border: ((std.error))
+          border: $(std.error)
         handledUnfocused:
-          border: ((colors.green))((+50))
+          border: lighten($(colors.green), 50)
         handledFocused:
-          border: ((colors.green))((+50))
+          border: lighten($(colors.green), 50)
         handled:
-          minimapOverViewRuler: ((colors.green))((+50))
+          minimapOverViewRuler: lighten($(colors.green), 50)
         unhandled:
-          minimapOverViewRuler: ((std.error))
+          minimapOverViewRuler: $(std.error)
         input1:
-          background: ((std.accent))
+          background: $(std.accent)
         input2:
-          background: ((colors.green))((+50)) # TODO: #87b087 + 22
+          background: lighten($(colors.green), 50) # TODO: #87b087 + 22
       conflictingLines:
-        background: ((std.error))
+        background: $(std.error)
       changeBase:
-        background: ((std.bg.inverse))((-50)) # TODO: #808080 + 22
+        background: darken($(std.bg.inverse), 50) # TODO: #808080 + 22
         word:
-          background: ((std.bg.inverse))((-80)) # TODO: #808080 + 44
+          background: darken($(std.bg.inverse), 80) # TODO: #808080 + 44
 
     # Action Bar
     actionBar:
-      toggledBackground: ((std.bg.lighter))
+      toggledBackground: $(std.bg.lighter)
 
     # Simple Find Widget
     simpleFindWidget:
-      sashBorder: ((std.sash)) # TODO: #ff0000 - this is red, matches your test color
+      sashBorder: $(std.sash)
 
     # Gauge (progress indicators)
     gauge:
-      background: ((std.bg))
-      foreground: ((std.success))
-      border: ((std.outline.faint))
-      warningBackground: ((colors.yellow))((-70)) # #b19500
-      warningForeground: ((colors.yellow)) # #ffd700
-      errorBackground: ((colors.red))((-70)) # #861c11
-      errorForeground: ((colors.red))((+70)) # #e85b4c
+      background: $(std.bg)
+      foreground: $(std.success)
+      border: $(std.outline.faint)
+      warningBackground: darken($(colors.yellow), 70) # #b19500
+      warningForeground: $(colors.yellow) # #ffd700
+      errorBackground: darken($(colors.red), 70) # #861c11
+      errorForeground: lighten($(colors.red), 70) # #e85b4c
 
     # Notification Center
     notificationCenter:
-      border: ((std.outline.faint))
+      border: $(std.outline.faint)
 
     notificationCenterHeader:
-      foreground: ((std.fg))
-      background: ((std.bg))
+      foreground: $(std.fg)
+      background: $(std.bg)
 
     # Notification Toasts
     notificationToast:
-      border: ((std.outline))
+      border: $(std.outline)
 
     # Notification Items
     notifications:
-      foreground: ((std.fg))
-      background: ((std.bg))
-      border: ((std.outline.whisper))
+      foreground: $(std.fg)
+      background: $(std.bg)
+      border: $(std.outline.whisper)
 
     # Links inside notifications
     notificationLink:
-      foreground: ((std.accent)) # TODO: #b0e9ff - verify color match
+      foreground: $(std.fg.accent) # TODO: #b0e9ff - verify color match
 
     # Icons
     notificationsErrorIcon:
-      foreground: ((std.error))
+      foreground: $(std.fg.error)
 
     notificationsWarningIcon:
-      foreground: ((std.warn))
+      foreground: $(std.fg.warn)
 
     notificationsInfoIcon:
-      foreground: ((std.info)) # TODO: #88aacc - verify std.info exists
+      foreground: $(std.fg.info) # TODO: #88aacc - verify std.info exists
 
     # Banner (top-of-workbench notifications)
     banner:
-      background: ((std.accent))
-      foreground: ((std.fg))
-      iconForeground: ((std.accent)) # TODO: #b0e9ff - verify color match
+      background: $(std.bg.accent)
+      foreground: $(std.fg)
+      iconForeground: $(std.fg.accent)
 
     # Extension View
     extensionButton:
-      prominentForeground: ((std.fg))
-      prominentBackground: ((button.background)) # TODO: #1a2f4f - verify match
-      prominentHoverBackground: ((std.accent))
-      foreground: ((std.fg))
-      background: ((button.secondaryBackground))
-      hoverBackground: ((std.accent))
-      separator: ((std.line))
+      prominentForeground: $(std.fg)
+      prominentBackground: $(button.background) # TODO: #1a2f4f - verify match
+      prominentHoverBackground: $(std.accent)
+      foreground: $(std.fg)
+      background: $(button.secondaryBackground)
+      hoverBackground: $(std.accent)
+      separator: $(std.line)
 
     extensionBadge:
-      remoteBackground: ((std.accent))
-      remoteForeground: ((std.fg))
+      remoteBackground: $(std.bg.badge)
+      remoteForeground: $(std.fg.badge)
 
     extensionIcon:
-      starForeground: ((std.warn))
-      verifiedForeground: ((std.info))
-      preReleaseForeground: ((std.accent)) # TODO: #b0e9ff - verify color
-      sponsorForeground: ((std.error))
-      privateForeground: ((std.success))
+      starForeground: $(std.warn)
+      verifiedForeground: $(std.info)
+      preReleaseForeground: $(std.accent) # TODO: #b0e9ff - verify color
+      sponsorForeground: $(std.error)
+      privateForeground: $(std.success)
 
     # Quick Picker
     pickerGroup:
-      border: ((std.outline))
-      foreground: ((std.accent)) # TODO: #b0e9ff - verify color
+      border: $(std.outline)
+      foreground: $(std.accent) # TODO: #b0e9ff - verify color
 
     quickInput:
-      background: ((editorGroup.emptyBackground)) # TODO: #0a0a0abb - verify match
-      foreground: ((std.fg))
+      background: $(editorGroup.emptyBackground) # TODO: #0a0a0abb - verify match
+      foreground: $(std.fg)
 
     quickInputList:
-      focusBackground: ((std.accent))
-      focusForeground: ((std.fg))
-      focusIconForeground: ((std.accent)) # TODO: #b0e9ff - verify color
+      focusBackground: $(std.accent)
+      focusForeground: $(std.fg)
+      focusIconForeground: $(std.accent) # TODO: #b0e9ff - verify color
 
     quickInputTitle:
-      background: ((editorGroup.emptyBackground)) # TODO: #0a0a0abb - verify match
+      background: $(editorGroup.emptyBackground) # TODO: #0a0a0abb - verify match
 
     # Keybinding Labels
     keybindingLabel:
-      background: ((editorGroup.emptyBackground)) # TODO: #0a0a0abb - verify match
-      foreground: ((std.fg))
-      border: ((std.outline))
-      bottomBorder: ((std.outline.louder))
+      background: $(editorGroup.emptyBackground) # TODO: #0a0a0abb - verify match
+      foreground: $(std.fg)
+      border: $(std.outline)
+      bottomBorder: $(std.outline.louder)
 
     keybindingTable:
-      headerBackground: ((panel.background))
-      rowsBackground: ((std.bg.lightest))
+      headerBackground: $(panel.background)
+      rowsBackground: $(std.bg.lightest)
 
     # Terminal
     terminal:
-      background: ((std.bg))
-      foreground: ((std.fg)) # TODO: #d1d1d1 - verify match
+      background: $(std.bg)
+      foreground: $(std.fg) # TODO: #d1d1d1 - verify match
       # ANSI Colors (hard-coded as requested)
       ansiBlack: "#1e1e1e"
       ansiBlue: "#8787d7"
@@ -1011,277 +1010,277 @@ theme:
       ansiWhite: "#d1d1d1"
       ansiYellow: "#d7c787"
       # Terminal UI
-      selectionBackground: ((std.bg.inverse))((^60)) # TODO: #505050 + 80
-      border: ((std.outline.faint))
-      selectionForeground: ((std.fg))
-      inactiveSelectionBackground: ((std.bg.lighter)) # TODO: #3a3d41 - verify match
-      findMatchBackground: ((editor.findMatchHighlightBackground))
-      findMatchBorder: ((editor.findMatchHighlightBorder))
-      findMatchHighlightBackground: ((editor.findRangeHighlightBackground))
-      findMatchHighlightBorder: ((editor.findRangeHighlightBorder))
-      hoverHighlightBackground: ((std.accent)) # TODO: #b0e9ff22 - verify color
-      dropBackground: ((std.accent))((^50))
+      selectionBackground: alpha($(std.bg.inverse), 60) # TODO: #505050 + 80
+      border: $(std.outline.faint)
+      selectionForeground: $(std.fg)
+      inactiveSelectionBackground: $(std.bg.lighter) # TODO: #3a3d41 - verify match
+      findMatchBackground: $(editor.findMatchHighlightBackground)
+      findMatchBorder: $(editor.findMatchHighlightBorder)
+      findMatchHighlightBackground: $(editor.findRangeHighlightBackground)
+      findMatchHighlightBorder: $(editor.findRangeHighlightBorder)
+      hoverHighlightBackground: $(std.accent) # TODO: #b0e9ff22 - verify color
+      dropBackground: alpha($(std.accent), 50)
       tab:
         activeBorder: "#0078d4" # TODO: hard-coded blue, different from accent
-      initialHintForeground: ((std.fg.darker))
+      initialHintForeground: $(std.fg.darker)
 
     terminalCursor:
-      background: ((input.background))
-      foreground: ((terminal.foreground))
+      background: $(input.background)
+      foreground: $(terminal.foreground)
 
     terminalCommandDecoration:
-      defaultBackground: ((colors.green))((+50))
-      successBackground: ((colors.green))((+50))
-      errorBackground: ((std.error))
+      defaultBackground: lighten($(colors.green), 50)
+      successBackground: lighten($(colors.green), 50)
+      errorBackground: $(std.error)
 
     terminalOverviewRuler:
-      cursorForeground: ((std.accent)) # TODO: #b0e9ff + aa
-      findMatchForeground: ((editor.findMatchHighlightForeground))
-      border: ((std.outline.whisper))
+      cursorForeground: $(std.accent) # TODO: #b0e9ff + aa
+      findMatchForeground: $(editor.findMatchHighlightForeground)
+      border: $(std.outline.whisper)
 
     terminalStickyScroll:
-      background: ((std.bg.glass))
-      border: ((std.outline.faint))
+      background: $(std.bg.secondary)
+      border: $(std.outline.faint)
 
     terminalStickyScrollHover:
-      background: ((std.bg.glass.hover)) # TODO: #0a0a0aff
+      background: $(std.bg.secondary.hover) # TODO: #0a0a0aff
 
     terminalCommandGuide:
-      foreground: ((colors.yellow))((-50))
+      foreground: darken($(colors.yellow), 50)
 
     # Terminal Symbol Icons
     terminalSymbolIcon:
-      aliasForeground: ((std.accent)) # TODO: #b0e9ff
-      flagForeground: ((std.warn))
-      optionForeground: ((colors.purple))
-      optionValueForeground: ((colors.blue))((+50)) # TODO: #87c7c7
-      methodForeground: ((std.success))
-      argumentForeground: ((colors.red))((+50)) # TODO: #d78787
-      inlineSuggestionForeground: ((colors.purple))
-      fileForeground: ((std.fg))
-      folderForeground: ((std.fg))
+      aliasForeground: $(std.accent) # TODO: #b0e9ff
+      flagForeground: $(std.warn)
+      optionForeground: $(colors.purple)
+      optionValueForeground: lighten($(colors.blue), 50) # TODO: #87c7c7
+      methodForeground: $(std.success)
+      argumentForeground: lighten($(colors.red), 50) # TODO: #d78787
+      inlineSuggestionForeground: $(colors.purple)
+      fileForeground: $(std.fg)
+      folderForeground: $(std.fg)
 
     # Debug Toolbar
     debugToolBar:
-      background: ((std.bg))
-      border: ((std.outline.faint))
+      background: $(std.bg)
+      border: $(std.outline.faint)
 
     # Debug View (variables, call stack, etc.)
     debugView:
-      exceptionLabelForeground: ((std.fg))
-      exceptionLabelBackground: ((std.error))
-      stateLabelForeground: ((std.fg.inverse))
-      stateLabelBackground: ((std.warn))
-      valueChangedHighlight: ((colors.blue))((+50)) # TODO: #87c7c7 + 66
+      exceptionLabelForeground: $(std.fg)
+      exceptionLabelBackground: $(std.error)
+      stateLabelForeground: $(std.fg.inverse)
+      stateLabelBackground: $(std.warn)
+      valueChangedHighlight: lighten($(colors.blue), 50) # TODO: #87c7c7 + 66
 
     # Debug Token Expression (variable values in hover/watch)
     debugTokenExpression:
-      name: ((std.fg))
-      value: ((std.accent)) # TODO: #b0e9ff - verify color
-      string: ((colors.purple))
-      boolean: ((std.error))
-      number: ((colors.yellow))
-      error: ((colors.pink))((-70)) # #ff0077
-      type: ((std.fg.dark))
+      name: $(std.fg)
+      value: $(std.accent) # TODO: #b0e9ff - verify color
+      string: $(colors.purple)
+      boolean: $(std.error)
+      number: $(colors.yellow)
+      error: darken($(colors.pink), 70) # #ff0077
+      type: $(std.fg.dark)
 
     # Debug Icons
     debugIcon:
-      breakpointForeground: ((std.error))
-      breakpointDisabledForeground: ((std.fg.darker))
-      breakpointUnverifiedForeground: ((std.error))
-      breakpointCurrentStackframeForeground: ((std.warn))
-      breakpointStackframeForeground: ((colors.green))((+50))
-      startForeground: ((std.accent))
-      pauseForeground: ((colors.yellow))
-      stopForeground: ((std.error))
-      disconnectForeground: ((std.fg.dark))
-      restartForeground: ((colors.blue))((+50))
-      stepOverForeground: ((std.info))
-      stepIntoForeground: ((std.success))
-      stepOutForeground: ((std.accent)) # TODO: #b0e9ff - verify color
-      continueForeground: ((colors.green))((+50))
-      stepBackForeground: ((colors.purple))
+      breakpointForeground: $(std.error)
+      breakpointDisabledForeground: $(std.fg.darker)
+      breakpointUnverifiedForeground: $(std.error)
+      breakpointCurrentStackframeForeground: $(std.warn)
+      breakpointStackframeForeground: lighten($(colors.green), 50)
+      startForeground: $(std.accent)
+      pauseForeground: $(colors.yellow)
+      stopForeground: $(std.error)
+      disconnectForeground: $(std.fg.dark)
+      restartForeground: lighten($(colors.blue), 50)
+      stepOverForeground: $(std.info)
+      stepIntoForeground: $(std.success)
+      stepOutForeground: $(std.accent) # TODO: #b0e9ff - verify color
+      continueForeground: lighten($(colors.green), 50)
+      stepBackForeground: $(colors.purple)
 
     # Debug Console
     debugConsole:
-      infoForeground: ((colors.blue))((+50))
-      warningForeground: ((colors.yellow))
-      errorForeground: ((std.error))
-      sourceForeground: ((std.accent))
+      infoForeground: lighten($(colors.blue), 50)
+      warningForeground: $(colors.yellow)
+      errorForeground: $(std.error)
+      sourceForeground: $(std.accent)
 
     debugConsoleInputIcon:
-      foreground: ((sideBarTitle.foreground)) # TODO: #8090A0 - verify match
+      foreground: $(sideBarTitle.foreground) # TODO: #8090A0 - verify match
 
     # Testing
     testing:
-      runAction: ((colors.green))((+50))
-      iconErrored: ((std.error))
-      iconFailed: ((std.error))
-      iconPassed: ((colors.green))((+50))
-      iconQueued: ((colors.yellow))
-      iconUnset: ((std.fg.darker))
-      iconSkipped: ((std.info))
+      runAction: lighten($(colors.green), 50)
+      iconErrored: $(std.error)
+      iconFailed: $(std.error)
+      iconPassed: lighten($(colors.green), 50)
+      iconQueued: $(colors.yellow)
+      iconUnset: $(std.fg.darker)
+      iconSkipped: $(std.info)
       # Retired (faded versions) - these are actually flat dotted keys in VS Code
-      "iconErrored.retired": ((std.error)) # TODO: #cc5c5c66
-      "iconFailed.retired": ((std.error))
-      "iconPassed.retired": ((colors.green))((+50)) # TODO: #87b08766
-      "iconQueued.retired": ((colors.yellow)) # TODO: #d7c78766
-      "iconUnset.retired": ((std.fg.darker))
-      "iconSkipped.retired": ((std.info)) # TODO: #88aacc66
+      "iconErrored.retired": $(std.error) # TODO: #cc5c5c66
+      "iconFailed.retired": $(std.error)
+      "iconPassed.retired": lighten($(colors.green), 50) # TODO: #87b08766
+      "iconQueued.retired": $(colors.yellow) # TODO: #d7c78766
+      "iconUnset.retired": $(std.fg.darker)
+      "iconSkipped.retired": $(std.info) # TODO: #88aacc66
       # Peek view
-      peekBorder: ((std.outline))
-      peekHeaderBackground: ((editorGroup.emptyBackground)) # TODO: #0a0a0a77
+      peekBorder: $(std.outline)
+      peekHeaderBackground: $(editorGroup.emptyBackground) # TODO: #0a0a0a77
       # Messages
       message:
         error:
-          lineBackground: ((std.error))
-          badgeBackground: ((std.error))
-          badgeBorder: ((std.error))
-          badgeForeground: ((std.fg.inverse))
+          lineBackground: $(std.error)
+          badgeBackground: $(std.error)
+          badgeBorder: $(std.error)
+          badgeForeground: $(std.fg.inverse)
         info:
-          decorationForeground: ((std.info))
-          lineBackground: ((std.info))
-      messagePeekBorder: ((std.outline))
-      messagePeekHeaderBackground: ((editorGroup.emptyBackground)) # TODO: #0a0a0a77
+          decorationForeground: $(std.info)
+          lineBackground: $(std.info)
+      messagePeekBorder: $(std.outline)
+      messagePeekHeaderBackground: $(editorGroup.emptyBackground) # TODO: #0a0a0a77
       # Coverage
-      coveredBackground: ((colors.green))((+50)) # TODO: #87b08722
-      coveredBorder: ((colors.green))((+50)) # TODO: #87b08788
-      coveredGutterBackground: ((colors.green))((+50)) # TODO: #87b08733
-      uncoveredBranchBackground: ((std.error))
-      uncoveredBackground: ((std.error))
-      uncoveredBorder: ((std.error))
-      uncoveredGutterBackground: ((std.error))
-      coverCountBadgeBackground: ((std.accent))
-      coverCountBadgeForeground: ((std.fg))
+      coveredBackground: lighten($(colors.green), 50) # TODO: #87b08722
+      coveredBorder: lighten($(colors.green), 50) # TODO: #87b08788
+      coveredGutterBackground: lighten($(colors.green), 50) # TODO: #87b08733
+      uncoveredBranchBackground: $(std.error)
+      uncoveredBackground: $(std.error)
+      uncoveredBorder: $(std.error)
+      uncoveredGutterBackground: $(std.error)
+      coverCountBadgeBackground: $(std.bg.badge)
+      coverCountBadgeForeground: $(std.fg.badge)
 
     # Welcome Page
     welcomePage:
-      background: ((std.bg))
+      background: $(std.bg)
       progress:
-        background: ((std.accent))
-        foreground: ((std.accent))
-      tileBackground: ((std.bg.lighter))
-      tileHoverBackground: ((std.bg.lighter)) # TODO: #3a3a3aaa
-      tileBorder: ((std.outline.faint))
+        background: $(std.accent)
+        foreground: $(std.accent)
+      tileBackground: $(std.bg.lighter)
+      tileHoverBackground: $(std.bg.lighter) # TODO: #3a3a3aaa
+      tileBorder: $(std.outline.faint)
 
     walkThrough:
-      embeddedEditorBackground: ((input.background))
+      embeddedEditorBackground: $(input.background)
 
     walkthrough:
       stepTitle:
-        foreground: ((std.accent)) # TODO: #b0e9ff - verify color
+        foreground: $(std.accent) # TODO: #b0e9ff - verify color
 
     # Git Decorations (file explorer indicators)
     gitDecoration:
-      addedResourceForeground: ((colors.green))((+50))
-      modifiedResourceForeground: ((colors.yellow))
-      deletedResourceForeground: ((colors.red)) # TODO: #ff0000 - verify red.3 or use different
-      renamedResourceForeground: ((std.info))
-      stageModifiedResourceForeground: ((colors.yellow))((-50))
-      stageDeletedResourceForeground: ((colors.red)) # TODO: #b66c6c - verify match
-      untrackedResourceForeground: ((std.warn))
-      ignoredResourceForeground: ((std.fg.dark)) # TODO: #505050aa
-      conflictingResourceForeground: ((colors.pink))((-70))
-      submoduleResourceForeground: ((std.accent)) # TODO: #b0e9ff - verify color
+      addedResourceForeground: lighten($(colors.green), 50)
+      modifiedResourceForeground: $(colors.yellow)
+      deletedResourceForeground: $(colors.red) # TODO: #ff0000 - verify red.3 or use different
+      renamedResourceForeground: $(std.info)
+      stageModifiedResourceForeground: darken($(colors.yellow), 50)
+      stageDeletedResourceForeground: $(colors.red) # TODO: #b66c6c - verify match
+      untrackedResourceForeground: $(std.warn)
+      ignoredResourceForeground: $(std.fg.dark) # TODO: #505050aa
+      conflictingResourceForeground: darken($(colors.pink), 70)
+      submoduleResourceForeground: $(std.accent) # TODO: #b0e9ff - verify color
 
     # Git Blame
     git:
       blame:
-        editorDecorationForeground: ((std.fg.dark)) # TODO: #808080aa
+        editorDecorationForeground: $(std.fg.dark) # TODO: #808080aa
 
     # SCM Graph (commit history visualization)
     scmGraph:
-      historyItemHoverLabelForeground: ((std.fg))
-      historyItemHoverAdditionsForeground: ((colors.green))((+50))
-      historyItemHoverDeletionsForeground: ((std.error))
-      historyItemHoverDefaultLabelForeground: ((std.fg))
-      historyItemHoverDefaultLabelBackground: ((input.background))
+      historyItemHoverLabelForeground: $(std.fg)
+      historyItemHoverAdditionsForeground: lighten($(colors.green), 50)
+      historyItemHoverDeletionsForeground: $(std.error)
+      historyItemHoverDefaultLabelForeground: $(std.fg)
+      historyItemHoverDefaultLabelBackground: $(input.background)
       # Graph line colors (5 alternating colors for branches)
-      foreground1: ((std.accent))
-      foreground2: ((colors.yellow))((-50))
-      foreground3: ((colors.blue))((+50))
-      foreground4: ((colors.purple))
-      foreground5: ((std.info))
+      foreground1: $(std.accent)
+      foreground2: darken($(colors.yellow), 50)
+      foreground3: lighten($(colors.blue), 50)
+      foreground4: $(colors.purple)
+      foreground5: $(std.info)
       # Reference colors
-      historyItemRefColor: ((colors.yellow))((-70)) # TODO: #8f6f16 - verify match
-      historyItemRemoteRefColor: ((colors.blue))((-50)) # TODO: #215e7a - verify match
-      historyItemBaseRefColor: ((colors.green))((-70)) # TODO: #2b4636 - verify match
+      historyItemRefColor: darken($(colors.yellow), 70) # TODO: #8f6f16 - verify match
+      historyItemRemoteRefColor: darken($(colors.blue), 50) # TODO: #215e7a - verify match
+      historyItemBaseRefColor: darken($(colors.green), 70) # TODO: #2b4636 - verify match
 
     # Settings Editor
     settings:
-      headerForeground: ((std.fg))
-      settingsHeaderHoverForeground: ((std.accent))
-      headerBorder: ((std.outline.faint))
-      sashBorder: ((std.sash))
-      modifiedItemIndicator: ((colors.yellow))
-      dropdownBackground: ((input.background))
-      dropdownForeground: ((sideBar.foreground)) # TODO: #d1d1d1 - verify match
-      dropdownBorder: ((std.outline.muted))
-      dropdownListBorder: ((std.outline.faint))
-      checkboxBackground: ((checkbox.background)) # Reuse existing checkbox styling
-      checkboxForeground: ((checkbox.foreground))
-      checkboxBorder: ((checkbox.border))
-      rowHoverBackground: ((button.secondaryBackground)) # TODO: #303030aa
-      focusedRowBackground: ((button.secondaryBackground))
-      focusedRowBorder: ((std.outline)) # TODO: #4b8ebd66
-      textInputBackground: ((input.background))
-      textInputForeground: ((sideBar.foreground)) # TODO: #d1d1d1 - verify match
-      textInputBorder: ((input.border))
-      numberInputBackground: ((input.background))
-      numberInputForeground: ((sideBar.foreground)) # TODO: #d1d1d1 - verify match
-      numberInputBorder: ((input.border))
+      headerForeground: $(std.fg)
+      settingsHeaderHoverForeground: $(std.accent)
+      headerBorder: $(std.outline.faint)
+      sashBorder: $(std.sash)
+      modifiedItemIndicator: $(colors.yellow)
+      dropdownBackground: $(input.background)
+      dropdownForeground: $(sideBar.foreground) # TODO: #d1d1d1 - verify match
+      dropdownBorder: $(std.outline.muted)
+      dropdownListBorder: $(std.outline.faint)
+      checkboxBackground: $(checkbox.background) # Reuse existing checkbox styling
+      checkboxForeground: $(checkbox.foreground)
+      checkboxBorder: $(checkbox.border)
+      rowHoverBackground: $(button.secondaryBackground) # TODO: #303030aa
+      focusedRowBackground: $(button.secondaryBackground)
+      focusedRowBorder: $(std.outline) # TODO: #4b8ebd66
+      textInputBackground: $(input.background)
+      textInputForeground: $(sideBar.foreground) # TODO: #d1d1d1 - verify match
+      textInputBorder: $(input.border)
+      numberInputBackground: $(input.background)
+      numberInputForeground: $(sideBar.foreground) # TODO: #d1d1d1 - verify match
+      numberInputBorder: $(input.border)
 
     # Breadcrumbs (navigation path at top of editor)
     breadcrumb:
-      foreground: ((sideBarTitle.foreground)) # TODO: #8090A0 - verify match
-      background: ((editorGroup.emptyBackground)) # TODO: #0a0a0a55
-      focusForeground: ((sideBar.foreground)) # TODO: #D1D1D1 - verify match
-      activeSelectionForeground: ((std.fg))
+      foreground: $(sideBarTitle.foreground) # TODO: #8090A0 - verify match
+      background: $(editorGroup.emptyBackground) # TODO: #0a0a0a55
+      focusForeground: $(sideBar.foreground) # TODO: #D1D1D1 - verify match
+      activeSelectionForeground: $(std.fg)
 
     breadcrumbPicker:
-      background: ((editorGroup.emptyBackground)) # TODO: #0a0a0aaa
+      background: $(editorGroup.emptyBackground) # TODO: #0a0a0aaa
 
     # Editor Links
     editorLink:
-      activeForeground: ((colors.blue))((+50)) # TODO: #87C7C7
+      activeForeground: lighten($(colors.blue), 50) # TODO: #87C7C7
 
     # Editor Ruler (vertical line guides)
     editorRuler:
-      foreground: ((std.line.faint)) # TODO: ## Breadcrumbs (navigation path at top of editor)
+      foreground: $(std.line.faint) # TODO: ## Breadcrumbs (navigation path at top of editor)
 
     # Editor Code Lens (inline hints)
     editorCodeLens:
-      foreground: ((sideBarTitle.foreground)) # TODO: #A0A0A0 - verify match
+      foreground: $(sideBarTitle.foreground) # TODO: #A0A0A0 - verify match
 
     # Editor Light Bulb (quick fixes)
     editorLightBulb:
-      foreground: ((colors.yellow))
+      foreground: $(colors.yellow)
 
     editorLightBulbAutoFix:
-      foreground: ((colors.purple)) # TODO: #8787D7
+      foreground: $(colors.purple) # TODO: #8787D7
 
     # Charts (performance graphs, etc.)
     charts:
-      foreground: ((std.fg))
-      lines: ((std.line))
-      red: ((std.error))
-      blue: ((std.accent))
-      yellow: ((colors.yellow))
-      orange: ((colors.orange))((-50)) # TODO: #c97c4b - verify match
-      green: ((colors.green))((+50))
-      purple: ((colors.purple)) # TODO: #a58cc4 - verify match
+      foreground: $(std.fg)
+      lines: $(std.line)
+      red: $(std.error)
+      blue: $(std.accent)
+      yellow: $(colors.yellow)
+      orange: darken($(colors.orange), 50) # TODO: #c97c4b - verify match
+      green: lighten($(colors.green), 50)
+      purple: $(colors.purple) # TODO: #a58cc4 - verify match
 
     chart:
-      line: ((std.line))
-      axis: ((std.accent))
-      guide: ((std.line.muted))
+      line: $(std.line)
+      axis: $(std.accent)
+      guide: $(std.line.muted)
 
     # Chat (AI assistant features)
     chat:
-      editedFileForeground: ((colors.yellow))((+50)) # TODO: #e2c08d - verify match
-      slashCommandBackground: ((std.bg.lighter)) # TODO: #34414b - verify match
-      slashCommandForeground: ((std.accent)) # TODO: #40a6ff - different blue?
+      editedFileForeground: lighten($(colors.yellow), 50) # TODO: #e2c08d - verify match
+      slashCommandBackground: $(std.bg.lighter) # TODO: #34414b - verify match
+      slashCommandForeground: $(std.accent) # TODO: #40a6ff - different blue?
 
     # Ports (development server indicators)
     ports:
-      iconRunningProcessForeground: ((colors.green))((-50)) # TODO: #369432 - verify match
+      iconRunningProcessForeground: darken($(colors.green), 50) # TODO: #369432 - verify match

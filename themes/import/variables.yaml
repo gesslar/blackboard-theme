@@ -3,53 +3,84 @@ vars:
   colors:
     black: "#0e0e0e"
     white: "#e0e0e0"
-    blue: "#0099ff"
-    red: "#d8002b"
-    yellow: "#cc9900"
-    orange: "#ff6600"
-    green: "#009900"
-    purple: "#6600ff"
-    pink: "#ff0099"
+    blue: "#4b8ebd"
+    red: "#e13312"
+    yellow: "#ebd700"
+    orange: "#ec6a13"
+    green: "#4bbd96"
+    purple: "#964bbd"
+    pink: "#bd4bab"
+    teal: "#4babbd"
 
   std:
-    fg.dark: ((std.fg))((-25))
-    fg.darker: ((std.fg.dark))((-25))
-    fg.darkest: ((std.fg.darker))((-25))
-    fg.inverse: ((std.fg))((~))
-    fg.debug: ((std.warnInverse))
+    fg.light: darken($(std.fg), 15)
+    fg.ghost: $(std.fg.darker)
+    fg.dark: darken($(std.fg), 25)
+    fg.darker: darken($(std.fg.dark), 25)
+    fg.darkest: darken($(std.fg.darker), 25)
+    fg.inverse: invert($(std.fg))
+    fg.debug: $(std.info)
+    fg.success: $(std.success)
+    fg.error: $(std.error)
+    fg.warn: $(std.warn)
+    fg.info: $(std.info)
+    fg.accent: $(std.accent)
+    fg.badge: $(std.fg.inverse)
+    fg.changed: $(std.warn)
+    fg.added: $(std.success)
+    fg.deleted: $(std.error)
 
-    bg.light: ((std.bg))((+25))
-    bg.lighter: ((std.bg.light))((+25))
-    bg.lightest: ((std.bg.lighter))((+25))
-    bg.inverse: ((std.bg))((~))
-    bg.debug: ((std.warn))((^50))
+    bg.secondary: darken($(std.bg.lighter), 5)
+    bg.secondary.hover: lighten($(std.bg.accent), 25)
+    bg.light: darken($(std.bg), 25)
+    bg.lighter: darken($(std.bg.light), 25)
+    bg.lightest: darken($(std.bg.lighter), 25)
+    bg.inverse: invert($(std.bg))
+    bg.success: alpha($(std.successInverse), 20)
+    bg.error: alpha($(std.errorInverse), 20)
+    bg.warn: alpha($(std.warnInverse), 20)
+    bg.info: alpha($(std.infoInverse), 20)
+    bg.debug: alpha($(std.infoInverse), 20)
+    bg.accent: darken($(std.accent), 55)
+    bg.accent.loud: darken($(std.bg.accent), 25)
+    bg.accent.louder: darken($(std.bg.accent.loud), 25)
+    bg.accent.loudest: darken($(std.bg.accent.louder), 25)
+    bg.badge: $(std.accent.lightest)
+    bg.drop: darken($(std.accent), 25)
+    bg.changed: $(std.warn)
+    bg.added: $(std.success)
+    bg.deleted: $(std.error)
 
-    bg.glass: ((std.glass))((-75))
-    bg.glass.hover: ((std.bg.glass))((+50))
-    bg.glass.dark: ((std.bg.glass))((-25))
-    bg.glass.dark.hover: ((std.bg.glass.dark))((+50))
+    accent.light: darken($(std.accent), 25)
+    accent.lighter: darken($(std.accent.light), 25)
+    accent.lightest: darken($(std.accent.lighter), 25)
+    accent.dark: darken($(std.accent), 25)
+    accent.darker: darken($(std.accent.dark), 25)
+    accent.darkest: darken($(std.accent.darker), 25)
 
-    accent.light: ((std.accent))((+25))
-    accent.lighter: ((std.accent.light))((+25))
-    accent.lightest: ((std.accent.lighter))((+25))
-    accent.dark: ((std.accent))((-25))
-    accent.darker: ((std.accent.dark))((-25))
-    accent.darkest: ((std.accent.darker))((-25))
+    outline: darken($(std.accent), 25)
+    outline.loud: darken($(std.outline), 25)
+    outline.louder: darken($(std.outline.loud), 25)
+    outline.loudest: darken($(std.outline.louder), 25)
+    outline.muted: darken($(std.outline), 25)
+    outline.faint: darken($(std.accent.dark), 25)
+    outline.whisper: darken($(std.accent), 25)
+    outline.debug: darken($(std.info), 60)
+    outline.success: darken($(std.success), 60)
+    outline.error: darken($(std.error), 60)
+    outline.warn: darken($(std.warn), 60)
+    outline.info: darken($(std.info), 60)
+    outline.drop: $(std.outline.louder)
+    outline.changed: darken($(std.warn), 10)
+    outline.added: darken($(std.success), 10)
+    outline.deleted: darken($(std.error), 10)
+    sash: $(std.outline)
 
-    outline: ((std.accent))((-50))
-    outline.loud: ((std.outline))((+25))
-    outline.louder: ((std.outline.loud))((+25))
-    outline.muted: ((std.outline))((-25))
-    outline.faint: ((std.accent.dark))((-25))
-    outline.whisper: ((std.accent.darker))((-25))
-    outline.debug: ((std.warn))((-10))
+    line: darken($(std.accent), 25)
+    line.muted: darken($(std.line), 25)
+    line.faint: darken($(std.line.muted), 25)
+    line.whisper: darken($(std.line), 25)
 
-    sash: ((std.outline))
-
-    line: ((std.accent))((-25))
-    line.muted: ((std.line))((-25))
-    line.faint: ((std.line.muted))((-25))
-
-    shadow: ((std.accent))((^15))
-    transparent: ((std.bg))((^100))
+    shadow: darken($(std.accent), 15)
+    transparent: darken($(std.bg), 100)
     test: "#ff0000ee"
