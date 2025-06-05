@@ -122,8 +122,8 @@ export default class Colour {
     // Handle alpha - blend the alphas too if present
     let alpha = ""
     if(c1.alpha || c2.alpha) {
-      const alpha1 = c1.alpha?.decimal ?? 100
-      const alpha2 = c2.alpha?.decimal ?? 100
+      const alpha1 = c1.alpha?.decimal ?? 1
+      const alpha2 = c2.alpha?.decimal ?? 1
       const mixedAlpha = alpha1 * (1 - t) + alpha2 * t
       alpha = Colour.decimalAlphaToHex(mixedAlpha)
     }

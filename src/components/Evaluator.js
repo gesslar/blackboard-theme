@@ -86,7 +86,7 @@ export default class Evaluator {
           return Colour.mix(
             args[0],
             args[1],
-            args[2] ? parseInt(args[2]) : undefined
+            args[2] ? Number(args[2]) : undefined
           )
         case "rgb": case "rgba":
         case "hsl": case "hsla":
