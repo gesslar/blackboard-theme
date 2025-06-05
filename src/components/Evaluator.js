@@ -71,13 +71,27 @@ export default class Evaluator {
     const result = (() => {
       switch(func) {
         case "lighten":
-          return Colour.lightenOrDarken(args[0], parseInt(args[1]))
+          return Colour.lightenOrDarken(args[0], Number(args[1]))
         case "darken":
-          return Colour.lightenOrDarken(args[0], -parseInt(args[1]))
+          return Colour.lightenOrDarken(args[0], -Number(args[1]))
+        case "fade":
+          return Colour.addAlpha(args[0], -Number(args[1]))
+        case "solidify":
+          return Colour.addAlpha(args[0], Number(args[1]))
         case "alpha":
-          return Colour.addAlpha(args[0], parseInt(args[1]))
+          return Colour.setAlpha(args[0], Number(args[1]))
         case "invert":
           return Colour.invert(args[0])
+        case "mix":
+          return Colour.mix(
+            args[0],
+            args[1],
+            args[2] ? parseInt(args[2]) : undefined
+          )
+        case "rgb": case "rgba":
+        case "hsl": case "hsla":
+        case "hsv": case "hsva":
+          return Colour.toHex(func, args[3], ...args.slice(0, 3))
         default:
           return `+(${func}, ${args.join(", ")})`
       }
