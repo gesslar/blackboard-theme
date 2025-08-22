@@ -1,7 +1,5 @@
 # Blackboard - A Theme for People Who Code in the Dark
 
-![blackboard preview](https://raw.githubusercontent.com/gesslar/blackboard-theme/main/media/blackboard.png)
-
 **Blackboard** is a dark, muted VS Code theme inspired by chalk on slate - crisp electric highlights on a grounded matte foundation. Designed for clarity, comfort, and elegance during long hours of code immersion.
 
 Built with the theme compiler engine [@gesslar/aunty](https://www.npmjs.com/package/@gesslar/aunty).
