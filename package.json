@@ -11,7 +11,7 @@
   "scripts": {
     "watch": "npx @gesslar/aunty@latest build -wo ./dist ./themes/src/*.yaml",
     "build": "vsce package --skip-license",
-    "submit": "xdg-open https://marketplace.visualstudio.com/manage/publishers/gesslar"
+    "submit": "npm run build && xdg-open https://marketplace.visualstudio.com/manage/publishers/gesslar"
   },
   "categories": [
     "Themes"
