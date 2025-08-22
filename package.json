@@ -1,6 +1,6 @@
 {
-  "name": "blackboard-theme",
-  "displayName": "Blackboard Theme",
+  "name": "blackboard-themepack",
+  "displayName": "Blackboard Theme Pack",
   "description": "Classic blackboard aesthetics for night coding - chalk on slate with electric blue accents",
   "version": "0.0.1",
   "publisher": "gesslar",
@@ -11,7 +11,7 @@
   "scripts": {
     "watch": "npx @gesslar/aunty@latest build -wo ./dist ./themes/src/*.yaml",
     "build": "vsce package --skip-license",
-    "submit": "vsce publish"
+    "submit": "xdg-open https://marketplace.visualstudio.com/manage/publishers/gesslar"
   },
   "categories": [
     "Themes"
