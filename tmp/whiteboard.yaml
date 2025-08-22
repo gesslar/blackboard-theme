@@ -1,8 +1,8 @@
 # Theme Config
 config:
   schema: vscode://schemas/color-theme
-  name: blackboard
-  type: dark
+  name: whiteboard
+  type: light
 
   import:
     global:
@@ -17,7 +17,7 @@ config:
     colorSpaceName: sRGB
 
 vars:
-  main: $colors.white
+  main: lighten($colors.black, 100)
   inverse: invert($main)
 
   # The following define primary basics that can be relied upon by the
@@ -25,9 +25,14 @@ vars:
   # differently. Anything expressed here will override anything being
   # imported.
 
+  fg: $main
+
   theme:
     fg: $main
-    bg: $colors.black
-    accent: $colors.blue
-    accentSecondary: $colors.teal
-    shadow: alpha($theme.accent, 0.25)
+    bg: mix($colors.white, $colors.blue, 1)
+    accent: $colors.orange
+    accentSecondary: $colors.pink
+    shadow: alpha($accent, 0.25)
+
+  control:
+    fg: $(inverse)

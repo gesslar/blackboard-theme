@@ -1,0 +1,7 @@
+      {
+        "label": "Whiteboard",
+        "description": "... may be a diversity hire, but it works hard.",
+        "id": "whiteboard",
+        "uiTheme": "vs",
+        "path": "dist/whiteboard.color-theme.json"
+      }

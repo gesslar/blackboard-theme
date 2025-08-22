@@ -4,16 +4,14 @@
   "description": "Classic blackboard aesthetics for night coding - chalk on slate with electric blue accents",
   "version": "0.0.1",
   "publisher": "gesslar",
-  "license": "UNLICENSED",
+  "license": "Unlicense",
   "engines": {
     "vscode": ">=1.50.0"
   },
   "scripts": {
-    "build": "node src/build.js",
-    "watch": "npm run build && chokidar \"themes/{import,src}/*.{json5,yaml,yml}\" -c \"npm run build > output.txt\"",
-    "start": "npm run watch",
-    "prepublish": "npm run build",
-    "publish": "vsce publish"
+    "watch": "npx @gesslar/aunty@latest build -wo ./dist ./themes/src/*.yaml",
+    "build": "vsce package --skip-license",
+    "submit": "vsce publish"
   },
   "categories": [
     "Themes"
@@ -24,7 +22,7 @@
       {
         "label": "Blackboard",
         "description": "Don't use your nails, eek!",
-        "id": "",
+        "id": "blackboard",
         "uiTheme": "vs-dark",
         "path": "dist/blackboard.color-theme.json"
       },
@@ -36,15 +34,15 @@
         "path": "dist/bubblegum-goth.color-theme.json"
       },
       {
-        "label": "Ghost in the Machine",
-        "description": "If you see me, no you don't",
-        "id": "ghost-in-the-machine",
+        "label": "Corporate",
+        "description": "They'll definitely think you're working now.",
+        "id": "corporate",
         "uiTheme": "vs-dark",
-        "path": "dist/ghost-in-the-machine.color-theme.json"
+        "path": "dist/corporate.color-theme.json"
       }
     ]
   },
-  "icon": "https://raw.githubusercontent.com/gesslar/blackboard-theme/main/media/blackboard.png",
+  "icon": "media/blackboard.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/gesslar/blackboard-theme"
@@ -59,19 +57,5 @@
   ],
   "__metadata": {
     "id": "blackboard-theme"
-  },
-  "devDependencies": {
-    "@stylistic/eslint-plugin-js": "^4.4.0",
-    "@typescript-eslint/eslint-plugin": "^8.33.0",
-    "@typescript-eslint/parser": "^8.33.0",
-    "chokidar-cli": "^3.0.0",
-    "color": "^5.0.0",
-    "colors-convert": "^1.4.1",
-    "eslint": "^9.28.0",
-    "eslint-plugin-jsdoc": "^50.6.17",
-    "globby": "^14.1.0",
-    "json5": "^2.2.3",
-    "traverse": "^0.6.11",
-    "yaml": "^2.8.0"
   }
 }

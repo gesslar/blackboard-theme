@@ -4,3 +4,13 @@
 node_modules/
 README.md
 CHANGELOG.md
+src/
+engine/
+themes/
+tmp/
+.gitignore
+jsconfig.json
+output.txt
+TODO.md
+eslint.config.js
+.github/
