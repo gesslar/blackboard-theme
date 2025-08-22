@@ -14,29 +14,5 @@
         "--extensionDevelopmentPath=${workspaceFolder}"
       ]
     },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Build",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": [
-        "run-script",
-        "build"
-      ],
-      "cwd": "${workspaceFolder}",
-      "console": "integratedTerminal"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Watch",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": [
-        "run-script",
-        "watch"
-      ],
-      "cwd": "${workspaceFolder}",
-      "console": "integratedTerminal"
-    },
   ]
 }
