@@ -201,13 +201,9 @@ eating a banana beneath a parasol. Don't tell mom.
 
 ## License
 
-The license for the VS Code interface (anything contained within the `colors`
-object) is licensed under the [Unlicense](https://unlicense.org) - Because the
-idea of copyrighting the arrangement of colours is absurd. If you think
-otherwise, gg `¯\_(ツ)_/¯`.
-
-The license for the syntax highlighting (anything contained with the
-`tokenColors` object) is subject to the [GPL3 license](https://www.gnu.org/licenses/gpl-3.0.en.html).
+Blackboard Theme Pack is licensed under the [Unlicense](https://unlicense.org) -
+Because the idea of copyrighting the arrangement of colours is absurd. If you
+think otherwise, gg `¯\_(ツ)_/¯`.
 
 ## Caveat 2
 
