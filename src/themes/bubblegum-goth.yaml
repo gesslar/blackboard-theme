@@ -5,12 +5,9 @@ config:
   type: dark
 
   import:
-    global:
-      - ../import/variables.yaml
-    colors:
-      - ../import/colors.yaml
-    tokenColors:
-      - ../import/karyprocolors-${type}.tmLanguage.yaml
+    global: ../import/variables.yaml
+    colors: ../import/colors.yaml
+    tokenColors: ../import/token-colors-${type}.yaml
 
   custom:
     semanticHighlighting: true
