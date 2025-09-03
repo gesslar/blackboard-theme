@@ -1,18 +1,18 @@
 # Variables for later substitution
 vars:
   colors:
-    black: hsv(10,10,7)
-    white: hsv(0,0,90)
-    blue: hsv(215,70,65)
-    red: hsv(0,70,100)
-    yellow: hsv(50,60,100)
-    orange: hsv(35,75,85)
-    green: hsv(160,60,80)
-    green2: hsv(100,60,80)
-    purple: hsv(300,60,80)
-    pink: hsv(320,40,100)
-    teal: hsv(200,50,40)
-    gold: hsv(45,85,100)
+    black: oklch(0.165 0.0 0)
+    white: oklch(0.9 0.0 0.0)
+    blue: oklch(0.7 0.2 260.0)
+    red: oklch(0.7 0.19 25.0)
+    yellow: oklch(0.9 0.18 98.0)
+    orange: oklch(0.8 0.16 71.0)
+    green: oklch(0.8 0.15 170.0)
+    green2: oklch(0.8 0.2 135.0)
+    purple: oklch(0.6 0.2 320.0)
+    pink: oklch(0.8 0.15 340)
+    teal: oklch(0.6 0.05 230)
+    gold: oklch(0.9 0.11 88)
 
   # The following define secondary basics that can be relied upon by the
   # theme's definition.
@@ -21,31 +21,31 @@ vars:
     fg.hover: $theme.fg
     fg.inverse: $std.bg
     fg.secondary: darken($std.fg, 5)
-    fg.inactive: darken($std.fg, 25)
+    fg.inactive: darken($std.fg, 10)
     fg.faint: fade($std.fg, 0.50)
-    fg.accent: lighten($accent, 50)
-    fg.accent.faint: fade(lighten($accent, 30), 0.50)
-    fg.accent.whisper: fade($std.fg.accent.faint, 0.30)
-    fg.accent.secondary: lighten($accent.secondary, 50)
-    fg.accent.secondary.faint: fade(lighten($std.fg.accent.secondary, 30), 0.50)
+    fg.accent: $accent
+    fg.accent.faint: fade($accent, 0.5)
+    fg.accent.whisper: fade($accent, 0.85)
+    fg.accent.secondary: $accent.secondary
+    fg.accent.secondary.faint: fade($accent.secondary, 0.5)
     fg.success: $std.fg
     fg.warning: $std.fg
-    fg.info: lighten($status.info, 25)
-    fg.error: lighten($status.error, 70)
-    fg.badge: $std.bg
+    fg.info: lighten($status.info, 10)
+    fg.error: lighten($status.error, 15)
+    fg.badge: invert(darken($std.bg.accent, 25))
 
     bg: $theme.bg
     bg.inverse: invert($std.bg)
     bg.faint: fade($std.bg.accent, 0.40)
-    bg.inactive: darken($std.bg, 15)
-    bg.accent: darken($accent, 15)
-    bg.badge: $std.bg.accent.secondary
+    bg.inactive: darken($std.bg, 10)
+    bg.accent: darken($accent, 5)
+    bg.badge: $std.bg.accent
     bg.accent.faint: fade($accent, 0.40)
     bg.accent.faint.strong: fade($std.bg.accent.faint, 0.50)
     bg.accent.whisper: fade($std.bg.accent.faint, 0.80)
-    bg.accent.strong: darken($accent, 25)
-    bg.accent.secondary: lighten($accent.secondary, 25)
-    bg.hover: darken($std.bg.accent, 15)
+    bg.accent.strong: darken($accent, 10)
+    bg.accent.secondary: lighten($accent.secondary, 10)
+    bg.hover: darken($std.bg.accent, 10)
     bg.hover.faint: fade($std.bg.hover, 0.25)
     bg.hover.whisper: fade($std.bg.hover.faint, 0.5)
     bg.success: $status.success
@@ -58,9 +58,9 @@ vars:
 
     bg.panel.outer: $std.bg
     bg.panel.outer.inactive: $std.bg.inactive
-    bg.panel.inner: lighten($std.bg.panel.outer, 10)
-    bg.panel.inner.inactive: lighten($std.bg.panel.outer.inactive, 10)
-    bg.panel.innermost: lighten($std.bg.panel.inner, 10)
+    bg.panel.inner: lighten($std.bg.panel.outer, 5)
+    bg.panel.inner.inactive: lighten($std.bg.panel.outer.inactive, 5)
+    bg.panel.innermost: lighten($std.bg.panel.inner, 5)
     bg.panel.innermost.inactive: fade($std.bg.panel.inner.inactive, 0.25)
 
     highlight:
@@ -79,23 +79,23 @@ vars:
         rename: alpha($colors.purple, 0.25)
         match: $colors.green2
 
-    outline: darken($std.line, 15)
+    outline: darken($std.line, 10)
     outline.strong: $std.line.strong
     outline.hover: $std.line.strong
     outline.faint: $std.line.faint
     outline.whisper: $std.line.whisper
     outline.faint.strong: $std.line.faint.strong
     outline.secondary: $std.line.secondary
-    outline.success: fade(lighten($status.success, 25), 0.40)
-    outline.error: fade(lighten($status.error, 25), 0.40)
-    outline.warning: fade(lighten($status.warning, 25), 0.40)
-    outline.info: fade(lighten($status.info, 25), 0.40)
+    outline.success: fade(lighten($status.success, 10), 0.40)
+    outline.error: fade(lighten($status.error, 10), 0.40)
+    outline.warning: fade(lighten($status.warning, 10), 0.40)
+    outline.info: fade(lighten($status.info, 10), 0.40)
     outline.sticky: $transparent
 
     line: $accent
-    line.strong: lighten($std.line, 25)
+    line.strong: lighten($std.line, 10)
     line.faint: fade($std.line, 0.50)
-    line.faint.strong: lighten($std.line.faint, 25)
+    line.faint.strong: lighten($std.line.faint, 10)
     line.whisper: fade($std.line.faint, 0.65)
     line.secondary: $accent.secondary
 
@@ -107,10 +107,10 @@ vars:
     error: $colors.red
     success: $colors.green
 
-    added: lighten($status.success, 20)
-    modified: lighten($status.warning, 20)
-    deleted: lighten($status.error, 20)
-    ignored: darken($main, 50)
+    added: lighten($status.success, 10)
+    modified: lighten($status.warning, 10)
+    deleted: lighten($status.error, 10)
+    ignored: darken($main, 10)
 
   ops:
     read: $colors.green
@@ -124,7 +124,7 @@ vars:
   shadow: $theme.shadow
 
   control:
-    base: darken($accent, 25)
+    base: darken($accent, 10)
 
     fg: $colors.white
     fg.inverse: invert($control.fg)
@@ -136,12 +136,12 @@ vars:
     bg: fade($control.base, 0.50)
     bg.secondary: darken($control.bg, 10)
     bg.hover: $std.bg.accent
-    bg.active: darken($control.bg, 25)
-    bg.secondary.hover: darken($control.bg.secondary, 25)
+    bg.active: darken($control.bg, 10)
+    bg.secondary.hover: darken($control.bg.secondary, 10)
 
     outline: $std.outline
-    outline.active: lighten($std.outline, 50)
-    outline.focus: lighten($control.outline, 50)
+    outline.active: lighten($std.outline, 10)
+    outline.focus: lighten($control.outline, 10)
 
     shadow: fade($shadow, 0.1)
 

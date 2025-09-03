@@ -65,7 +65,7 @@ theme:
       foreground: $std.fg.accent.secondary
     sideBarSectionHeader:
       foreground: $std.fg.secondary
-      background: darken($std.bg.panel.inner, 15)
+      background: darken($std.bg.panel.inner, 5)
       border: $std.outline.whisper
 
     # Git colors
@@ -108,9 +108,9 @@ theme:
       background: $std.bg.panel.outer
       border: $control.outline
       # No Folder Open
-      noFolderForeground: darken($statusBar.foreground, 10)
-      noFolderBackground: darken($statusBar.background, 10)
-      noFolderBorder: darken($statusBar.border, 10)
+      noFolderForeground: darken($statusBar.foreground, 5)
+      noFolderBackground: darken($statusBar.background, 5)
+      noFolderBorder: darken($statusBar.border, 5)
       # Debugging
       debuggingBackground: $control.bg
       debuggingForeground: lighten($std.fg.accent, 25)
@@ -127,7 +127,7 @@ theme:
       focusBorder: $std.outline.faint.strong
       # Prominent Items
       prominentForeground: lighten($std.bg.accent, 100)
-      prominentBackground: darken($std.bg.accent, 35)
+      prominentBackground: darken($std.bg.accent, 10)
       prominentHoverForeground: $statusBarItem.prominentForeground
       prominentHoverBackground: lighten($statusBarItem.prominentBackground, 25)
       # Remote Indicator
@@ -347,7 +347,7 @@ theme:
       hoverForeground: $std.fg.hover
       unfocusedHoverForeground: $std.fg.inactive
       hoverBackground: lighten($tab.activeBackground, 50)
-      unfocusedHoverBackground: darken($tab.hoverBackground, 20)
+      unfocusedHoverBackground: darken($tab.hoverBackground, 10)
       hoverBorder: $std.outline
       unfocusedHoverBorder: $std.outline.faint
       lastPinnedBorder: $tab.activeBorderTop
@@ -369,7 +369,7 @@ theme:
       # Text selection
       selectionForeground: $std.fg
       selectionBackground: lighten($std.highlight.bg.accent, 50)
-      inactiveSelectionBackground: darken($editor.selectionBackground, 10)
+      inactiveSelectionBackground: darken($editor.selectionBackground, 5)
       # Matching content
       selectionHighlightBackground: mix($std.bg.accent.faint, $std.bg.panel.innermost, 90)
       selectionHighlightBorder: lighten($editor.selectionHighlightBackground, 25)
@@ -436,7 +436,7 @@ theme:
         foreground: $editorCursor.foreground
         background: $editorCursor.background
       secondary:
-        foreground: fade(darken($editorCursor.foreground, 25), 0.25)
+        foreground: fade(darken($editorCursor.foreground, 10), 0.25)
         background: $editorCursor.background
     editorPane:
       background: $std.bg.panel.inner
@@ -450,17 +450,17 @@ theme:
     # Indent Guides
     editorIndentGuide:
       background1: alpha($std.line, .55)
-      background2: darken($editorIndentGuide.background1, 5)
-      background3: darken($editorIndentGuide.background2, 5)
-      background4: darken($editorIndentGuide.background3, 5)
-      background5: darken($editorIndentGuide.background4, 5)
-      background6: darken($editorIndentGuide.background5, 5)
-      activeBackground1: lighten($editorIndentGuide.background1, 25)
-      activeBackground2: lighten($editorIndentGuide.background1, 25)
-      activeBackground3: lighten($editorIndentGuide.background1, 25)
-      activeBackground4: lighten($editorIndentGuide.background1, 25)
-      activeBackground5: lighten($editorIndentGuide.background1, 25)
-      activeBackground6: lighten($editorIndentGuide.background1, 25)
+      background2: darken($editorIndentGuide.background1, 3)
+      background3: darken($editorIndentGuide.background2, 3)
+      background4: darken($editorIndentGuide.background3, 3)
+      background5: darken($editorIndentGuide.background4, 3)
+      background6: darken($editorIndentGuide.background5, 3)
+      activeBackground1: lighten($editorIndentGuide.background1, 10)
+      activeBackground2: lighten($editorIndentGuide.background1, 10)
+      activeBackground3: lighten($editorIndentGuide.background1, 10)
+      activeBackground4: lighten($editorIndentGuide.background1, 10)
+      activeBackground5: lighten($editorIndentGuide.background1, 10)
+      activeBackground6: lighten($editorIndentGuide.background1, 10)
 
     # Bracket Match
     editorBracketMatch:
@@ -481,12 +481,12 @@ theme:
     # Bracket Pair Guides
     editorBracketPairGuide:
       # Backgrounds (inactive scopes)
-      background1: darken($std.bg.accent.faint, 25)
-      background2: darken($std.bg.accent.faint, 25)
-      background3: darken($std.bg.accent.faint, 25)
-      background4: darken($std.bg.accent.faint, 25)
-      background5: darken($std.bg.accent.faint, 25)
-      background6: darken($std.bg.accent.faint, 25)
+      background1: darken($std.bg.accent.faint, 10)
+      background2: darken($std.bg.accent.faint, 10)
+      background3: darken($std.bg.accent.faint, 10)
+      background4: darken($std.bg.accent.faint, 10)
+      background5: darken($std.bg.accent.faint, 10)
+      background6: darken($std.bg.accent.faint, 10)
       # Active scope
       activeBackground1: $std.bg.accent.faint
       activeBackground2: $std.bg.accent.faint
@@ -512,8 +512,8 @@ theme:
       warningForeground: $status.warning
       infoForeground: $status.info
       bracketMatchForeground: $std.fg.accent
-      inlineChatInserted: darken($std.bg.success, 50)
-      inlineChatRemoved: darken($std.bg.error, 50)
+      inlineChatInserted: darken($std.bg.success, 15)
+      inlineChatRemoved: darken($std.bg.error, 15)
       currentContentForeground: $std.fg.accent.secondary
       incomingContentForeground: $std.fg.success
       commonContentForeground: $std.fg.info
@@ -556,11 +556,11 @@ theme:
       background: $std.bg.panel.inner
       # Git-style modifications
       modifiedBackground: $status.modified
-      modifiedSecondaryBackground: darken($status.modified, 50)
+      modifiedSecondaryBackground: darken($status.modified, 15)
       addedBackground: $status.added
-      addedSecondaryBackground: darken($status.added, 50)
+      addedSecondaryBackground: darken($status.added, 15)
       deletedBackground: $status.deleted
-      deletedSecondaryBackground: darken($status.deleted, 50)
+      deletedSecondaryBackground: darken($status.deleted, 15)
       # Comments and control glyphs
       commentRangeForeground: $std.fg.accent
       commentGlyphForeground: $std.fg.accent.secondary
@@ -589,7 +589,7 @@ theme:
       border: $std.outline.faint
       foreground: $std.fg
       focusHighlightForeground: $std.fg.accent.secondary
-      highlightForeground: darken($editorSuggestWidget.focusHighlightForeground, 25) # subtle, but visible
+      highlightForeground: darken($editorSuggestWidget.focusHighlightForeground, 10)
       selectedForeground: $menubar.selectionForeground
       selectedBackground: $menubar.selectionBackground
       selectedIconForeground: $editorSuggestWidget.selectedForeground
@@ -635,7 +635,7 @@ theme:
     editorLink:
       activeForeground: $std.fg.accent.secondary
     editorRuler:
-      foreground: darken($std.line.secondary, 50)
+      foreground: $std.line.secondary
     editorCodeLens:
       foreground: $std.fg.accent.secondary.faint
     editorLightBulb:
@@ -682,7 +682,7 @@ theme:
     welcomePage:
       background: $std.bg.panel.innermost
       progress:
-        background: darken($std.bg.success, 75)
+        background: darken($std.bg.success, 15)
         foreground: $std.fg.success
       tileBackground: lighten($welcomePage.background, 35)
       tileHoverBackground: $std.bg.hover

@@ -9,7 +9,9 @@
     "vscode": ">=1.50.0"
   },
   "scripts": {
+    "lint": "npx @gesslar/aunty@latest lint ./src/themes/blackboard.yaml",
     "watch": "npx @gesslar/aunty@latest build -wo ./dist ./src/themes/*.yaml",
+    "watch-nerd": "npx @gesslar/aunty@latest build --nerd -wo ./dist ./src/themes/*.yaml",
     "build": "npx @gesslar/aunty@latest build -o ./dist ./src/themes/*.yaml",
     "package": "npm run build && vsce package --skip-license",
     "submit": "npm run package && xdg-open https://marketplace.visualstudio.com/manage/publishers/gesslar"
