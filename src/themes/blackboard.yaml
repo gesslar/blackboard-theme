@@ -8,7 +8,6 @@ config:
     global: ../import/variables.yaml
     colors: ../import/colors.yaml
     tokenColors: ../import/token-colors-$(type).yaml
-    # semanticTokenColors: ../import/semantic-$(type).yaml
 
   custom:
     semanticHighlighting: true
