@@ -5,12 +5,9 @@ config:
   type: dark
 
   import:
-    global:
-      - ../import/variables.yaml
-    colors:
-      - ../import/colors.yaml
-    tokenColors:
-      - ../import/token-colors-${type}.yaml
+    - ../import/variables.yaml
+    - ../import/colors.yaml
+    - ../import/tokenColors-${type}.yaml
 
   custom:
     semanticHighlighting: true
@@ -18,13 +15,12 @@ config:
 
 vars:
   main: $colors.white
-  inverse:
-    invert($main)
+  inverse: invert($main)
 
-    # The following define primary basics that can be relied upon by the
-    # variables definitions. Dark and light themes will define these
-    # differently. Anything expressed here will override anything being
-    # imported.
+  # The following define primary basics that can be relied upon by the
+  # variables definitions. Dark and light themes will define these
+  # differently. Anything expressed here will override anything being
+  # imported.
   fg:
     main: $main
 

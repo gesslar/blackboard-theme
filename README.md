@@ -2,7 +2,7 @@
 
 **Blackboard** is a dark, muted VS Code theme inspired by chalk on slate - crisp electric highlights on a grounded matte foundation. Designed for clarity, comfort, and elegance during long hours of code immersion.
 
-Built with the theme compiler engine [@gesslar/aunty](https://www.npmjs.com/package/@gesslar/aunty).
+Built with the theme compiler engine [@gesslar/sassy](https://www.npmjs.com/package/@gesslar/sassy).
 
 ## Philosophy
 
@@ -98,7 +98,7 @@ That might not actually work
 │  │                            └──────────────────────────────────────┘ │
 ├──┴─────────────────────────────────────────────────────────────────────┤
 │ ⚡ Watching themes...  🔄 Compiled in 127ms  ✅ 4 themes built         │
-│ > npx @gesslar/aunty --watch ./src/*.yaml -o ./dist                    │
+│ > npx @gesslar/sassy --watch ./src/*.yaml -o ./dist                    │
 │ [     5.2ms] blackboard loaded [775 bytes]                             │
 │ [   127.4ms] blackboard compiled                                       │
 │ [    84.3ms] blackboard.color-theme.json <written> [120,233 bytes]     │
@@ -143,7 +143,7 @@ an imaginary but also actually real black background.
 │  │                            └──────────────────────────────────────┘ │
 ├──┴─────────────────────────────────────────────────────────────────────┤
 │ ⚡ Watching themes...  🔄 Compiled in 127ms  ✅ 4 themes built         │
-│ > npx @gesslar/aunty --watch ./src/*.yaml -o ./dist                    │
+│ > npx @gesslar/sassy --watch ./src/*.yaml -o ./dist                    │
 │ [     5.2ms] blackboard loaded [775 bytes]                             │
 │ [   127.4ms] blackboard compiled                                       │
 │ [    84.3ms] blackboard.color-theme.json <written> [120,233 bytes]     │
@@ -190,7 +190,7 @@ eating a banana beneath a parasol. Don't tell mom.
 │  │                            └──────────────────────────────────────┘ │
 ├──┴─────────────────────────────────────────────────────────────────────┤
 │ ⚡ Watching themes...  🔄 Compiled in 127ms  ✅ 4 themes built         │
-│ > npx @gesslar/aunty --watch ./src/*.yaml -o ./dist                    │
+│ > npx @gesslar/sassy --watch ./src/*.yaml -o ./dist                    │
 │ [     5.2ms] blackboard loaded [775 bytes]                             │
 │ [   127.4ms] blackboard compiled                                       │
 │ [    84.3ms] blackboard.color-theme.json <written> [120,233 bytes]     │

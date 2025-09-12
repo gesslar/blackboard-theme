@@ -5,9 +5,9 @@ config:
   type: dark
 
   import:
-    global: ../import/variables.yaml
-    colors: ../import/colors.yaml
-    tokenColors: ../import/token-colors-${type}.yaml
+    - ../import/variables.yaml
+    - ../import/colors.yaml
+    - ../import/tokenColors-${type}.yaml
 
   custom:
     semanticHighlighting: true

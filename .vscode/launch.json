@@ -14,5 +14,17 @@
         "--extensionDevelopmentPath=${workspaceFolder}"
       ]
     },
+    {
+      "name": "Lint (Blackboard)",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "args": [
+        "run",
+        "lint-blackboard",
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    },
   ]
 }
