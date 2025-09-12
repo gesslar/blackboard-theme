@@ -1,13 +1,13 @@
 # Theme Config
 config:
-  schema: vscode://schemas/color-theme
+  $schema: vscode://schemas/color-theme
   name: blackboard
   type: dark
 
   import:
-    global: ../import/variables.yaml
-    colors: ../import/colors.yaml
-    tokenColors: ../import/token-colors-$(type).yaml
+    - ../import/variables.yaml
+    - ../import/colors.yaml
+    - ../import/tokenColors-$(type).yaml
 
   custom:
     semanticHighlighting: true
