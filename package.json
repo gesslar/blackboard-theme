@@ -62,6 +62,6 @@
     "id": "blackboard-theme"
   },
   "dependencies": {
-    "@gesslar/sassy": "^0.23.0"
+    "@gesslar/sassy": "^1.0.0"
   }
 }
