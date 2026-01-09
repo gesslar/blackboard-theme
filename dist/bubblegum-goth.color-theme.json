@@ -764,7 +764,6 @@
     "chat.slashCommandForeground": "#ff83e6",
     "ports.iconRunningProcessForeground": "#52cca3"
   },
-  "semanticTokenColors": {},
   "tokenColors": [
     {
       "settings": {
@@ -1179,5 +1178,6 @@
         "foreground": "#7ca66e"
       }
     }
-  ]
+  ],
+  "semanticTokenColors": {}
 }

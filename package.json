@@ -8,13 +8,19 @@
   "engines": {
     "vscode": ">=1.50.0"
   },
+  "packageManager": "pnpm@10.27.0",
   "scripts": {
-    "watch": "npx @gesslar/sassy build -wo ./dist ./src/themes/*.yaml",
-    "build": "npx @gesslar/sassy build -o ./dist ./src/themes/*.yaml",
-    "lint-blackboard": "npx @gesslar/sassy lint ./src/themes/blackboard.yaml",
-    "package": "npm run build && vsce package --skip-license",
-    "submit": "npm run package && xdg-open https://marketplace.visualstudio.com/manage/publishers/gesslar",
-    "update": "npx npm-check-updates -u && npm install"
+    "watch": "pnpm sassy build -wo ./dist ./src/themes/*.yaml",
+    "build": "pnpm sassy build -o ./dist ./src/themes/*.yaml",
+    "lint-blackboard": "pnpm sassy lint ./src/themes/blackboard.yaml",
+    "package": "pnpm sassy build -o ./dist ./src/themes/*.yaml && pnpm dlx @vscode/vsce package --no-dependencies --skip-license",
+    "publish:vsce": "pnpm run package && xdg-open https://marketplace.visualstudio.com/manage/publishers/gesslar",
+    "publish:ovsx": "pnpm run package && xdg-open https://open-vsx.org/user-settings/extensions",
+    "update": "pnpm self-update && pnpx npm-check-updates -u && pnpm install",
+    "pr": "gt submit -p --ai",
+    "patch": "pnpm version patch",
+    "minor": "pnpm version minor",
+    "major": "pnpm version major"
   },
   "categories": [
     "Themes"
@@ -60,6 +66,10 @@
   ],
   "__metadata": {
     "id": "blackboard-theme"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^3.7.1",
+    "ovsx": "^0.10.8"
   },
   "dependencies": {
     "@gesslar/sassy": "^1.0.0"
