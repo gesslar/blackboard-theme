@@ -7,11 +7,10 @@ settings:
 importers:
 
   .:
-    dependencies:
+    devDependencies:
       '@gesslar/sassy':
         specifier: ^1.0.0
         version: 1.0.0
-    devDependencies:
       '@vscode/vsce':
         specifier: ^3.7.1
         version: 3.7.1

@@ -68,10 +68,8 @@
     "id": "blackboard-theme"
   },
   "devDependencies": {
+    "@gesslar/sassy": "^1.0.0",
     "@vscode/vsce": "^3.7.1",
     "ovsx": "^0.10.8"
-  },
-  "dependencies": {
-    "@gesslar/sassy": "^1.0.0"
   }
 }
