@@ -8,12 +8,12 @@
   "engines": {
     "vscode": ">=1.50.0"
   },
-  "packageManager": "pnpm@10.27.0",
+  "packageManager": "pnpm@10.28.2",
   "scripts": {
-    "watch": "pnpm sassy build -wo ./dist ./src/themes/*.yaml",
-    "build": "pnpm sassy build -o ./dist ./src/themes/*.yaml",
-    "lint-blackboard": "pnpm sassy lint ./src/themes/blackboard.yaml",
-    "package": "pnpm sassy build -o ./dist ./src/themes/*.yaml && pnpm dlx @vscode/vsce package --no-dependencies --skip-license",
+    "watch": "pnpx @gesslar/sassy build -wo ./dist ./src/themes/*.yaml",
+    "build": "pnpx @gesslar/sassy build -o ./dist ./src/themes/*.yaml",
+    "lint-blackboard": "pnpx @gesslar/sassy lint ./src/themes/blackboard.yaml",
+    "package": "pnpx @gesslar/sassy build -o ./dist ./src/themes/*.yaml && pnpm dlx @vscode/vsce package --no-dependencies --skip-license",
     "publish:vsce": "pnpm run package && xdg-open https://marketplace.visualstudio.com/manage/publishers/gesslar",
     "publish:ovsx": "pnpm run package && xdg-open https://open-vsx.org/user-settings/extensions",
     "update": "pnpm self-update && pnpx npm-check-updates -u && pnpm install",
@@ -68,8 +68,10 @@
     "id": "blackboard-theme"
   },
   "devDependencies": {
-    "@gesslar/sassy": "^1.0.0",
+    "@gesslar/sassy": "^1.2.0",
+    "@gesslar/uglier": "^1.2.0",
     "@vscode/vsce": "^3.7.1",
+    "eslint": "^9.39.2",
     "ovsx": "^0.10.8"
   }
 }
