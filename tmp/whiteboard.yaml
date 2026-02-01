@@ -5,19 +5,15 @@ config:
   type: light
 
   import:
-    global:
-      - ../import/variables.yaml
-    colors:
-      - ../import/colors.yaml
-    tokenColors:
-      - ../import/karyprocolors-${type}.tmLanguage.yaml
+    - ./import/variables.yaml
+    - ./import/colors.yaml
 
   custom:
     semanticHighlighting: true
     colorSpaceName: sRGB
 
 vars:
-  main: lighten($colors.black, 100)
+  main: lighten($$black, 100)
   inverse: invert($main)
 
   # The following define primary basics that can be relied upon by the
@@ -29,9 +25,9 @@ vars:
 
   theme:
     fg: $main
-    bg: mix($colors.white, $colors.blue, 1)
-    accent: $colors.orange
-    accentSecondary: $colors.pink
+    bg: mix($$white, $$blue, 1)
+    accent: $$orange
+    accentSecondary: $$pink
     shadow: alpha($accent, 0.25)
 
   control:

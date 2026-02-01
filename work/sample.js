@@ -10,6 +10,16 @@
 
 // Single line comment (scope: comment - italic, pink-tinted)
 
+  "devDependencies": {
+<<<<<<< Updated upstream
+    "@gesslar/sassy": "^2.0.0",
+=======
+>>>>>>> Stashed changes
+    "@gesslar/uglier": "^1.2.0",
+    "@vscode/vsce": "^3.7.1",
+    "eslint": "^9.39.2",
+    "ovsx": "^0.10.8"
+
 /*
  * Multi-line block comment
  * Should also be italic with the comment color
