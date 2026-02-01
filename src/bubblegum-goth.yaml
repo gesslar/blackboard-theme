@@ -5,16 +5,19 @@ config:
   type: dark
 
   import:
-    - ../import/variables.yaml
-    - ../import/colors.yaml
-    - ../import/tokenColors-${type}.yaml
+    - ./import/palette-$(type).yaml
+    - ./import/variables.yaml
+    - ./import/theme-colors.yaml
+    - ./import/scope-$(type).yaml
+    - ./import/theme-tokenColors-$(type).yaml
+    - ./import/theme-semanticTokenColors-$(type).yaml
 
   custom:
     semanticHighlighting: true
     colorSpaceName: sRGB
 
 vars:
-  main: $colors.white
+  main: $$white
   inverse: invert($main)
 
   # The following define primary basics that can be relied upon by the
@@ -24,9 +27,9 @@ vars:
   fg:
     main: $main
 
-  theme:
+  variant:
     fg: $main
-    bg: $colors.black
-    accent: $colors.pink
-    accentSecondary: darken($colors.pink, 60)
-    shadow: alpha($theme.accent, 0.25)
+    bg: $$black
+    accent: $$pink
+    accentSecondary: darken($variant.accent, 60)
+    shadow: alpha($variant.accent, 0.25)

@@ -10,10 +10,10 @@
   },
   "packageManager": "pnpm@10.28.2",
   "scripts": {
-    "watch": "pnpx @gesslar/sassy build -wo ./dist ./src/themes/*.yaml",
-    "build": "pnpx @gesslar/sassy build -o ./dist ./src/themes/*.yaml",
-    "lint-blackboard": "pnpx @gesslar/sassy lint ./src/themes/blackboard.yaml",
-    "package": "pnpx @gesslar/sassy build -o ./dist ./src/themes/*.yaml && pnpm dlx @vscode/vsce package --no-dependencies --skip-license",
+    "watch": "pnpx @gesslar/sassy build -wo ./dist ./src/*.yaml",
+    "build": "pnpx @gesslar/sassy build -o ./dist ./src/*.yaml",
+    "lint-blackboard": "pnpx @gesslar/sassy lint ./src/blackboard.yaml",
+    "package": "pnpx @gesslar/sassy build -o ./dist ./src/*.yaml && pnpm dlx @vscode/vsce package --no-dependencies --skip-license",
     "publish:vsce": "pnpm run package && xdg-open https://marketplace.visualstudio.com/manage/publishers/gesslar",
     "publish:ovsx": "pnpm run package && xdg-open https://open-vsx.org/user-settings/extensions",
     "update": "pnpm self-update && pnpx npm-check-updates -u && pnpm install",
@@ -62,13 +62,14 @@
     "dark",
     "chalk",
     "night",
-    "blue"
+    "blue",
+    "pink",
+    "sassy"
   ],
   "__metadata": {
     "id": "blackboard-theme"
   },
   "devDependencies": {
-    "@gesslar/sassy": "^2.0.0",
     "@gesslar/uglier": "^1.2.0",
     "@vscode/vsce": "^3.7.1",
     "eslint": "^9.39.2",

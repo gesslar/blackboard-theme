@@ -1,0 +1,47 @@
+palette:
+  black: oklch(0.1286 0 0)
+  blue: oklch(0.6112 0.0756 246.61)
+  gold: oklch(0.86 0.168 87.8)
+  green: oklch(0.765 0.0873 167.8)
+  green2: oklch(0.767 0.177 136.6)
+  grey: oklch(0.765 0 89.9)
+  orange: oklch(0.6072 0.112 71.74)
+  peach: oklch(0.619 0.088 25.8)
+  pink: oklch(0.8 0.2 340)
+  purple: oklch(0.641 0.21 327.7)
+  red: oklch(0.6318 0.1377 25.1)
+  teal: oklch(0.6 0.05 240)
+  white: oklch(0.8 0 90)
+  yellow: oklch(0.921 0.1074 98.1)
+
+  tc:
+    grey: oklch(.55 0 0 / 95%)
+    green: oklch(0.579 0.052 127.1 / 95%)
+    blue: oklch(0.556 0.044 255.3 / 95%)
+    pink: oklch(0.4824 0.0735 7.09 / 95%)
+    orange: oklch(0.673 0.069 79.6 / 95%)
+    red: oklch(0.6318 0.0418 25.1 / 95%)
+    pink2: oklch(0.56 0.08 353.81 / 95%)
+    peach: oklch(0.619 0.088 25.8 / 95%)
+    yellow: oklch(0.803 0.077 103.6 / 95%)
+    purple: oklch(0.5146 0.1314 307.3 / 95%)
+    gold: oklch(0.8 0.0976 90 / 95%)
+    white: oklch(0.7952 0 0 / 95%)
+
+  ansi:
+    black: "#555555"
+    blue: "#1e4798"
+    brightBlack: "#1e1e1e"
+    brightBlue: "#0066cc"
+    brightCyan: "#3399ff"
+    brightGreen: "#009600"
+    brightMagenta: "#ff00cc"
+    brightRed: "#aa0000"
+    brightWhite: "#e1e1e1"
+    brightYellow: "#ffcc00"
+    cyan: "#336699"
+    green: "#005500"
+    magenta: "#9900cc"
+    red: "#6e0008"
+    white: "#969696"
+    yellow: "#ff9900"

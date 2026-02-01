@@ -1,99 +1,3 @@
-vars:
-  colors:
-    tc:
-      grey: oklch(0.765 0 89.9 / 90%)
-      green: oklch(0.579 0.052 127.1 / 90%)
-      blue: oklch(0.556 0.044 255.3 / 90%)
-      pink: oklch(0.703 0.041 332.1 / 90%)
-      orange: oklch(0.673 0.069 79.6 / 90%)
-      red: oklch(0.6059 0.1502 18.01 / 90%)
-      pink2: oklch(0.56 0.08 353.81 / 90%)
-      peach: oklch(0.619 0.088 25.8 / 90%)
-      yellow: oklch(0.803 0.077 103.6 / 90%)
-      purple: oklch(0.636 0.1314 307.3 / 90%)
-      gold: oklch(0.8 0.06 90 / 90%)
-      white: oklch(0.8 0.03 102 / 90%)
-      variableBlue: oklch(0.7205 0.086 207.45 / 90%)
-      constantGreen: oklch(0.684 0.082 138 / 90%)
-      classGold: oklch(0.747 0.069 91.8 / 90%)
-      keywordPurple: oklch(0.714 0.061 331.9 / 90%)
-      headerOrange: oklch(0.704 0.075 47.6 / 90%)
-      fadedGrey: oklch(0.624 0 89.9 / 90%)
-
-  deg:
-    faint: 5
-    weak: 15
-    mid: 50
-    strong: 85
-    major: 95
-
-  scope:
-    # Basic structural elements
-    comment: mix($std.fg.accent, $colors.tc.pink, 75)
-    text: $colors.tc.blue
-    punctuation: $colors.tc.blue
-    baseText: $colors.tc.white
-
-    # Universal "self" concepts (this, self, base, super)
-    selfRef: $colors.tc.peach
-
-    # Universal literals
-    string: $colors.tc.green
-    number: $colors.tc.blue
-    boolean: $colors.tc.green
-
-    # Universal identifiers
-    variable: $colors.tc.variableBlue
-    parameter: $colors.tc.variableBlue
-    property: $colors.tc.pink2
-    constant: $colors.tc.constantGreen
-
-    # Universal callables
-    function: $colors.tc.orange
-    method: $colors.tc.orange
-
-    # Universal type system
-    types: $colors.tc.constantGreen
-    class: $colors.tc.classGold
-    namespace: $colors.tc.classGold
-
-    # Universal language constructs
-    keyword: $colors.tc.keywordPurple
-    storage: $colors.tc.blue
-    storage.modifier: $colors.tc.purple
-    operator: $colors.tc.purple
-    operator2: $colors.tc.keywordPurple
-
-    # Universal structural
-    attribute: $colors.tc.gold
-    declaration: $colors.tc.classGold
-    embeddedLanguage: $colors.tc.classGold
-
-    # Markup and documentation
-    header: $colors.tc.headerOrange
-    code: $colors.teal
-    link: $colors.tc.gold
-
-    # String interpolation (different from strings)
-    interpolation: $colors.tc.keywordPurple
-
-    # Language-specific snowflakes
-    rustOwnership: $colors.tc.keywordPurple
-    rubyGlobal: $colors.tc.headerOrange
-    rubyClass: $colors.tc.variableBlue
-    rubyInstance: $colors.tc.variableBlue
-    rubyLocal: $colors.tc.constantGreen
-
-    # CSS-specific
-    cssSelector: $colors.tc.keywordPurple
-    cssProperty: $colors.tc.constantGreen
-    cssValue: $colors.tc.variableBlue
-
-    # Legacy/migration
-    text2: $colors.tc.fadedGrey
-    constant2: $colors.tc.classGold
-    className: $colors.tc.orange
-
 theme:
   tokenColors:
     - settings:
@@ -143,7 +47,7 @@ theme:
     - name: Plain Text
       scope: meta.paragraph, text.html, meta.jsx.children, doctype
       settings:
-        foreground: $scope.baseText
+        foreground: $scope.plainText
 
     - name: Control Keywords (if/for/return/etc)
       scope: keyword.control, meta.at-rule,
@@ -153,7 +57,14 @@ theme:
         keyword.other.crate, meta.use, keyword.package, keyword.function,
         keyword.interface, entity.name.goto-label
       settings:
-        foreground: $colors.tc.pink
+        foreground: $scope.function
+
+    - name: Imports, inherits, etc
+      scope: keyword.control.import, keyword.control.from,
+        meta.preprocessor.include, meta.import
+      settings:
+        foreground: $scope.function
+        fontStyle: italic
 
     - name: Self/This/etc
       scope: variable.parameter.function.language.special.self,
@@ -228,7 +139,7 @@ theme:
     - name: Variables
       scope: var-single-variable.variable.readwrite.other.meta,
         support.variable.object.process, entity.name.variable,
-        class.variable, instance.variable, global.variable,
+        class.variable, instance.variable, global.variable
       settings:
         foreground: $scope.variable
 
@@ -404,7 +315,7 @@ theme:
         foreground: $scope.types
 
     - name: Universal Comments
-      scope: comment, punctuation.definition.comment
+      scope: comment, comment source, punctuation.definition.comment
       settings:
         foreground: $scope.comment
         fontStyle: italic
@@ -463,15 +374,15 @@ theme:
       settings:
         foreground: $scope.keyword
 
+    - name: Fallback - Punctuation styling
+      scope: punctuation, keyword.operator.logical, label.text
+      settings:
+        fontStyle: bold italic
+
     # #########################################################################
     # Final Fallbacks - Broadest possible scopes (NEVER override anything)
     # These are last resort matchers for any unmatched tokens
     # #########################################################################
-
-    - name: Final Fallback - Base Source
-      scope: source
-      settings:
-        foreground: $scope.baseText
 
     - name: Final Fallback - Generic Keyword
       scope: keyword
@@ -487,3 +398,13 @@ theme:
       scope: string
       settings:
         foreground: $scope.string
+
+    - name: Final Fallback - Variables
+      scope: variable
+      settings:
+        foreground: $scope.variable
+
+    - name: Final Fallback - Base Source
+      scope: source
+      settings:
+        foreground: $scope.plainText
